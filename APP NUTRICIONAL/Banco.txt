@@ -1,9 +1,9 @@
 User:
 Password:
+Age:
+Genre:
 Weight:
 Height:
-Genre:
-Name:
 WDCalories:
 D1Calories:
 D2Calories:

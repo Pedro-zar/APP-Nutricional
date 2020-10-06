@@ -12,6 +12,9 @@ import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import javax.swing.JFrame;
 
+import com.Integrador2020.sign.Login;
+import com.Integrador2020.sign.Signin;
+
 public class Main extends Canvas implements Runnable, KeyListener, MouseListener {
 
 	private static final long serialVersionUID = 1L;
@@ -19,9 +22,7 @@ public class Main extends Canvas implements Runnable, KeyListener, MouseListener
 	public static final String Nome = "Título";
 	private Thread thread;
 	private boolean isRunning = true;
-	public static final int WIDTH = 900;
-	public static final int HEIGHT = 600;
-	public static final int SCALE = 1;
+	public static final int WIDTH = 900, HEIGHT = 600;
 	public Menu menu;
 	public Login login;
 	public Signin signin;
@@ -88,7 +89,7 @@ public class Main extends Canvas implements Runnable, KeyListener, MouseListener
 		g.fillRect(0, 0,WIDTH,HEIGHT);
 		g.dispose();
 		g = bs.getDrawGraphics();
-		g.drawImage(image, 0, 0, WIDTH*SCALE, HEIGHT*SCALE,null);
+		g.drawImage(image, 0, 0, WIDTH, HEIGHT,null);
 		if(State == "MENU") {
 			menu.render(g);
 		}else if(State == "LOGIN") {
@@ -110,7 +111,7 @@ public class Main extends Canvas implements Runnable, KeyListener, MouseListener
 	}
 
 	public Main() {
-		setPreferredSize(new Dimension(WIDTH*SCALE,HEIGHT*SCALE));
+		setPreferredSize(new Dimension(WIDTH,HEIGHT));
 		addKeyListener(this);
 		addMouseListener(this);
 		initFrame();

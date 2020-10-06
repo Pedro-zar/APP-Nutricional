@@ -1,4 +1,4 @@
-package com.Integrador2020.main;
+package com.Integrador2020.sign;
 
 import java.awt.Graphics;
 

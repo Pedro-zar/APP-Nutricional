@@ -1,9 +1,10 @@
-package com.Integrador2020.main;
+package com.Integrador2020.sign;
 
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
+import com.Integrador2020.main.Main;
 
 public class Signin {
 	
@@ -21,7 +22,6 @@ public class Signin {
 	}
 	public void tick() {
 		if(STATE == 1) {
-			System.out.println("teste");
 			if(mouseClicked) {
 				mouseClicked = false;
 				if(mouseX >= 108 && mouseX <= 236 && mouseY >= 219 && mouseY <= 347) {
@@ -67,7 +67,8 @@ public class Signin {
 	private void enter() {
 		slot = currentOption+1;
 		STATE++;
-		System.out.println("asd");
+		CampoRegistro field = new CampoRegistro();
+	    field.criarRegistro();
 	}
 	
 	public void render(Graphics g) {

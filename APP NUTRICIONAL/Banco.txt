@@ -1,0 +1,14 @@
+User:
+Password:
+Weight:
+Height:
+Genre:
+Name:
+WDCalories:
+D1Calories:
+D2Calories:
+D3Calories:
+D4Calories:
+D5Calories:
+D6Calories:
+D7Calories:

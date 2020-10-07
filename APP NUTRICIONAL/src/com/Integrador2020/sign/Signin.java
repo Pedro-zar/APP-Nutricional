@@ -8,12 +8,13 @@ import com.Integrador2020.main.Main;
 
 public class Signin {
 	
+	public CampoRegistro campo;
 	private static BufferedImage[] PERFIL = new BufferedImage[3];	
 	public String[] options = { "1","2", "3"};
 	public int currentOption = 0, maxOption = options.length-1, slot = 0;
-	public boolean left = false, right = false, enter = false, escape = false;
+	public boolean left = false, right = false, enter = false;
 	public static int mouseX, mouseY, STATE = 1;
-	public boolean mouseClicked;
+	public boolean mouseClicked, tick = false;
 	
 	public Signin() {
 		PERFIL[0] = Main.spritesheet.getSprite(0, 0,64,64);
@@ -34,7 +35,7 @@ public class Signin {
 						enter();
 					}
 					currentOption = 1;
-				}else if(mouseX >= 639 && mouseX <= 767 && mouseY >= 219 && mouseY <= 347) {
+				}else if(mouseX >= 640 && mouseX <= 767 && mouseY >= 219 && mouseY <= 347) {
 					if(currentOption == 2) {
 						enter();
 					}
@@ -67,9 +68,8 @@ public class Signin {
 	private void enter() {
 		slot = currentOption+1;
 		STATE++;
-		CampoRegistro field = new CampoRegistro();
-		Main.frame.setEnabled(false);
-	    field.criarRegistro();
+		CampoRegistro campo = new CampoRegistro();
+		campo.criarRegistro();
 	}
 	
 	public void render(Graphics g) {

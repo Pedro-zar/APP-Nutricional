@@ -4,42 +4,44 @@ import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
-
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
-import javax.swing.JTextField;
 import javax.swing.text.MaskFormatter;
-
 import com.Integrador2020.entities.User;
 import com.Integrador2020.main.Main;
+import com.Integrador2020.main.Save;
 
 public class CampoRegistro extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-
+	
+	public void exit() {
+		Signin.STATE--;
+		dispose();
+	}
 	void criarRegistro() {
 		
              Container janela = getContentPane();
              setLayout(null);
-
-             JLabel labelUser = new JLabel("Usuário: ");
+             JLabel labelUser = new JLabel("Usuário: " + Main.signin.slot);
              JLabel labelPassword = new JLabel("Senha: ");
              JLabel labelGenre = new JLabel("Gênero biológico:");
              JLabel labelAge = new JLabel("Idade: ");
              JLabel labelWeight = new JLabel("Peso (KG): ");
              JLabel labelHeight = new JLabel("Altura (CM): ");
              JButton buttonRegistrar = new JButton("Registrar");
+             JButton buttonCancelar = new JButton("Cancelar");
              ButtonGroup bgGenre = new ButtonGroup();
              JRadioButton jrbMas = new JRadioButton("M");
              JRadioButton jrbFem = new JRadioButton("F");
              MaskFormatter mascaraAge = null;
              MaskFormatter mascaraHeight = null;
+             MaskFormatter mascaraPassword = null;
              MaskFormatter mascaraWeight = null;
              labelUser.setBounds(30,40,100,20);
              labelPassword.setBounds(30,80,100,20);
@@ -48,28 +50,30 @@ public class CampoRegistro extends JFrame {
              labelWeight.setBounds(30,200,100,20);
              labelHeight.setBounds(30,240,100,20);
              buttonRegistrar.setBounds(150,280, 100, 20);
+             buttonCancelar.setBounds(30,280, 100, 20);
              
              try{
-                    mascaraAge = new MaskFormatter("##");
-                    mascaraHeight = new MaskFormatter("###");
-                    mascaraWeight = new MaskFormatter("###");
-                    mascaraAge.setPlaceholderCharacter('_');
-                    mascaraHeight.setPlaceholderCharacter('_');
-                    mascaraWeight.setPlaceholderCharacter('_');
+            	 mascaraAge = new MaskFormatter("##");
+            	 mascaraPassword = new MaskFormatter("####");
+            	 mascaraHeight = new MaskFormatter("###");
+            	 mascaraWeight = new MaskFormatter("###");
+            	 mascaraAge.setPlaceholderCharacter('_');
+            	 mascaraPassword.setPlaceholderCharacter('_');
+            	 mascaraHeight.setPlaceholderCharacter('_');
+            	 mascaraWeight.setPlaceholderCharacter('_');
              }
              catch(ParseException excp) {
                     System.err.println("Erro na formatação: " + excp.getMessage());
                     System.exit(-1);
              }
-
-             JTextField jTextUser = new JTextField();
+             
              JFormattedTextField jFormattedTextWeight = new JFormattedTextField(mascaraWeight);
-             JPasswordField jPassword = new JPasswordField();
+             JFormattedTextField jFormattedPassword = new JFormattedTextField(mascaraPassword);
              JFormattedTextField jFormattedTextAge = new JFormattedTextField(mascaraAge);
              JFormattedTextField jFormattedTextHeight = new JFormattedTextField(mascaraHeight);
              
-             jTextUser.setBounds(150,40,100,20);
-             jPassword.setBounds(150,80,100,20);
+             
+             jFormattedPassword.setBounds(150,80,100,20);
              jrbFem.setBounds(150,120,50,20);
              jrbMas.setBounds(200,120,50,20);
              jFormattedTextAge.setBounds(150,160,100,20);
@@ -83,8 +87,7 @@ public class CampoRegistro extends JFrame {
              janela.add(labelWeight);
              janela.add(labelHeight);
              janela.add(jFormattedTextAge);
-             janela.add(jTextUser);
-             janela.add(jPassword);
+             janela.add(jFormattedPassword);
              janela.add(jFormattedTextWeight);
              janela.add(jFormattedTextHeight);
              bgGenre.add(jrbMas);
@@ -92,29 +95,37 @@ public class CampoRegistro extends JFrame {
              janela.add(jrbFem);
              janela.add(jrbMas);
              janela.add(buttonRegistrar);
+             janela.add(buttonCancelar);
+             buttonCancelar.addActionListener(new ActionListener() 
+             {
+				public void actionPerformed(ActionEvent e) {
+					exit();
+				}
+            	 
+             });
              buttonRegistrar.addActionListener(new ActionListener() {
             	 public void actionPerformed(ActionEvent e) {
             		if (verificarCampos()) { 
 	            		pegarDados();
 	            		finalizarRegistro();
-	            		Main.frame.setEnabled(true);
 	            		dispose(); 
 	            	}
             		
             	 }
 
 				private void finalizarRegistro() {
-					
-					
+					String[] opt1 = {"user", "password", "gender", "age","weight", "height"};
+					int[] opt2 = {1,User.password,User.gender, User.age,User.weight, User.height};
+					Save.saveRegister(opt1, opt2, 13, Main.signin.slot);
 				}
 
 				private void pegarDados() {
-					User.user = jTextUser.getText();
-					User.password = jPassword.getPassword().toString();
+					User.user = Main.signin.slot;
+					User.password = Integer.parseInt(jFormattedPassword.getText());
 					if (jrbFem.isSelected())
-						User.gender = "F";
+						User.gender = 1; //F
 					else
-						User.gender = "M";	
+						User.gender = 0;	//M
 					User.age = Integer.parseInt(jFormattedTextAge.getText());
 					User.weight = Integer.parseInt(jFormattedTextWeight.getText());
 					User.height = Integer.parseInt(jFormattedTextHeight.getText());
@@ -122,32 +133,25 @@ public class CampoRegistro extends JFrame {
 				}
 
 				private boolean verificarCampos() {
-					if(!(jTextUser.getText().isEmpty()) && 
-					!(jPassword.getPassword().toString().isEmpty()) &&
+					if(!(jFormattedPassword.getText().isEmpty()) &&
 					(jrbMas.isSelected() || jrbFem.isSelected()) &&
 					!(jFormattedTextAge.getText().isEmpty()) &&
 					!(jFormattedTextWeight.getText().isEmpty()) &&
 					!(jFormattedTextHeight.getText().isEmpty())) {
-						if((jPassword.getPassword().length <= 16) &&
-						(jPassword.getPassword().length >= 4)) {
-							if(jTextUser.getText().length() >= 4) {
-								if(Integer.parseInt(jFormattedTextWeight.getText()) <= 600 ) {
-									if(Integer.parseInt(jFormattedTextHeight.getText()) <= 300 ) {
-										return true;
-									}else {
-										JOptionPane.showMessageDialog(null,"Insira uma altura válida!","Erro de registro!", JOptionPane.INFORMATION_MESSAGE);
-										return false;
-									}
+						if((jFormattedPassword.getText().length() == 4)) {
+							if(Integer.parseInt(jFormattedTextWeight.getText()) <= 600 ) {
+								if(Integer.parseInt(jFormattedTextHeight.getText()) <= 300 ) {		
+									return true;
 								}else {
-									JOptionPane.showMessageDialog(null,"Insira um peso válido!","Erro de registro!", JOptionPane.INFORMATION_MESSAGE);
+									JOptionPane.showMessageDialog(null,"Insira uma altura válida!","Erro de registro!", JOptionPane.INFORMATION_MESSAGE);
 									return false;
 								}
 							}else {
-								JOptionPane.showMessageDialog(null,"O nome usuário deve conter 4 ou mais caracteres!","Erro de registro!", JOptionPane.INFORMATION_MESSAGE);
+								JOptionPane.showMessageDialog(null,"Insira um peso válido!","Erro de registro!", JOptionPane.INFORMATION_MESSAGE);
 								return false;
 							}
 						}else {
-							JOptionPane.showMessageDialog(null,"A senha deve conter de 4 a 16 caracteres!","Erro de registro!", JOptionPane.INFORMATION_MESSAGE);
+							JOptionPane.showMessageDialog(null,"A senha deve conter 4 caracteres!","Erro de registro!", JOptionPane.INFORMATION_MESSAGE);
 							return false;
 						}
 					}else {

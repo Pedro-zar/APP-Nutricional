@@ -11,10 +11,10 @@ import com.Integrador2020.entities.User;
 
 public class Save {
 	
-	public static void saveRegister(String[] val1, int[] val2, int encode) {
+	public static void saveRegister(String[] val1, int[] val2, int encode, int slot) {
 		BufferedWriter write = null;
 		try {
-			write = new BufferedWriter(new FileWriter("contas.txt"));
+			write = new BufferedWriter(new FileWriter("contas"+ slot +".txt"));
 		}catch(IOException e) {
 			e.printStackTrace();
 		}
@@ -46,10 +46,10 @@ public class Save {
 			String[] spl2 = spl[i].split(":");
 			switch(spl2[0]) {
 			case "user":
-				User.user = spl2[1];
+				User.user = Integer.parseInt(spl2[1]);
 				break;
 			case "password":
-				User.password = spl2[1];
+				User.password = Integer.parseInt(spl2[1]);
 				break;
 			case "weight":
 				User.weight = Integer.parseInt(spl2[1]);
@@ -58,7 +58,7 @@ public class Save {
 				User.height = Integer.parseInt(spl2[1]);
 				break;
 			case "gender":
-				User.gender = spl2[1];
+				User.gender = Integer.parseInt(spl2[1]);
 				break;
 			case "age":
 				User.age = Integer.parseInt(spl2[1]);

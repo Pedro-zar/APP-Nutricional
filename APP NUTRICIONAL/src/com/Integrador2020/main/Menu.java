@@ -13,11 +13,13 @@ public class Menu {
 	public static boolean accountExists = false;
 	
 	public void tick() {
-		File file = new File("contas.txt");
-		if(file.exists()) {
-			accountExists = true;
-		}else {
-			accountExists = false;
+		for(int i = 1; i < 3 ; i++) {
+			File file = new File("contas"+i+".txt");
+			if(!(file.exists()) && accountExists == false) {
+				accountExists = false;
+			}else {
+				accountExists = true;
+			}	
 		}
 		if(up) {
 			currentOption--;
@@ -56,7 +58,7 @@ public class Menu {
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("arial",Font.BOLD,36));
 		
-		g.drawString(Main.Nome, (Main.WIDTH) / 2 - 50, (Main.HEIGHT) / 2 - 200);
+		g.drawString(Main.Nome, (Main.WIDTH) / 2 - 150, (Main.HEIGHT) / 2 - 200);
 		
 		//Opcoes de menu
 		g.setColor(Color.white);

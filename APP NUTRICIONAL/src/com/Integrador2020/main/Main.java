@@ -18,13 +18,13 @@ public class Main extends Canvas implements Runnable, KeyListener, MouseListener
 
 	private static final long serialVersionUID = 1L;
 	public static JFrame frame;
-	public static final String Nome = "Título";
+	public static final String Nome = "Wealth and Health";
 	private Thread thread;
 	private boolean isRunning = true;
 	public static final int WIDTH = 900, HEIGHT = 600;
 	public Menu menu;
 	public Login login;
-	public Signin signin;
+	public static Signin signin;
 	private BufferedImage image;
 	public static String State = "MENU";
 	public static com.Integrador2020.graphics.Spritesheet spritesheet;
@@ -179,7 +179,7 @@ public class Main extends Canvas implements Runnable, KeyListener, MouseListener
 		}
 	}
 
-	public void keyReleased(KeyEvent arg0) {
+	public void keyReleased(KeyEvent e) {
 		
 	}
 

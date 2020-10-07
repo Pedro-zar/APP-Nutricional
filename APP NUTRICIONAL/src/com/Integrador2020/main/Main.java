@@ -11,7 +11,6 @@ import java.awt.event.MouseListener;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import javax.swing.JFrame;
-
 import com.Integrador2020.sign.Login;
 import com.Integrador2020.sign.Signin;
 
@@ -135,8 +134,8 @@ public class Main extends Canvas implements Runnable, KeyListener, MouseListener
 
 	public void mouseClicked(MouseEvent e) {
 		signin.mouseClicked = true;
-		signin.mouseY =  e.getY();
-		signin.mouseX =  e.getX();
+		Signin.mouseY =  e.getY();
+		Signin.mouseX =  e.getX();
 	}
 
 	public void mouseEntered(MouseEvent arg0) {
@@ -174,11 +173,9 @@ public class Main extends Canvas implements Runnable, KeyListener, MouseListener
 			else if(e.getKeyCode() == KeyEvent.VK_ENTER) 
 				signin.enter = true;
 			else if(e.getKeyCode() == KeyEvent.VK_ESCAPE) 
-				if(signin.STATE > 1) {
-					signin.STATE--;
-				}else
+				if(Signin.STATE == 1) {
 					State = "MENU";
-			
+				}
 		}
 	}
 

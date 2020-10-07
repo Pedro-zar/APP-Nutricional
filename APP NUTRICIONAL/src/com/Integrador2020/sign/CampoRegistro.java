@@ -4,23 +4,27 @@ import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
+
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.text.MaskFormatter;
 
 import com.Integrador2020.entities.User;
+import com.Integrador2020.main.Main;
 
 public class CampoRegistro extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 
 	void criarRegistro() {
+		
              Container janela = getContentPane();
              setLayout(null);
 
@@ -88,12 +92,13 @@ public class CampoRegistro extends JFrame {
              janela.add(jrbFem);
              janela.add(jrbMas);
              janela.add(buttonRegistrar);
-             
              buttonRegistrar.addActionListener(new ActionListener() {
             	 public void actionPerformed(ActionEvent e) {
             		if (verificarCampos()) { 
 	            		pegarDados();
 	            		finalizarRegistro();
+	            		Main.frame.setEnabled(true);
+	            		dispose(); 
 	            	}
             		
             	 }
@@ -110,7 +115,7 @@ public class CampoRegistro extends JFrame {
 						User.gender = "F";
 					else
 						User.gender = "M";	
-					User.age = Integer.parseInt(jTextUser.getText());
+					User.age = Integer.parseInt(jFormattedTextAge.getText());
 					User.weight = Integer.parseInt(jFormattedTextWeight.getText());
 					User.height = Integer.parseInt(jFormattedTextHeight.getText());
 					
@@ -130,34 +135,35 @@ public class CampoRegistro extends JFrame {
 									if(Integer.parseInt(jFormattedTextHeight.getText()) <= 300 ) {
 										return true;
 									}else {
-										//mostrar msg box sobre preencher altura válida
+										JOptionPane.showMessageDialog(null,"Insira uma altura válida!","Erro de registro!", JOptionPane.INFORMATION_MESSAGE);
 										return false;
 									}
 								}else {
-									//mostrar msg box sobre preencher peso válido
+									JOptionPane.showMessageDialog(null,"Insira um peso válido!","Erro de registro!", JOptionPane.INFORMATION_MESSAGE);
 									return false;
 								}
 							}else {
-								//mostrar msg box sobre preencher usuario com mais de 4 caracteres
+								JOptionPane.showMessageDialog(null,"O nome usuário deve conter 4 ou mais caracteres!","Erro de registro!", JOptionPane.INFORMATION_MESSAGE);
 								return false;
 							}
 						}else {
-							//mostrar msg box sobre preencher senha entre 4-16 caracteres
+							JOptionPane.showMessageDialog(null,"A senha deve conter de 4 a 16 caracteres!","Erro de registro!", JOptionPane.INFORMATION_MESSAGE);
 							return false;
 						}
 					}else {
-						//mostrar msg box sobre preencher todos campos
+						JOptionPane.showMessageDialog(null,"Preencha todos os campos, sem deixá-los em branco!","Erro de registro!", JOptionPane.INFORMATION_MESSAGE);
 						return false;
 					}
 				}
              });
              
              setSize(400, 360);
-             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+             setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
              setVisible(true);
              setResizable(false);
              setLocationRelativeTo(null);
              setTitle("Registro");
+             
     }
 
 }

@@ -11,8 +11,8 @@ public class Signin {
 	private static BufferedImage[] PERFIL = new BufferedImage[3];	
 	public String[] options = { "1","2", "3"};
 	public int currentOption = 0, maxOption = options.length-1, slot = 0;
-	public boolean left = false, right = false, enter = false;
-	public int mouseX, mouseY, STATE = 1;
+	public boolean left = false, right = false, enter = false, escape = false;
+	public static int mouseX, mouseY, STATE = 1;
 	public boolean mouseClicked;
 	
 	public Signin() {
@@ -68,6 +68,7 @@ public class Signin {
 		slot = currentOption+1;
 		STATE++;
 		CampoRegistro field = new CampoRegistro();
+		Main.frame.setEnabled(false);
 	    field.criarRegistro();
 	}
 	

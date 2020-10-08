@@ -4,6 +4,10 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
+import java.io.File;
+
+import javax.swing.JOptionPane;
+
 import com.Integrador2020.main.Main;
 
 public class Signin {
@@ -26,18 +30,33 @@ public class Signin {
 			if(mouseClicked) {
 				mouseClicked = false;
 				if(mouseX >= 108 && mouseX <= 236 && mouseY >= 219 && mouseY <= 347) {
+					File file = new File("contas1.txt");
 					if(currentOption == 0) {
-						enter();
+						if(!file.exists())
+							enter();
+						else
+							JOptionPane.showMessageDialog(null,"Uma conta já foi criada com este usuário, selecione outro slot de salvamento, ou aperte ESC para retornar a tela inicial!","Conta já criada!", JOptionPane.INFORMATION_MESSAGE);
+						
 					}
 					currentOption = 0;
 				}else if(mouseX >= 374 && mouseX <= 502 && mouseY >= 219 && mouseY <= 347) {
+					File file = new File("contas2.txt");
 					if(currentOption == 1) {
-						enter();
+						if(!file.exists())
+							enter();
+						else
+							JOptionPane.showMessageDialog(null,"Uma conta já foi criada com este usuário, selecione outro slot de salvamento, ou aperte ESC para retornar a tela inicial!","Conta já criada!", JOptionPane.INFORMATION_MESSAGE);
+					
 					}
 					currentOption = 1;
 				}else if(mouseX >= 640 && mouseX <= 767 && mouseY >= 219 && mouseY <= 347) {
-					if(currentOption == 2) {
-						enter();
+					File file = new File("contas3.txt");
+					if(currentOption == 2 ) {
+						if(!file.exists())
+							enter();
+						else
+							JOptionPane.showMessageDialog(null,"Uma conta já foi criada com este usuário, selecione outro slot de salvamento, ou aperte ESC para retornar a tela inicial!","Conta já criada!", JOptionPane.INFORMATION_MESSAGE);
+						
 					}
 					currentOption = 2;
 				}	
@@ -55,7 +74,13 @@ public class Signin {
 				}
 			}else if(enter){
 				enter = false;
-				enter();
+				File file = new File("contas" + currentOption + ".txt");
+				if(file.exists())
+					enter();
+				else {
+					JOptionPane.showMessageDialog(null,"Uma conta já foi criada com este usuário, selecione outro slot de salvamento, ou aperte ESC para retornar a tela inicial!","Conta já criada!", JOptionPane.INFORMATION_MESSAGE);
+					
+				}
 			}	
 		}else {
 			right = false;

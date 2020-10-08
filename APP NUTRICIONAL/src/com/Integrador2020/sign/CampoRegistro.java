@@ -20,35 +20,37 @@ public class CampoRegistro extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	
-	public void exit() {
-		Signin.STATE--;
-		dispose();
-	}
 	void criarRegistro() {
 		
              Container janela = getContentPane();
              setLayout(null);
+             
              JLabel labelUser = new JLabel("Usuário: " + Main.signin.slot);
              JLabel labelPassword = new JLabel("Senha: ");
              JLabel labelGenre = new JLabel("Gênero biológico:");
              JLabel labelAge = new JLabel("Idade: ");
              JLabel labelWeight = new JLabel("Peso (KG): ");
              JLabel labelHeight = new JLabel("Altura (CM): ");
+             
              JButton buttonRegistrar = new JButton("Registrar");
              JButton buttonCancelar = new JButton("Cancelar");
              ButtonGroup bgGenre = new ButtonGroup();
+             
              JRadioButton jrbMas = new JRadioButton("M");
              JRadioButton jrbFem = new JRadioButton("F");
+             
              MaskFormatter mascaraAge = null;
              MaskFormatter mascaraHeight = null;
              MaskFormatter mascaraPassword = null;
              MaskFormatter mascaraWeight = null;
+             
              labelUser.setBounds(30,40,100,20);
              labelPassword.setBounds(30,80,100,20);
              labelGenre.setBounds(30,120,100,20);
              labelAge.setBounds(30,160,100,20);
              labelWeight.setBounds(30,200,100,20);
              labelHeight.setBounds(30,240,100,20);
+             
              buttonRegistrar.setBounds(150,280, 100, 20);
              buttonCancelar.setBounds(30,280, 100, 20);
              
@@ -90,16 +92,19 @@ public class CampoRegistro extends JFrame {
              janela.add(jFormattedPassword);
              janela.add(jFormattedTextWeight);
              janela.add(jFormattedTextHeight);
-             bgGenre.add(jrbMas);
-             bgGenre.add(jrbFem);
              janela.add(jrbFem);
              janela.add(jrbMas);
              janela.add(buttonRegistrar);
              janela.add(buttonCancelar);
+             
+             bgGenre.add(jrbMas);
+             bgGenre.add(jrbFem);
+             
              buttonCancelar.addActionListener(new ActionListener() 
              {
 				public void actionPerformed(ActionEvent e) {
-					exit();
+					Signin.STATE--;
+					dispose();
 				}
             	 
              });
@@ -109,13 +114,14 @@ public class CampoRegistro extends JFrame {
 	            		pegarDados();
 	            		finalizarRegistro();
 	            		dispose(); 
+	            		Signin.STATE = 1;
 	            	}
             		
             	 }
 
 				private void finalizarRegistro() {
 					String[] opt1 = {"user", "password", "gender", "age","weight", "height"};
-					int[] opt2 = {1,User.password,User.gender, User.age,User.weight, User.height};
+					int[] opt2 = {Main.signin.slot,User.password,User.gender, User.age,User.weight, User.height};
 					Save.saveRegister(opt1, opt2, 13, Main.signin.slot);
 				}
 

@@ -5,6 +5,8 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.io.File;
 
+import com.Integrador2020.sign.AccountSelecter;
+
 public class Menu {
 	
 	public String[] options = { "LOGIN","SIGN IN", "EXIT"};
@@ -36,12 +38,11 @@ public class Menu {
 		}else if(enter) {
 			if(options[currentOption] == "SIGN IN") {
 				Main.State = "SIGNIN";
+				AccountSelecter.State = Main.State;
 			}else if(options[currentOption] == "LOGIN") {
 				if (accountExists == true) {
-					//Main.State = "LOGIN";
-					/*Login
-					 * String saver = loadGame(13);
-					applySave(saver);*/
+					Main.State = "LOGIN";
+					AccountSelecter.State = Main.State;
 				}else {
 					System.out.println("não há cadastros no sistema");
 				}

@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 
 import com.Integrador2020.main.Main;
 
-public class Signin {
+public class AccountSelecter {
 	
 	public CampoRegistro campo;
 	private static BufferedImage[] PERFIL = new BufferedImage[3];	
@@ -19,8 +19,9 @@ public class Signin {
 	public boolean left = false, right = false, enter = false;
 	public static int mouseX, mouseY, STATE = 1;
 	public boolean mouseClicked, tick = false;
+	public static String State;
 	
-	public Signin() {
+	public AccountSelecter() {
 		PERFIL[0] = Main.spritesheet.getSprite(0, 0,64,64);
 		PERFIL[1] = Main.spritesheet.getSprite(0, 64,64,64);
 		PERFIL[2] = Main.spritesheet.getSprite(64, 0,64,64);
@@ -30,33 +31,27 @@ public class Signin {
 			if(mouseClicked) {
 				mouseClicked = false;
 				if(mouseX >= 108 && mouseX <= 236 && mouseY >= 219 && mouseY <= 347) {
-					File file = new File("contas1.txt");
 					if(currentOption == 0) {
-						if(!file.exists())
-							enter();
+						if(State == "SIGNIN")
+							signin();
 						else
-							JOptionPane.showMessageDialog(null,"Uma conta já foi criada com este usuário, selecione outro slot de salvamento, ou aperte ESC para retornar a tela inicial!","Conta já criada!", JOptionPane.INFORMATION_MESSAGE);
-						
+							login();
 					}
 					currentOption = 0;
 				}else if(mouseX >= 374 && mouseX <= 502 && mouseY >= 219 && mouseY <= 347) {
-					File file = new File("contas2.txt");
 					if(currentOption == 1) {
-						if(!file.exists())
-							enter();
+						if(State == "SIGNIN")
+							signin();
 						else
-							JOptionPane.showMessageDialog(null,"Uma conta já foi criada com este usuário, selecione outro slot de salvamento, ou aperte ESC para retornar a tela inicial!","Conta já criada!", JOptionPane.INFORMATION_MESSAGE);
-					
+							login();
 					}
 					currentOption = 1;
 				}else if(mouseX >= 640 && mouseX <= 767 && mouseY >= 219 && mouseY <= 347) {
-					File file = new File("contas3.txt");
 					if(currentOption == 2 ) {
-						if(!file.exists())
-							enter();
+						if(State == "SIGNIN")
+							signin();
 						else
-							JOptionPane.showMessageDialog(null,"Uma conta já foi criada com este usuário, selecione outro slot de salvamento, ou aperte ESC para retornar a tela inicial!","Conta já criada!", JOptionPane.INFORMATION_MESSAGE);
-						
+							login();
 					}
 					currentOption = 2;
 				}	
@@ -74,13 +69,10 @@ public class Signin {
 				}
 			}else if(enter){
 				enter = false;
-				File file = new File("contas" + currentOption + ".txt");
-				if(file.exists())
-					enter();
-				else {
-					JOptionPane.showMessageDialog(null,"Uma conta já foi criada com este usuário, selecione outro slot de salvamento, ou aperte ESC para retornar a tela inicial!","Conta já criada!", JOptionPane.INFORMATION_MESSAGE);
-					
-				}
+				if(State == "SIGNIN")
+					signin();
+				else
+					login();
 			}	
 		}else {
 			right = false;
@@ -90,12 +82,7 @@ public class Signin {
 		
 	}
 	
-	private void enter() {
-		slot = currentOption+1;
-		STATE++;
-		CampoRegistro campo = new CampoRegistro();
-		campo.criarRegistro();
-	}
+
 	
 	public void render(Graphics g) {
 		if(STATE==1) {
@@ -110,5 +97,19 @@ public class Signin {
 		}
 	}
 
+	private void signin() {
+		File file = new File("contas"+(currentOption + 1)+".txt");
+		if(!file.exists()) {
+			slot = currentOption+1;
+			STATE++;
+			CampoRegistro campo = new CampoRegistro();
+			campo.criarRegistro();
+		}else 
+			JOptionPane.showMessageDialog(null,"Uma conta já foi criada com este usuário, selecione outro slot de salvamento, ou aperte ESC para retornar a tela inicial!","Conta já criada!", JOptionPane.INFORMATION_MESSAGE);
+	
+	}
 
+	private void login() {
+		System.out.println("Login");
+	}
 }

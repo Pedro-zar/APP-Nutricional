@@ -11,8 +11,7 @@ import java.awt.event.MouseListener;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import javax.swing.JFrame;
-import com.Integrador2020.sign.Login;
-import com.Integrador2020.sign.Signin;
+import com.Integrador2020.sign.AccountSelecter;
 
 public class Main extends Canvas implements Runnable, KeyListener, MouseListener {
 
@@ -23,8 +22,7 @@ public class Main extends Canvas implements Runnable, KeyListener, MouseListener
 	private boolean isRunning = true;
 	public static final int WIDTH = 900, HEIGHT = 600;
 	public Menu menu;
-	public Login login;
-	public static Signin signin;
+	public static AccountSelecter accountSelecter;
 	private BufferedImage image;
 	public static String State = "MENU";
 	public static com.Integrador2020.graphics.Spritesheet spritesheet;
@@ -91,10 +89,8 @@ public class Main extends Canvas implements Runnable, KeyListener, MouseListener
 		g.drawImage(image, 0, 0, WIDTH, HEIGHT,null);
 		if(State == "MENU") {
 			menu.render(g);
-		}else if(State == "LOGIN") {
-			login.render(g);
-		}else if(State == "SIGNIN") {
-			signin.render(g);
+		}else if(State == "LOGIN" || State == "SIGNIN") {
+			accountSelecter.render(g);
 		}
 		bs.show();
 	}
@@ -102,10 +98,8 @@ public class Main extends Canvas implements Runnable, KeyListener, MouseListener
 	public void tick() {
 		if(State == "MENU") {
 			menu.tick();
-		}else if(State == "LOGIN") {
-			login.tick();
-		}else if(State == "SIGNIN") {
-			signin.tick();
+		}else if(State == "LOGIN" || State == "SIGNIN") {
+			accountSelecter.tick();
 		}
 	}
 
@@ -117,8 +111,7 @@ public class Main extends Canvas implements Runnable, KeyListener, MouseListener
 		spritesheet = new com.Integrador2020.graphics.Spritesheet("/spritesheet.png");
 		image = new BufferedImage(WIDTH,HEIGHT,BufferedImage.TYPE_INT_RGB);
 		menu = new Menu();
-		signin = new Signin();
-		login = new Login();
+		accountSelecter = new AccountSelecter();
 	}
 
 	private void initFrame() {
@@ -133,9 +126,9 @@ public class Main extends Canvas implements Runnable, KeyListener, MouseListener
 	}
 
 	public void mouseClicked(MouseEvent e) {
-		signin.mouseClicked = true;
-		Signin.mouseY =  e.getY();
-		Signin.mouseX =  e.getX();
+		accountSelecter.mouseClicked = true;
+		AccountSelecter.mouseY =  e.getY();
+		AccountSelecter.mouseX =  e.getX();
 	}
 
 	public void mouseEntered(MouseEvent arg0) {
@@ -165,15 +158,16 @@ public class Main extends Canvas implements Runnable, KeyListener, MouseListener
 				menu.enter = true;
 			}
 			break;
-		case "SIGNIN":
+		case "SIGNIN" :
+		case "LOGIN"  :
 			if(e.getKeyCode() == KeyEvent.VK_LEFT) 
-				signin.left = true;
+				accountSelecter.left = true;
 			else if(e.getKeyCode() == KeyEvent.VK_RIGHT) 
-				signin.right = true;
+				accountSelecter.right = true;
 			else if(e.getKeyCode() == KeyEvent.VK_ENTER) 
-				signin.enter = true;
+				accountSelecter.enter = true;
 			else if(e.getKeyCode() == KeyEvent.VK_ESCAPE) 
-				if(Signin.STATE == 1) {
+				if(AccountSelecter.STATE == 1) {
 					State = "MENU";
 				}
 		}

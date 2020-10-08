@@ -25,7 +25,7 @@ public class CampoRegistro extends JFrame {
              Container janela = getContentPane();
              setLayout(null);
              
-             JLabel labelUser = new JLabel("Usuário: " + Main.signin.slot);
+             JLabel labelUser = new JLabel("Usuário: " + Main.accountSelecter.slot);
              JLabel labelPassword = new JLabel("Senha: ");
              JLabel labelGenre = new JLabel("Gênero biológico:");
              JLabel labelAge = new JLabel("Idade: ");
@@ -103,7 +103,7 @@ public class CampoRegistro extends JFrame {
              buttonCancelar.addActionListener(new ActionListener() 
              {
 				public void actionPerformed(ActionEvent e) {
-					Signin.STATE--;
+					AccountSelecter.STATE--;
 					dispose();
 				}
             	 
@@ -114,19 +114,19 @@ public class CampoRegistro extends JFrame {
 	            		pegarDados();
 	            		finalizarRegistro();
 	            		dispose(); 
-	            		Signin.STATE = 1;
+	            		AccountSelecter.STATE = 1;
 	            	}
             		
             	 }
 
 				private void finalizarRegistro() {
 					String[] opt1 = {"user", "password", "gender", "age","weight", "height"};
-					int[] opt2 = {Main.signin.slot,User.password,User.gender, User.age,User.weight, User.height};
-					Save.saveRegister(opt1, opt2, 13, Main.signin.slot);
+					int[] opt2 = {Main.accountSelecter.slot,User.password,User.gender, User.age,User.weight, User.height};
+					Save.saveRegister(opt1, opt2, 13, Main.accountSelecter.slot);
 				}
 
 				private void pegarDados() {
-					User.user = Main.signin.slot;
+					User.user = Main.accountSelecter.slot;
 					User.password = Integer.parseInt(jFormattedPassword.getText());
 					if (jrbFem.isSelected())
 						User.gender = 1; //F

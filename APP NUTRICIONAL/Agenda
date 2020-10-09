@@ -1,7 +1,20 @@
-07/10 Começar sistema de login
-12/10 Acabar sistema de login
+08/10 Começar Sistema de diário de comida
+12/10 Acabar Sistema de diário de comida
+14/10 Alterar dados
+14/10 Logout
+14/10 Tela de configurações/alterar valores para Flat (width height) FAZENDO ISSO
+15/10 Decidir estética
+16/10 Implementar estética
 
-13/10 Começar Sistema de diário de comida
-14/10 Acabar Sistema de diário de comida
 
-15/10 Estética
+Diario:
+
+*Login sucedido
+
+Olá, seja bem vindo/vinda, escolha uma das seguintes opções:
+
+*Tela com icones de:
+	 alterar dados
+	 diário de alimentação
+	 Logout
+	 Tela de configurações

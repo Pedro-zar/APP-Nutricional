@@ -70,11 +70,8 @@ public class CampoLogin extends JFrame {
 			}
 
 			public boolean validation() {
-        		if(Save.getSave(Save.loadRegister(13, Main.accountSelecter.slot)) == Integer.parseInt(jFormattedPassword.getText())) {
-        			return true;
-        		}else
-        			return false;
-        	}
+				return Save.getSave(Save.loadRegister(13, Main.accountSelecter.slot)) == Integer.parseInt(jFormattedPassword.getText());
+			}
         });
         
         setSize(300, 240);
@@ -82,6 +79,6 @@ public class CampoLogin extends JFrame {
         setVisible(true);
         setResizable(false);
         setLocationRelativeTo(null);
-        setTitle("Registro");
+        setTitle("Login");
 	}
 }

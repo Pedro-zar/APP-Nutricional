@@ -11,6 +11,8 @@ import java.awt.event.MouseListener;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import javax.swing.JFrame;
+
+import com.Integrador2020.graphics.Spritesheet;
 import com.Integrador2020.sign.AccountSelecter;
 
 public class Main extends Canvas implements Runnable, KeyListener, MouseListener {
@@ -25,7 +27,7 @@ public class Main extends Canvas implements Runnable, KeyListener, MouseListener
 	public static AccountSelecter accountSelecter;
 	private BufferedImage image;
 	public static String State = "MENU";
-	public static com.Integrador2020.graphics.Spritesheet spritesheet;
+	public static Spritesheet spritesheet;
 	
 	public static void main(String args[]){
 		Main main = new Main();
@@ -70,7 +72,6 @@ public class Main extends Canvas implements Runnable, KeyListener, MouseListener
 				//frames = 0;
 				timer+=1000;
 			}
-			
 		}
 		stop();
 	}
@@ -91,7 +92,9 @@ public class Main extends Canvas implements Runnable, KeyListener, MouseListener
 			menu.render(g);
 		}else if(State == "LOGIN" || State == "SIGNIN") {
 			accountSelecter.render(g);
-		}
+		}else if(State == "DIARY") {
+			
+		}	
 		bs.show();
 	}
 
@@ -108,7 +111,7 @@ public class Main extends Canvas implements Runnable, KeyListener, MouseListener
 		addKeyListener(this);
 		addMouseListener(this);
 		initFrame();
-		spritesheet = new com.Integrador2020.graphics.Spritesheet("/spritesheet.png");
+		spritesheet = new Spritesheet("/spritesheet.png");
 		image = new BufferedImage(WIDTH,HEIGHT,BufferedImage.TYPE_INT_RGB);
 		menu = new Menu();
 		accountSelecter = new AccountSelecter();
@@ -170,6 +173,7 @@ public class Main extends Canvas implements Runnable, KeyListener, MouseListener
 				if(AccountSelecter.STATE == 1) {
 					State = "MENU";
 				}
+			break;
 		}
 	}
 

@@ -40,6 +40,17 @@ public class Save {
 		}catch(IOException e) {}
 	}
 	
+	public static int getSave(String str) {
+		String[] spl = str.split("/");
+		for(int i = 0; i< spl.length; i++) {
+			String[] spl2 = spl[i].split(":");
+			switch(spl2[0]) {
+			case "password":
+				return Integer.parseInt(spl2[1]);
+			}
+		}
+		return 0;
+	}
 	public static void applySave(String str) {
 		String[] spl = str.split("/");
 		for(int i = 0; i< spl.length; i++) {
@@ -91,13 +102,13 @@ public class Save {
 		}
 	}
 	
-	public static String loadRegister(int encode) {
+	public static String loadRegister(int encode, int slot) {
 		String line = "";
-		File file = new File("contas.txt");
+		File file = new File("contas" + slot + ".txt");
 		if(file.exists()) {
 			try {
 				String singleLine  = null;
-				BufferedReader reader = new BufferedReader(new FileReader("contas.txt"));
+				BufferedReader reader = new BufferedReader(new FileReader("contas" + slot + ".txt"));
 				try {
 					while((singleLine = reader.readLine()) != null) {
 						String[] transition = singleLine.split(":");

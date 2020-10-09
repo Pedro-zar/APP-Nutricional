@@ -12,7 +12,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.text.MaskFormatter;
-import com.Integrador2020.entities.User;
 import com.Integrador2020.main.Main;
 import com.Integrador2020.main.Save;
 
@@ -111,7 +110,6 @@ public class CampoRegistro extends JFrame {
              buttonRegistrar.addActionListener(new ActionListener() {
             	 public void actionPerformed(ActionEvent e) {
             		if (verificarCampos()) { 
-	            		pegarDados();
 	            		finalizarRegistro();
 	            		dispose(); 
 	            		AccountSelecter.STATE = 1;
@@ -121,21 +119,14 @@ public class CampoRegistro extends JFrame {
 
 				private void finalizarRegistro() {
 					String[] opt1 = {"user", "password", "gender", "age","weight", "height"};
-					int[] opt2 = {Main.accountSelecter.slot,User.password,User.gender, User.age,User.weight, User.height};
-					Save.saveRegister(opt1, opt2, 13, Main.accountSelecter.slot);
-				}
-
-				private void pegarDados() {
-					User.user = Main.accountSelecter.slot;
-					User.password = Integer.parseInt(jFormattedPassword.getText());
+					int gender;
 					if (jrbFem.isSelected())
-						User.gender = 1; //F
+						gender = 1; //F
 					else
-						User.gender = 0;	//M
-					User.age = Integer.parseInt(jFormattedTextAge.getText());
-					User.weight = Integer.parseInt(jFormattedTextWeight.getText());
-					User.height = Integer.parseInt(jFormattedTextHeight.getText());
-					
+						gender = 0;	//M
+				
+					int[] opt2 = {Main.accountSelecter.slot,Integer.parseInt(jFormattedPassword.getText()), gender, Integer.parseInt(jFormattedTextAge.getText()),Integer.parseInt(jFormattedTextWeight.getText()), Integer.parseInt(jFormattedTextHeight.getText())};
+					Save.saveRegister(opt1, opt2, 13, Main.accountSelecter.slot);
 				}
 
 				private boolean verificarCampos() {

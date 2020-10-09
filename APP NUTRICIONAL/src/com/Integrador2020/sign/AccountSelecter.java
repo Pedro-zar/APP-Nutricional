@@ -110,6 +110,14 @@ public class AccountSelecter {
 	}
 
 	private void login() {
-		System.out.println("Login");
+		File file = new File("contas"+(currentOption + 1)+".txt");
+		if(file.exists()) {
+			slot = currentOption+1;
+			STATE++;
+			CampoLogin campo = new CampoLogin();
+			campo.logar();
+		}else 
+			JOptionPane.showMessageDialog(null,"Conta não registrada neste usuário!","Conta não criada!", JOptionPane.INFORMATION_MESSAGE);
+	
 	}
 }

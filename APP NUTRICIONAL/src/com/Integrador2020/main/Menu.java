@@ -15,7 +15,7 @@ public class Menu {
 	public static boolean accountExists = false;
 	
 	public void tick() {
-		for(int i = 1; i < 3 ; i++) {
+		for(int i = 1; i <= 3 ; i++) {
 			File file = new File("contas"+i+".txt");
 			if(!(file.exists()) && accountExists == false) {
 				accountExists = false;

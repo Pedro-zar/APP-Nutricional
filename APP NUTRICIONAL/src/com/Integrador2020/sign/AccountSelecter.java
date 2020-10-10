@@ -110,7 +110,7 @@ public class AccountSelecter {
 	}
 
 	private void login() {
-		File file = new File("contas"+(currentOption + 1)+".txt");
+		File file = new File("contas"+(currentOption +1)+".txt");
 		if(file.exists()) {
 			slot = currentOption+1;
 			STATE++;

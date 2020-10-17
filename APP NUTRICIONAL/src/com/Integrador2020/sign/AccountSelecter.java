@@ -86,14 +86,14 @@ public class AccountSelecter {
 	
 	public void render(Graphics g) {
 		if(STATE==1) {
-			g.drawImage(PERFIL[0], 108, 220, 64*2, 64*2, null);
-			g.drawImage(PERFIL[1], 374, 220, 64*2, 64*2, null);
-			g.drawImage(PERFIL[2], 640, 220, 64*2, 64*2, null);
+			g.drawImage(PERFIL[0],(int) (Main.WIDTH/4) - (int)(Main.WIDTH/12.12), (int)(Main.HEIGHT/3.273), (int)(Main.WIDTH/6.6), (int)(Main.WIDTH/6.6), null);
+			g.drawImage(PERFIL[1], (int) (Main.WIDTH/4*2) - (int)(Main.WIDTH/12.12), (int)(Main.HEIGHT/3.273), (int)(Main.WIDTH/6.6), (int)(Main.WIDTH/6.6), null);
+			g.drawImage(PERFIL[2], (int) (Main.WIDTH/4*3) - (int)(Main.WIDTH/12.12), (int)(Main.HEIGHT/3.273), (int)(Main.WIDTH/6.6), (int)(Main.WIDTH/6.6), null);
 			g.setColor(Color.green);
 			g.setFont(new Font("arial",Font.BOLD,90));
-			g.drawString("^", Main.WIDTH / 2 - 299 + (266*(currentOption)), Main.HEIGHT / 2 +130);	
+			g.drawString("^",(int) (((Main.WIDTH/4)*(currentOption+1)) - Main.WIDTH/40), Main.HEIGHT / 2 + (int)(Main.HEIGHT / 4.6));	
 		}else if(STATE==2) {
-			g.drawImage(PERFIL[slot-1],70, 220, 64*2, 64*2, null);		
+			g.drawImage(PERFIL[slot-1],Main.WIDTH/10, (int)(Main.HEIGHT/3.273), (int)(Main.WIDTH/6.6), (int)(Main.WIDTH/6.6), null);		
 		}
 	}
 

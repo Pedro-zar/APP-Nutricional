@@ -10,6 +10,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
+
 import javax.swing.JFrame;
 
 import com.Integrador2020.graphics.Spritesheet;
@@ -22,7 +23,7 @@ public class Main extends Canvas implements Runnable, KeyListener, MouseListener
 	public static final String Nome = "Wealth and Health";
 	private Thread thread;
 	private boolean isRunning = true;
-	public static final int WIDTH = 1280, HEIGHT = 720;
+	public static final int HEIGHT = 720, WIDTH = (int)(HEIGHT*1.777777777777778);
 	public com.Integrador2020.main.Menu menu;
 	public com.Integrador2020.functionalities.Menu logMenu;
 	public static AccountSelecter accountSelecter;
@@ -114,7 +115,8 @@ public class Main extends Canvas implements Runnable, KeyListener, MouseListener
 		addKeyListener(this);
 		addMouseListener(this);
 		initFrame();
-		spritesheet = new Spritesheet("/spritesheet.png");
+		
+		spritesheet = new Spritesheet("res/spritesheet.png");	
 		image = new BufferedImage(WIDTH,HEIGHT,BufferedImage.TYPE_INT_RGB);
 		menu = new com.Integrador2020.main.Menu();
 		logMenu = new com.Integrador2020.functionalities.Menu();

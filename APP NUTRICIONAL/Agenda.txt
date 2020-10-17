@@ -2,7 +2,6 @@
 12/10 Acabar Sistema de diário de comida
 14/10 Alterar dados
 14/10 Logout
-14/10 Tela de configurações/alterar valores para Flat (width height) FAZENDO ISSO
 15/10 Decidir estética
 16/10 Implementar estética
 
@@ -17,4 +16,3 @@ Olá, seja bem vindo/vinda, escolha uma das seguintes opções:
 	 alterar dados
 	 diário de alimentação
 	 Logout
-	 Tela de configurações

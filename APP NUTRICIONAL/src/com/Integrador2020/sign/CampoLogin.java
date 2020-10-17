@@ -60,7 +60,7 @@ public class CampoLogin extends JFrame {
         	public void actionPerformed(ActionEvent e) {
         		if(validation()) {
         			integrarDados();
-        			Main.State = "DIARY";
+        			Main.State = "LOG_MENU";
         			dispose();
         		}
         	}

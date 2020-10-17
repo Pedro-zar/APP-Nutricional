@@ -58,22 +58,22 @@ public class Menu {
 		//Titulo
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("arial",Font.BOLD,36));
-		g.drawString(Main.Nome, (Main.WIDTH) / 2 - (Main.WIDTH / 6), (Main.HEIGHT) / 2 - (Main.HEIGHT/3));
+		g.drawString(Main.Nome, (Main.WIDTH) / 2 - (Main.WIDTH / 8), (Main.HEIGHT) / 2 - (Main.HEIGHT/3));
 		
 		//Opcoes de menu
 		g.setColor(Color.white);
 		g.setFont(new Font("arial",Font.BOLD,24));
-		g.drawString("Entrar", (Main.WIDTH) / 2 - (Main.WIDTH/30), (int) (Main.HEIGHT/3.75));
-		g.drawString("Registrar-se", (Main.WIDTH) / 2 - 60, Main.HEIGHT/3);
-		g.drawString("Sair", (Main.WIDTH) / 2 - 15, (int) (Main.HEIGHT/2.5));
+		g.drawString("Entrar", (Main.WIDTH) / 2 - (Main.WIDTH / 30), (int) (Main.HEIGHT / 3.75));
+		g.drawString("Registrar-se", (Main.WIDTH) / 2 - (Main.WIDTH / 15), Main.HEIGHT / 3);
+		g.drawString("Sair", (Main.WIDTH) / 2 - (Main.WIDTH / 16), (int) (Main.HEIGHT / 2.5));
 		
 		//Seleção da opção
 		if(options[currentOption] == "LOGIN") {
-			g.drawString(">", (Main.WIDTH) / 2 - 90, (int) (Main.HEIGHT/3.75));
+			g.drawString(">", (Main.WIDTH) / 2 - (Main.WIDTH / 10), (int) (Main.HEIGHT/3.75));
 		}else if(options[currentOption] == "SIGN IN") {
-			g.drawString(">", (Main.WIDTH) / 2 - 90, Main.HEIGHT/3);
+			g.drawString(">", (Main.WIDTH) / 2 - (Main.WIDTH / 10), Main.HEIGHT/3);
 		}else if(options[currentOption] == "EXIT") {
-			g.drawString(">", (Main.WIDTH) / 2 - 90,(int) (Main.HEIGHT/2.5));
+			g.drawString(">", (Main.WIDTH) / 2 - (Main.WIDTH / 10),(int) (Main.HEIGHT/2.5));
 		}
 	}
 }

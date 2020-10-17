@@ -22,8 +22,9 @@ public class Main extends Canvas implements Runnable, KeyListener, MouseListener
 	public static final String Nome = "Wealth and Health";
 	private Thread thread;
 	private boolean isRunning = true;
-	public static final int WIDTH = 900, HEIGHT = 600;
-	public Menu menu;
+	public static final int WIDTH = 1280, HEIGHT = 720;
+	public com.Integrador2020.main.Menu menu;
+	public com.Integrador2020.functionalities.Menu logMenu;
 	public static AccountSelecter accountSelecter;
 	private BufferedImage image;
 	public static String State = "MENU";
@@ -103,6 +104,8 @@ public class Main extends Canvas implements Runnable, KeyListener, MouseListener
 			menu.tick();
 		}else if(State == "LOGIN" || State == "SIGNIN") {
 			accountSelecter.tick();
+		}else if(State == "LOG_MENU") {
+			logMenu.tick();
 		}
 	}
 
@@ -113,7 +116,8 @@ public class Main extends Canvas implements Runnable, KeyListener, MouseListener
 		initFrame();
 		spritesheet = new Spritesheet("/spritesheet.png");
 		image = new BufferedImage(WIDTH,HEIGHT,BufferedImage.TYPE_INT_RGB);
-		menu = new Menu();
+		menu = new com.Integrador2020.main.Menu();
+		logMenu = new com.Integrador2020.functionalities.Menu();
 		accountSelecter = new AccountSelecter();
 	}
 

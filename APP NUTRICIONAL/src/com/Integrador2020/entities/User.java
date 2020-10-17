@@ -1,4 +1,4 @@
-package com.Integrador2020.entities;
+package src.com.Integrador2020.entities;
 
 public class User {
 

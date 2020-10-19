@@ -8,7 +8,7 @@ public class User {
 	public User(int height, int weight, int gender, int user, int password, int age) {
 		this.height = height;
 		this.weight = weight;
-		this.gender = gender;
+		this.gender = gender; // 1 = F, 0 = M
 		this.user = user;
 		this.age = age;
 		this.password = password;

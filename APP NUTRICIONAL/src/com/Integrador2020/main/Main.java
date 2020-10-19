@@ -13,6 +13,9 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.JFrame;
 
+import com.Integrador2020.functionalities.Diary;
+import com.Integrador2020.functionalities.FunctionalitySelector;
+import com.Integrador2020.functionalities.Update;
 import com.Integrador2020.graphics.Spritesheet;
 import com.Integrador2020.sign.AccountSelecter;
 
@@ -24,8 +27,10 @@ public class Main extends Canvas implements Runnable, KeyListener, MouseListener
 	private Thread thread;
 	private boolean isRunning = true;
 	public static final int HEIGHT = 720, WIDTH = (int)(HEIGHT*1.777777777777778);
-	public com.Integrador2020.main.Menu menu;
-	public com.Integrador2020.functionalities.Menu logMenu;
+	public Menu menu;
+	public Update update;
+	public Diary diary;
+	public FunctionalitySelector functionalitySelector;
 	public static AccountSelecter accountSelecter;
 	private BufferedImage image;
 	public static String State = "MENU";
@@ -90,24 +95,30 @@ public class Main extends Canvas implements Runnable, KeyListener, MouseListener
 		g.dispose();
 		g = bs.getDrawGraphics();
 		g.drawImage(image, 0, 0, WIDTH, HEIGHT,null);
-		if(State == "MENU") {
+		if(State == "MENU")
 			menu.render(g);
-		}else if(State == "LOGIN" || State == "SIGNIN") {
+		else if(State == "LOGIN" || State == "SIGNIN")
 			accountSelecter.render(g);
-		}else if(State == "DIARY") {
-			
-		}	
+		else if(State == "FUNC_SELEC")
+			functionalitySelector.render(g);
+		else if(State == "DIARY")
+			diary.render(g);
+		else if(State == "UPDATE")
+			update.render(g);
 		bs.show();
 	}
 
 	public void tick() {
-		if(State == "MENU") {
+		if(State == "MENU") 
 			menu.tick();
-		}else if(State == "LOGIN" || State == "SIGNIN") {
+		else if(State == "LOGIN" || State == "SIGNIN") 
 			accountSelecter.tick();
-		}else if(State == "LOG_MENU") {
-			logMenu.tick();
-		}
+		else if(State == "FUNC_SELEC") 
+			functionalitySelector.tick();
+		else if(State == "DIARY")
+			diary.tick();
+		else if(State == "UPDATE")
+			update.tick();
 	}
 
 	public Main() {
@@ -118,8 +129,10 @@ public class Main extends Canvas implements Runnable, KeyListener, MouseListener
 		
 		spritesheet = new Spritesheet("res/spritesheet.png");	
 		image = new BufferedImage(WIDTH,HEIGHT,BufferedImage.TYPE_INT_RGB);
-		menu = new com.Integrador2020.main.Menu();
-		logMenu = new com.Integrador2020.functionalities.Menu();
+		menu = new Menu();
+		diary = new Diary();
+		update = new Update();
+		functionalitySelector = new FunctionalitySelector();
 		accountSelecter = new AccountSelecter();
 	}
 
@@ -179,6 +192,15 @@ public class Main extends Canvas implements Runnable, KeyListener, MouseListener
 				if(AccountSelecter.STATE == 1) {
 					State = "MENU";
 				}
+			break;
+		case "FUNC_SELEC":
+			if(e.getKeyCode() == KeyEvent.VK_DOWN) {
+				functionalitySelector.down = true;
+			}else if(e.getKeyCode() == KeyEvent.VK_UP) {
+				functionalitySelector.up = true;
+			}else if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+				functionalitySelector.enter = true;
+			}
 			break;
 		}
 	}

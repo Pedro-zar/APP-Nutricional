@@ -30,7 +30,7 @@ public class AccountSelecter {
 		if(STATE == 1) {
 			if(mouseClicked) {
 				mouseClicked = false;
-				if(mouseX >= 108 && mouseX <= 236 && mouseY >= 219 && mouseY <= 347) {
+				if(mouseX >= Main.WIDTH/5.61 && mouseX <= Main.WIDTH/2.95 && mouseY >= Main.HEIGHT/3.3 && mouseY <= Main.HEIGHT/1.76) {
 					if(currentOption == 0) {
 						if(State == "SIGNIN")
 							signin();
@@ -38,7 +38,7 @@ public class AccountSelecter {
 							login();
 					}
 					currentOption = 0;
-				}else if(mouseX >= 374 && mouseX <= 502 && mouseY >= 219 && mouseY <= 347) {
+				}else if(mouseX >= Main.WIDTH/2.25 && mouseX <= Main.WIDTH/1.65 && mouseY >= Main.HEIGHT/3.3 && mouseY <= Main.HEIGHT/1.76) {
 					if(currentOption == 1) {
 						if(State == "SIGNIN")
 							signin();
@@ -46,7 +46,7 @@ public class AccountSelecter {
 							login();
 					}
 					currentOption = 1;
-				}else if(mouseX >= 640 && mouseX <= 767 && mouseY >= 219 && mouseY <= 347) {
+				}else if(mouseX >= Main.WIDTH/1.41 && mouseX <= Main.WIDTH/1.15 && mouseY >= Main.HEIGHT/3.3 && mouseY <= Main.HEIGHT/1.76) {
 					if(currentOption == 2 ) {
 						if(State == "SIGNIN")
 							signin();

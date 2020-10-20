@@ -1,4 +1,4 @@
-package com.Integrador2020.graphics;
+package com.Pedrozar.graphics;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;

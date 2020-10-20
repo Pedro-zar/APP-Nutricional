@@ -1,4 +1,4 @@
-package com.Integrador2020.main;
+package com.Pedrozar.main;
 
 import java.awt.Canvas;
 import java.awt.Color;
@@ -13,11 +13,11 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.JFrame;
 
-import com.Integrador2020.functionalities.Diary;
-import com.Integrador2020.functionalities.FunctionalitySelector;
-import com.Integrador2020.functionalities.Update;
-import com.Integrador2020.graphics.Spritesheet;
-import com.Integrador2020.sign.AccountSelecter;
+import com.Pedrozar.functionalities.Diary;
+import com.Pedrozar.functionalities.FunctionalitySelector;
+import com.Pedrozar.functionalities.Update;
+import com.Pedrozar.graphics.Spritesheet;
+import com.Pedrozar.sign.AccountSelecter;
 
 public class Main extends Canvas implements Runnable, KeyListener, MouseListener {
 
@@ -117,8 +117,6 @@ public class Main extends Canvas implements Runnable, KeyListener, MouseListener
 			functionalitySelector.tick();
 		else if(State == "DIARY")
 			diary.tick();
-		else if(State == "UPDATE")
-			update.tick();
 	}
 
 	public Main() {

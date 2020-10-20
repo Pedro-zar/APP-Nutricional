@@ -1,7 +1,8 @@
-package com.Integrador2020.functionalities;
+package com.Pedrozar.functionalities;
 
-import com.Integrador2020.entities.User;
-import com.Integrador2020.main.Main;
+import com.Pedrozar.entities.User;
+import com.Pedrozar.main.Main;
+import com.Pedrozar.sign.AccountSelecter;
 
 public class Logout {
 
@@ -17,7 +18,7 @@ public class Logout {
 		for(int i = 0; i < 7; i++) 
 			User.dcalories[i] = 0;
 		Main.State = "MENU";
-		Main.accountSelecter.STATE = 1;
+		AccountSelecter.STATE = 1;
 	}
 	
 }

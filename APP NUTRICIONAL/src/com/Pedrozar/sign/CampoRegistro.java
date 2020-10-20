@@ -1,4 +1,4 @@
-package com.Integrador2020.sign;
+package com.Pedrozar.sign;
 
 import java.awt.Container;
 import java.awt.event.ActionEvent;
@@ -12,14 +12,17 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.text.MaskFormatter;
-import com.Integrador2020.main.Main;
-import com.Integrador2020.main.Save;
+
+import com.Pedrozar.main.Main;
+import com.Pedrozar.main.Save;
 
 public class CampoRegistro extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-	
-	void criarRegistro() {
+	protected JFormattedTextField jFormattedTextWeight, jFormattedPassword, jFormattedTextAge, jFormattedTextHeight;
+    protected JRadioButton jrbFem;
+    
+	protected void criarRegistro() {
 		
              Container janela = getContentPane();
              setLayout(null);
@@ -36,7 +39,7 @@ public class CampoRegistro extends JFrame {
              ButtonGroup bgGenre = new ButtonGroup();
              
              JRadioButton jrbMas = new JRadioButton("M");
-             JRadioButton jrbFem = new JRadioButton("F");
+             jrbFem = new JRadioButton("F");
              
              MaskFormatter mascaraAge = null;
              MaskFormatter mascaraHeight = null;
@@ -68,10 +71,10 @@ public class CampoRegistro extends JFrame {
                     System.exit(-1);
              }
              
-             JFormattedTextField jFormattedTextWeight = new JFormattedTextField(mascaraWeight);
-             JFormattedTextField jFormattedPassword = new JFormattedTextField(mascaraPassword);
-             JFormattedTextField jFormattedTextAge = new JFormattedTextField(mascaraAge);
-             JFormattedTextField jFormattedTextHeight = new JFormattedTextField(mascaraHeight);
+             jFormattedTextWeight = new JFormattedTextField(mascaraWeight);
+             jFormattedPassword = new JFormattedTextField(mascaraPassword);
+             jFormattedTextAge = new JFormattedTextField(mascaraAge);
+             jFormattedTextHeight = new JFormattedTextField(mascaraHeight);
              
              
              jFormattedPassword.setBounds(150,80,100,20);
@@ -117,19 +120,7 @@ public class CampoRegistro extends JFrame {
             		
             	 }
 
-				private void finalizarRegistro() {
-					String[] opt1 = {"user", "password", "gender", "age","weight", "height"};
-					int gender;
-					if (jrbFem.isSelected())
-						gender = 1; //F
-					else
-						gender = 0;	//M
-				
-					int[] opt2 = {Main.accountSelecter.slot,Integer.parseInt(jFormattedPassword.getText()), gender, Integer.parseInt(jFormattedTextAge.getText()),Integer.parseInt(jFormattedTextWeight.getText()), Integer.parseInt(jFormattedTextHeight.getText())};
-					Save.saveRegister(opt1, opt2, 13, Main.accountSelecter.slot);
-				}
-
-				private boolean verificarCampos() {
+				protected boolean verificarCampos() {
 					if(!(jFormattedPassword.getText().isEmpty()) &&
 					(jrbMas.isSelected() || jrbFem.isSelected()) &&
 					!(jFormattedTextAge.getText().isEmpty()) &&
@@ -167,4 +158,19 @@ public class CampoRegistro extends JFrame {
              
     }
 
+	private void finalizarRegistro() {
+		String[] opt1 = {"user", "password", "gender", "age","weight", "height"};
+		int gender;
+		if (jrbFem.isSelected())
+			gender = 1; //F
+		else
+			gender = 0;	//M
+	
+		int[] opt2 = {Main.accountSelecter.slot,Integer.parseInt(jFormattedPassword.getText()), 
+				gender, Integer.parseInt(jFormattedTextAge.getText()),
+				Integer.parseInt(jFormattedTextWeight.getText()), 
+				Integer.parseInt(jFormattedTextHeight.getText())};
+		
+		Save.saveRegister(opt1, opt2, 13, Main.accountSelecter.slot);
+	}
 }

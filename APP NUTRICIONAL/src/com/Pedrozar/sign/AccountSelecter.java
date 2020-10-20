@@ -1,4 +1,4 @@
-package com.Integrador2020.sign;
+package com.Pedrozar.sign;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -8,11 +8,9 @@ import java.io.File;
 
 import javax.swing.JOptionPane;
 
-import com.Integrador2020.main.Main;
+import com.Pedrozar.main.Main;
 
 public class AccountSelecter {
-	
-	public CampoRegistro campo;
 	private static BufferedImage[] PERFIL = new BufferedImage[3];	
 	private final String[] options = { "1","2", "3"};
 	public int currentOption = 0, maxOption = options.length-1, slot = 0;
@@ -26,6 +24,7 @@ public class AccountSelecter {
 		PERFIL[1] = Main.spritesheet.getSprite(0, 64,64,64);
 		PERFIL[2] = Main.spritesheet.getSprite(64, 0,64,64);
 	}
+	
 	public void tick() {
 		if(STATE == 1) {
 			if(mouseClicked) {

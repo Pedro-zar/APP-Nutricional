@@ -1,11 +1,11 @@
-package com.Integrador2020.main;
+package com.Pedrozar.main;
 
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.io.File;
 
-import com.Integrador2020.sign.AccountSelecter;
+import com.Pedrozar.sign.AccountSelecter;
 
 public class Menu {
 	

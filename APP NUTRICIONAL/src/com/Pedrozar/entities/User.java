@@ -1,4 +1,4 @@
-package com.Integrador2020.entities;
+package com.Pedrozar.entities;
 
 public class User {
 

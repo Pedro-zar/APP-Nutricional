@@ -1,4 +1,4 @@
-package com.Integrador2020.functionalities;
+package com.Pedrozar.functionalities;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -6,8 +6,8 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.util.Calendar;
 
-import com.Integrador2020.entities.User;
-import com.Integrador2020.main.Main;
+import com.Pedrozar.entities.User;
+import com.Pedrozar.main.Main;
 
 public class FunctionalitySelector {
 
@@ -38,6 +38,8 @@ public class FunctionalitySelector {
 		}else if(enter) {
 			if(options[currentOption] == "DIARY"|| options[currentOption] == "UPDATE") 
 				Main.State = options[currentOption];
+				if(options[currentOption] == "UPDATE")
+					Update.criarJanela();
 			else if(options[currentOption] == "LOGOUT") 
 				Logout.logout();
 			enter = false;

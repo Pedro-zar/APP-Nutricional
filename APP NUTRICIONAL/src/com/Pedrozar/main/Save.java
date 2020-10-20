@@ -1,4 +1,4 @@
-package com.Integrador2020.main;
+package com.Pedrozar.main;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -7,8 +7,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import com.Integrador2020.entities.User;
-import com.Integrador2020.functionalities.Logout;
+
+import com.Pedrozar.entities.User;
+import com.Pedrozar.functionalities.Logout;
 
 public class Save {
 	

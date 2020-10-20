@@ -1,4 +1,4 @@
-package com.Integrador2020.sign;
+package com.Pedrozar.sign;
 
 import java.awt.Container;
 import java.awt.event.ActionEvent;
@@ -9,8 +9,9 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.text.MaskFormatter;
-import com.Integrador2020.main.Main;
-import com.Integrador2020.main.Save;
+
+import com.Pedrozar.main.Main;
+import com.Pedrozar.main.Save;
 
 public class CampoLogin extends JFrame {
 

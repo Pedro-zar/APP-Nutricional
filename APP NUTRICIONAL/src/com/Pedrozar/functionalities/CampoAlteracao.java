@@ -1,5 +1,6 @@
 package com.Pedrozar.functionalities;
 
+import com.Pedrozar.main.Main;
 import com.Pedrozar.sign.CampoRegistro;
 
 public class CampoAlteracao extends CampoRegistro {
@@ -8,8 +9,13 @@ public class CampoAlteracao extends CampoRegistro {
 
 	public void criarAlterator() {
 		criarRegistro();
+		setTitle("Alteração de dados");
 	}
-	public void finalizarRegistro() {
-		
+
+	@Override
+	public void retornar() {
+		Main.State ="FUNC_SELEC";
+		dispose();
 	}
+	
 }

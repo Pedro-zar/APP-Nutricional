@@ -13,16 +13,16 @@ public class FunctionalitySelector {
 
 	private String[] opt = new String[3];
 	private BufferedImage optionSprite;
+	public String[] options = { "DIARY","UPDATE", "LOGOUT"};
+	private int currentOption = 0, maxOption = options.length-1;
+	public boolean down = false, up = false, enter = false, escape = false;
+	
 	public FunctionalitySelector() {
 		optionSprite = Main.spritesheet.getSprite(64, 64,96,21);
 		opt[0] = "Diário";
 		opt[1] = "Alterar dados";
 		opt[2] = "Logout";
 	}
-	
-	public String[] options = { "DIARY","UPDATE", "LOGOUT"};
-	public int currentOption = 0, maxOption = options.length-1;
-	public boolean down = false, up = false, enter = false;
 	
 	public void tick() {
 		if(up) {
@@ -43,6 +43,11 @@ public class FunctionalitySelector {
 			else if(options[currentOption] == "LOGOUT") 
 				Logout.logout();
 			enter = false;
+		}else if(escape) {
+			if(currentOption == 2)
+				Logout.logout();
+			currentOption = 2;
+			escape = false;
 		}
 	}
 	

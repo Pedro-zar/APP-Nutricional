@@ -105,8 +105,7 @@ public class CampoRegistro extends JFrame {
              buttonCancelar.addActionListener(new ActionListener() 
              {
 				public void actionPerformed(ActionEvent e) {
-					AccountSelecter.STATE--;
-					dispose();
+					retornar();
 				}
             	 
              });
@@ -114,8 +113,7 @@ public class CampoRegistro extends JFrame {
             	 public void actionPerformed(ActionEvent e) {
             		if (verificarCampos()) { 
 	            		finalizarRegistro();
-	            		dispose(); 
-	            		AccountSelecter.STATE = 1;
+	            		retornar();
 	            	}
             		
             	 }
@@ -149,7 +147,7 @@ public class CampoRegistro extends JFrame {
 				}
              });
              
-             setSize(400, 360);
+             setSize(Main.WIDTH/3, Main.HEIGHT/2);
              setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
              setVisible(true);
              setResizable(false);
@@ -158,7 +156,11 @@ public class CampoRegistro extends JFrame {
              
     }
 
-	private void finalizarRegistro() {
+	protected void retornar() {
+		AccountSelecter.STATE = 1;
+		dispose();
+	}
+	protected void finalizarRegistro() {
 		String[] opt1 = {"user", "password", "gender", "age","weight", "height"};
 		int gender;
 		if (jrbFem.isSelected())

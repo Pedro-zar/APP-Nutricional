@@ -192,13 +192,14 @@ public class Main extends Canvas implements Runnable, KeyListener, MouseListener
 				}
 			break;
 		case "FUNC_SELEC":
-			if(e.getKeyCode() == KeyEvent.VK_DOWN) {
+			if(e.getKeyCode() == KeyEvent.VK_DOWN) 
 				functionalitySelector.down = true;
-			}else if(e.getKeyCode() == KeyEvent.VK_UP) {
+			else if(e.getKeyCode() == KeyEvent.VK_UP) 
 				functionalitySelector.up = true;
-			}else if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+			else if(e.getKeyCode() == KeyEvent.VK_ENTER) 
 				functionalitySelector.enter = true;
-			}
+			else if(e.getKeyCode() == KeyEvent.VK_ESCAPE)
+				functionalitySelector.escape = true;
 			break;
 		}
 	}

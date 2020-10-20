@@ -22,7 +22,7 @@ public class Update {
 	}
 
 	public void render(Graphics g) {
-		g.drawImage(PERFIL[User.user], Main.WIDTH/10, (int)(Main.HEIGHT/3.273), (int)(Main.WIDTH/6.6), (int)(Main.WIDTH/6.6), null);	
+		g.drawImage(PERFIL[User.user - 1], Main.WIDTH/10, (int)(Main.HEIGHT/3.273), (int)(Main.WIDTH/6.6), (int)(Main.WIDTH/6.6), null);	
 	}
 
 }

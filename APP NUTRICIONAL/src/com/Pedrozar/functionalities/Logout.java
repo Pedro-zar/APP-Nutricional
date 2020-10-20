@@ -20,5 +20,4 @@ public class Logout {
 		Main.State = "MENU";
 		AccountSelecter.STATE = 1;
 	}
-	
 }

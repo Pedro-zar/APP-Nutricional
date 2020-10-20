@@ -8,13 +8,20 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import com.Integrador2020.entities.User;
+import com.Integrador2020.functionalities.Logout;
 
 public class Save {
+	
+	public static void deleteAccount(int slot) {
+		File file = new File("contas" + slot + ".txt");
+		file.delete();
+		Logout.logout();
+	}
 	
 	public static void saveRegister(String[] val1, int[] val2, int encode, int slot) {
 		BufferedWriter write = null;
 		try {
-			write = new BufferedWriter(new FileWriter("contas"+ slot +".txt"));
+			write = new BufferedWriter(new FileWriter("contas" + slot + ".txt"));
 		}catch(IOException e) {
 			e.printStackTrace();
 		}

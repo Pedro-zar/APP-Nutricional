@@ -14,7 +14,7 @@ public class AccountSelecter {
 	
 	public CampoRegistro campo;
 	private static BufferedImage[] PERFIL = new BufferedImage[3];	
-	public String[] options = { "1","2", "3"};
+	private final String[] options = { "1","2", "3"};
 	public int currentOption = 0, maxOption = options.length-1, slot = 0;
 	public boolean left = false, right = false, enter = false;
 	public static int mouseX, mouseY, STATE = 1;

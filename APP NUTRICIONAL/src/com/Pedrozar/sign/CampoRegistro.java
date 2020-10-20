@@ -20,7 +20,7 @@ public class CampoRegistro extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	protected JFormattedTextField jFormattedTextWeight, jFormattedPassword, jFormattedTextAge, jFormattedTextHeight;
-    protected JRadioButton jrbFem;
+    protected JRadioButton jrbFem, jrbMas;
     
 	protected void criarRegistro() {
 		
@@ -38,7 +38,7 @@ public class CampoRegistro extends JFrame {
              JButton buttonCancelar = new JButton("Cancelar");
              ButtonGroup bgGenre = new ButtonGroup();
              
-             JRadioButton jrbMas = new JRadioButton("M");
+             jrbMas = new JRadioButton("M");
              jrbFem = new JRadioButton("F");
              
              MaskFormatter mascaraAge = null;

@@ -13,48 +13,48 @@ public class FunctionalitySelector {
 
 	private String[] opt = new String[3];
 	private BufferedImage optionSprite;
-	public String[] options = { "DIARY","UPDATE", "LOGOUT"};
+	private String[] options = { "DIARY","UPDATE", "LOGOUT"};
 	private int currentOption = 0, maxOption = options.length-1;
-	public boolean down = false, up = false, enter = false, escape = false;
+	private boolean down = false, up = false, enter = false, escape = false;
 	
 	public FunctionalitySelector() {
-		optionSprite = Main.spritesheet.getSprite(64, 64,96,21);
+		optionSprite = Main.getSpritesheet().getSprite(64, 64,96,21);
 		opt[0] = "Diário";
 		opt[1] = "Alterar dados";
 		opt[2] = "Logout";
 	}
 	
 	public void tick() {
-		if(up) {
+		if(isUp()) {
 			currentOption--;
-			up = false;
+			setUp(false);
 			if(currentOption < 0)
 				currentOption = maxOption;
-		}else if(down){
+		}else if(isDown()){
 			currentOption++;
-			down = false;
+			setDown(false);
 			if(currentOption > maxOption)
 				currentOption = 0;
-		}else if(enter) {
+		}else if(isEnter()) {
 			if(options[currentOption] == "DIARY"|| options[currentOption] == "UPDATE") 
-				Main.State = options[currentOption];
+				Main.setState(options[currentOption]);
 				if(options[currentOption] == "UPDATE")
 					Update.criarJanela();
 			else if(options[currentOption] == "LOGOUT") 
 				Logout.logout();
-			enter = false;
-		}else if(escape) {
+			setEnter(false);
+		}else if(isEscape()) {
 			if(currentOption == 2)
 				Logout.logout();
 			currentOption = 2;
-			escape = false;
+			setEscape(false);
 		}
 	}
 	
 	public void render(Graphics g) {
 		//Texto de bem vindo
 		String dayPart, gender;
-		if(User.gender == 1)
+		if(User.getGender() == 1)
 			gender = "a";
 		else
 			gender = "o";
@@ -67,16 +67,48 @@ public class FunctionalitySelector {
 			dayPart = "boa noite";
 		//Fonte e escrita
 		g.setColor(new Color(141, 255, 161));
-		g.setFont(new Font("arial",Font.BOLD, Main.WIDTH / 33));
-		g.drawString("Olá, " + dayPart + ". Seja bem vind" + gender + "!", Main.WIDTH / 10, Main.HEIGHT / 10);
-		g.drawString("Escolha uma das opções para prosseguir:", (Main.WIDTH / 10), (Main.HEIGHT / 10) * 2);
+		g.setFont(new Font("arial",Font.BOLD, Main.getWIDTH() / 33));
+		g.drawString("Olá, " + dayPart + ". Seja bem vind" + gender + "!", Main.getWIDTH() / 10, Main.getHEIGHT() / 10);
+		g.drawString("Escolha uma das opções para prosseguir:", (Main.getWIDTH() / 10), (Main.getHEIGHT() / 10) * 2);
 		
 		//opções
 		for(int i = 1; i < 4; i++) {
-			g.drawImage(optionSprite, Main.WIDTH/6, Main.HEIGHT/6 * (i + 1), (int)(Main.WIDTH/3.125), (int)(Main.HEIGHT/8.57), null);
-			g.drawString(opt[i-1], (int)(Main.WIDTH/6 * 1.2), Main.HEIGHT/6 * (i + 1) + (int)(Main.HEIGHT/8.57/1.5));
+			g.drawImage(optionSprite, Main.getWIDTH()/6, Main.getHEIGHT()/6 * (i + 1), (int)(Main.getWIDTH()/3.125), (int)(Main.getHEIGHT()/8.57), null);
+			g.drawString(opt[i-1], (int)(Main.getWIDTH()/6 * 1.2), Main.getHEIGHT()/6 * (i + 1) + (int)(Main.getHEIGHT()/8.57/1.5));
 		}
-		g.drawString(">", (int)(Main.WIDTH/6 * 0.7), Main.HEIGHT/6 * (currentOption + 2) + (int)(Main.HEIGHT/8.57/1.5));
+		g.drawString(">", (int)(Main.getWIDTH()/6 * 0.7), Main.getHEIGHT()/6 * (currentOption + 2) + (int)(Main.getHEIGHT()/8.57/1.5));
 		
+	}
+
+	public boolean isDown() {
+		return down;
+	}
+
+	public void setDown(boolean down) {
+		this.down = down;
+	}
+
+	public boolean isUp() {
+		return up;
+	}
+
+	public void setUp(boolean up) {
+		this.up = up;
+	}
+
+	public boolean isEnter() {
+		return enter;
+	}
+
+	public void setEnter(boolean enter) {
+		this.enter = enter;
+	}
+
+	public boolean isEscape() {
+		return escape;
+	}
+
+	public void setEscape(boolean escape) {
+		this.escape = escape;
 	}
 }

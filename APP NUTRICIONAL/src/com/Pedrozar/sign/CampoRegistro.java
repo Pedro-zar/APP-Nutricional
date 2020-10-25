@@ -27,7 +27,7 @@ public class CampoRegistro extends JFrame {
              Container janela = getContentPane();
              setLayout(null);
              
-             JLabel labelUser = new JLabel("Usuário: " + Main.accountSelecter.slot);
+             JLabel labelUser = new JLabel("Usuário: " + Main.accountSelecter.getSlot());
              JLabel labelPassword = new JLabel("Senha: ");
              JLabel labelGenre = new JLabel("Gênero biológico:");
              JLabel labelAge = new JLabel("Idade: ");
@@ -147,7 +147,7 @@ public class CampoRegistro extends JFrame {
 				}
              });
              
-             setSize(Main.WIDTH/3, Main.HEIGHT/2);
+             setSize(Main.getWIDTH()/3, Main.getHEIGHT()/2);
              setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
              setVisible(true);
              setResizable(false);
@@ -157,7 +157,7 @@ public class CampoRegistro extends JFrame {
     }
 
 	protected void retornar() {
-		AccountSelecter.STATE = 1;
+		AccountSelecter.setSTATE(1);
 		dispose();
 	}
 	protected void finalizarRegistro() {
@@ -168,11 +168,11 @@ public class CampoRegistro extends JFrame {
 		else
 			gender = 0;	//M
 	
-		int[] opt2 = {Main.accountSelecter.slot,Integer.parseInt(jFormattedPassword.getText()), 
+		int[] opt2 = {Main.accountSelecter.getSlot(),Integer.parseInt(jFormattedPassword.getText()), 
 				gender, Integer.parseInt(jFormattedTextAge.getText()),
 				Integer.parseInt(jFormattedTextWeight.getText()), 
 				Integer.parseInt(jFormattedTextHeight.getText())};
 		
-		Save.saveRegister(opt1, opt2, 13, Main.accountSelecter.slot);
+		Save.saveRegister(opt1, opt2, 13, Main.accountSelecter.getSlot());
 	}
 }

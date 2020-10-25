@@ -11,72 +11,73 @@ import javax.swing.JOptionPane;
 import com.Pedrozar.main.Main;
 
 public class AccountSelecter {
+	
 	private static BufferedImage[] PERFIL = new BufferedImage[3];	
 	private final String[] options = { "1","2", "3"};
-	public int currentOption = 0, maxOption = options.length-1, slot = 0;
-	public boolean left = false, right = false, enter = false;
-	public static int mouseX, mouseY, STATE = 1;
-	public boolean mouseClicked, tick = false;
-	public static String State;
+	private int currentOption = 0, maxOption = options.length-1, slot = 0;
+	private boolean left = false, right = false, enter = false;
+	private static int mouseX, mouseY, STATE = 1;
+	private boolean mouseClicked;
+	private static String State;
 	
 	public AccountSelecter() {
-		PERFIL[0] = Main.spritesheet.getSprite(0, 0,64,64);
-		PERFIL[1] = Main.spritesheet.getSprite(0, 64,64,64);
-		PERFIL[2] = Main.spritesheet.getSprite(64, 0,64,64);
+		PERFIL[0] = Main.getSpritesheet().getSprite(0, 0,64,64);
+		PERFIL[1] = Main.getSpritesheet().getSprite(0, 64,64,64);
+		PERFIL[2] = Main.getSpritesheet().getSprite(64, 0,64,64);
 	}
 	
 	public void tick() {
-		if(STATE == 1) {
-			if(mouseClicked) {
-				mouseClicked = false;
-				if(mouseX >= Main.WIDTH/5.61 && mouseX <= Main.WIDTH/2.95 && mouseY >= Main.HEIGHT/3.3 && mouseY <= Main.HEIGHT/1.76) {
+		if(getSTATE() == 1) {
+			if(isMouseClicked()) {
+				setMouseClicked(false);
+				if(getMouseX() >= Main.getWIDTH()/5.61 && getMouseX() <= Main.getWIDTH()/2.95 && getMouseY() >= Main.getHEIGHT()/3.3 && getMouseY() <= Main.getHEIGHT()/1.76) {
 					if(currentOption == 0) {
-						if(State == "SIGNIN")
+						if(getState() == "SIGNIN")
 							signin();
 						else
 							login();
 					}
 					currentOption = 0;
-				}else if(mouseX >= Main.WIDTH/2.25 && mouseX <= Main.WIDTH/1.65 && mouseY >= Main.HEIGHT/3.3 && mouseY <= Main.HEIGHT/1.76) {
+				}else if(getMouseX() >= Main.getWIDTH()/2.25 && getMouseX() <= Main.getWIDTH()/1.65 && getMouseY() >= Main.getHEIGHT()/3.3 && getMouseY() <= Main.getHEIGHT()/1.76) {
 					if(currentOption == 1) {
-						if(State == "SIGNIN")
+						if(getState() == "SIGNIN")
 							signin();
 						else
 							login();
 					}
 					currentOption = 1;
-				}else if(mouseX >= Main.WIDTH/1.41 && mouseX <= Main.WIDTH/1.15 && mouseY >= Main.HEIGHT/3.3 && mouseY <= Main.HEIGHT/1.76) {
+				}else if(getMouseX() >= Main.getWIDTH()/1.41 && getMouseX() <= Main.getWIDTH()/1.15 && getMouseY() >= Main.getHEIGHT()/3.3 && getMouseY() <= Main.getHEIGHT()/1.76) {
 					if(currentOption == 2 ) {
-						if(State == "SIGNIN")
+						if(getState() == "SIGNIN")
 							signin();
 						else
 							login();
 					}
 					currentOption = 2;
 				}	
-			}else if(left) {
+			}else if(isLeft()) {
 				currentOption--;
-				left = false;
+				setLeft(false);
 				if(currentOption < 0) {
 					currentOption = maxOption;
 				}
-			}else if(right){
+			}else if(isRight()){
 				currentOption++;
-				right = false;
+				setRight(false);
 				if(currentOption > maxOption) {
 					currentOption = 0;
 				}
-			}else if(enter){
-				enter = false;
-				if(State == "SIGNIN")
+			}else if(isEnter()){
+				setEnter(false);
+				if(getState() == "SIGNIN")
 					signin();
 				else
 					login();
 			}	
 		}else {
-			right = false;
-			left = false;
-			enter = false;
+			setRight(false);
+			setLeft(false);
+			setEnter(false);
 		}
 		
 	}
@@ -84,23 +85,23 @@ public class AccountSelecter {
 
 	
 	public void render(Graphics g) {
-		if(STATE==1) {
-			g.drawImage(PERFIL[0],(int) (Main.WIDTH/4) - (int)(Main.WIDTH/12.12), (int)(Main.HEIGHT/3.273), (int)(Main.WIDTH/6.6), (int)(Main.WIDTH/6.6), null);
-			g.drawImage(PERFIL[1], (int) (Main.WIDTH/4*2) - (int)(Main.WIDTH/12.12), (int)(Main.HEIGHT/3.273), (int)(Main.WIDTH/6.6), (int)(Main.WIDTH/6.6), null);
-			g.drawImage(PERFIL[2], (int) (Main.WIDTH/4*3) - (int)(Main.WIDTH/12.12), (int)(Main.HEIGHT/3.273), (int)(Main.WIDTH/6.6), (int)(Main.WIDTH/6.6), null);
+		if(getSTATE()==1) {
+			g.drawImage(PERFIL[0],(int) (Main.getWIDTH()/4) - (int)(Main.getWIDTH()/12.12), (int)(Main.getHEIGHT()/3.273), (int)(Main.getWIDTH()/6.6), (int)(Main.getWIDTH()/6.6), null);
+			g.drawImage(PERFIL[1], (int) (Main.getWIDTH()/4*2) - (int)(Main.getWIDTH()/12.12), (int)(Main.getHEIGHT()/3.273), (int)(Main.getWIDTH()/6.6), (int)(Main.getWIDTH()/6.6), null);
+			g.drawImage(PERFIL[2], (int) (Main.getWIDTH()/4*3) - (int)(Main.getWIDTH()/12.12), (int)(Main.getHEIGHT()/3.273), (int)(Main.getWIDTH()/6.6), (int)(Main.getWIDTH()/6.6), null);
 			g.setColor(Color.green);
 			g.setFont(new Font("arial",Font.BOLD,90));
-			g.drawString("^",(int) (((Main.WIDTH/4)*(currentOption+1)) - Main.WIDTH/40), Main.HEIGHT / 2 + (int)(Main.HEIGHT / 4.6));	
-		}else if(STATE==2) {
-			g.drawImage(PERFIL[slot-1],Main.WIDTH/10, (int)(Main.HEIGHT/3.273), (int)(Main.WIDTH/6.6), (int)(Main.WIDTH/6.6), null);		
+			g.drawString("^",(int) (((Main.getWIDTH()/4)*(currentOption+1)) - Main.getWIDTH()/40), Main.getHEIGHT() / 2 + (int)(Main.getHEIGHT() / 4.6));	
+		}else if(getSTATE()==2) {
+			g.drawImage(PERFIL[getSlot()-1],Main.getWIDTH()/10, (int)(Main.getHEIGHT()/3.273), (int)(Main.getWIDTH()/6.6), (int)(Main.getWIDTH()/6.6), null);		
 		}
 	}
 
 	private void signin() {
 		File file = new File("contas"+(currentOption + 1)+".txt");
 		if(!file.exists()) {
-			slot = currentOption+1;
-			STATE++;
+			setSlot(currentOption+1);
+			setSTATE(getSTATE() + 1);
 			CampoRegistro campo = new CampoRegistro();
 			campo.criarRegistro();
 		}else 
@@ -111,12 +112,84 @@ public class AccountSelecter {
 	private void login() {
 		File file = new File("contas"+(currentOption +1)+".txt");
 		if(file.exists()) {
-			slot = currentOption+1;
-			STATE++;
+			setSlot(currentOption+1);
+			setSTATE(getSTATE() + 1);
 			CampoLogin campo = new CampoLogin();
 			campo.logar();
 		}else 
 			JOptionPane.showMessageDialog(null,"Conta não registrada neste usuário!","Conta não criada!", JOptionPane.INFORMATION_MESSAGE);
 	
+	}
+
+	public int getSlot() {
+		return slot;
+	}
+
+	public void setSlot(int slot) {
+		this.slot = slot;
+	}
+
+	public static int getSTATE() {
+		return STATE;
+	}
+
+	public static void setSTATE(int sTATE) {
+		STATE = sTATE;
+	}
+
+	public boolean isMouseClicked() {
+		return mouseClicked;
+	}
+
+	public void setMouseClicked(boolean mouseClicked) {
+		this.mouseClicked = mouseClicked;
+	}
+
+	public static int getMouseY() {
+		return mouseY;
+	}
+
+	public static void setMouseY(int mouseY) {
+		AccountSelecter.mouseY = mouseY;
+	}
+
+	public static int getMouseX() {
+		return mouseX;
+	}
+
+	public static void setMouseX(int mouseX) {
+		AccountSelecter.mouseX = mouseX;
+	}
+
+	public boolean isLeft() {
+		return left;
+	}
+
+	public void setLeft(boolean left) {
+		this.left = left;
+	}
+
+	public boolean isRight() {
+		return right;
+	}
+
+	public void setRight(boolean right) {
+		this.right = right;
+	}
+
+	public boolean isEnter() {
+		return enter;
+	}
+
+	public void setEnter(boolean enter) {
+		this.enter = enter;
+	}
+
+	public static String getState() {
+		return State;
+	}
+
+	public static void setState(String state) {
+		State = state;
 	}
 }

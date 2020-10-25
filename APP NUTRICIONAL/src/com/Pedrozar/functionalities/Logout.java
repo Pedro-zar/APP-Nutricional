@@ -8,16 +8,16 @@ public class Logout {
 
 	public static void logout()
 	{
-		User.height = 0; 
-		User.weight = 0;
-		User.wdcalories = 0;
-		User.age = 0;
-		User.gender = 0; 
-		User.password = 0;
-		User.user = 0;
+		User.setHeight(0); 
+		User.setWeight(0);
+		User.setWdcalories(0);
+		User.setAge(0);
+		User.setGender(0); 
+		User.setPassword(0);
+		User.setUser(0);
 		for(int i = 0; i < 7; i++) 
-			User.dcalories[i] = 0;
-		Main.State = "MENU";
-		AccountSelecter.STATE = 1;
+			User.getDcalories()[i] = 0;
+		Main.setState("MENU");
+		AccountSelecter.setSTATE(1);
 	}
 }

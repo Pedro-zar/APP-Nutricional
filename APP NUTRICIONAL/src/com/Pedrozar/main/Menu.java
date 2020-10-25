@@ -9,10 +9,10 @@ import com.Pedrozar.sign.AccountSelecter;
 
 public class Menu {
 	
-	public String[] options = { "LOGIN","SIGN IN", "EXIT"};
-	public int currentOption = 0, maxOption = options.length-1;
-	public boolean down = false, up = false, enter = false;
-	public static boolean accountExists = false;
+	private String[] options = { "LOGIN","SIGN IN", "EXIT"};
+	private int currentOption = 0, maxOption = options.length-1;
+	private boolean down = false, up = false, enter = false;
+	private static boolean accountExists = false;
 	
 	public void tick() {
 		for(int i = 1; i <= 3 ; i++) {
@@ -23,33 +23,33 @@ public class Menu {
 				accountExists = true;
 			}	
 		}
-		if(up) {
+		if(isUp()) {
 			currentOption--;
-			up = false;
+			setUp(false);
 			if(currentOption < 0) {
 				currentOption = maxOption;
 			}
-		}else if(down){
+		}else if(isDown()){
 			currentOption++;
-			down = false;
+			setDown(false);
 			if(currentOption > maxOption) {
 				currentOption = 0;
 			}
-		}else if(enter) {
+		}else if(isEnter()) {
 			if(options[currentOption] == "SIGN IN") {
-				Main.State = "SIGNIN";
-				AccountSelecter.State = Main.State;
+				Main.setState("SIGNIN");
+				AccountSelecter.setState(Main.getState());
 			}else if(options[currentOption] == "LOGIN") {
 				if (accountExists == true) {
-					Main.State = "LOGIN";
-					AccountSelecter.State = Main.State;
+					Main.setState("LOGIN");
+					AccountSelecter.setState(Main.getState());
 				}else {
 					System.out.println("não há cadastros no sistema");
 				}
 			}else if(options[currentOption] == "EXIT") {
 				System.exit(1);
 			}
-			enter = false;
+			setEnter(false);
 		}
 	}
 
@@ -57,22 +57,52 @@ public class Menu {
 	public void render(Graphics g) {
 		//Titulo
 		g.setColor(new Color(141, 255, 161));
-		g.setFont(new Font("arial",Font.BOLD, Main.WIDTH / 33));
-		g.drawString(Main.Nome, (Main.WIDTH) / 2 - (Main.WIDTH / 8), (Main.HEIGHT) / 2 - (Main.HEIGHT/3));
+		g.setFont(new Font("arial",Font.BOLD, Main.getWIDTH() / 33));
+		g.drawString(Main.getNome(), (Main.getWIDTH()) / 2 - (Main.getWIDTH() / 8), (Main.getHEIGHT()) / 2 - (Main.getHEIGHT()/3));
 		
 		//Opcoes de menu
-		g.setFont(new Font("arial",Font.BOLD, Main.WIDTH / 50));
-		g.drawString("Entrar", (Main.WIDTH) / 2 - (Main.WIDTH / 15), (int) (Main.HEIGHT / 3.75));
-		g.drawString("Registrar-se", (Main.WIDTH) / 2 - (Main.WIDTH / 15), Main.HEIGHT / 3);
-		g.drawString("Sair", (Main.WIDTH) / 2 - (Main.WIDTH / 15), (int) (Main.HEIGHT / 2.5));
+		g.setFont(new Font("arial",Font.BOLD, Main.getWIDTH() / 50));
+		g.drawString("Entrar", (Main.getWIDTH()) / 2 - (Main.getWIDTH() / 15), (int) (Main.getHEIGHT() / 3.75));
+		g.drawString("Registrar-se", (Main.getWIDTH()) / 2 - (Main.getWIDTH() / 15), Main.getHEIGHT() / 3);
+		g.drawString("Sair", (Main.getWIDTH()) / 2 - (Main.getWIDTH() / 15), (int) (Main.getHEIGHT() / 2.5));
 		
 		//Seleção da opção
 		if(options[currentOption] == "LOGIN") {
-			g.drawString(">", (Main.WIDTH) / 2 - (Main.WIDTH / 10), (int) (Main.HEIGHT/3.75));
+			g.drawString(">", (Main.getWIDTH()) / 2 - (Main.getWIDTH() / 10), (int) (Main.getHEIGHT()/3.75));
 		}else if(options[currentOption] == "SIGN IN") {
-			g.drawString(">", (Main.WIDTH) / 2 - (Main.WIDTH / 10), Main.HEIGHT/3);
+			g.drawString(">", (Main.getWIDTH()) / 2 - (Main.getWIDTH() / 10), Main.getHEIGHT()/3);
 		}else if(options[currentOption] == "EXIT") {
-			g.drawString(">", (Main.WIDTH) / 2 - (Main.WIDTH / 10),(int) (Main.HEIGHT/2.5));
+			g.drawString(">", (Main.getWIDTH()) / 2 - (Main.getWIDTH() / 10),(int) (Main.getHEIGHT()/2.5));
 		}
+	}
+
+
+	public boolean isDown() {
+		return down;
+	}
+
+
+	public void setDown(boolean down) {
+		this.down = down;
+	}
+
+
+	public boolean isUp() {
+		return up;
+	}
+
+
+	public void setUp(boolean up) {
+		this.up = up;
+	}
+
+
+	public boolean isEnter() {
+		return enter;
+	}
+
+
+	public void setEnter(boolean enter) {
+		this.enter = enter;
 	}
 }

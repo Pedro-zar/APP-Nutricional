@@ -16,13 +16,13 @@ public class Update {
 	}
 	
 	public Update() {
-		PERFIL[0] = Main.spritesheet.getSprite(0, 0,64,64);
-		PERFIL[1] = Main.spritesheet.getSprite(0, 64,64,64);
-		PERFIL[2] = Main.spritesheet.getSprite(64, 0,64,64);
+		PERFIL[0] = Main.getSpritesheet().getSprite(0, 0,64,64);
+		PERFIL[1] = Main.getSpritesheet().getSprite(0, 64,64,64);
+		PERFIL[2] = Main.getSpritesheet().getSprite(64, 0,64,64);
 	}
 
 	public void render(Graphics g) {
-		g.drawImage(PERFIL[User.user - 1], Main.WIDTH/10, (int)(Main.HEIGHT/3.273), (int)(Main.WIDTH/6.6), (int)(Main.WIDTH/6.6), null);	
+		g.drawImage(PERFIL[User.getUser() - 1], Main.getWIDTH()/10, (int)(Main.getHEIGHT()/3.273), (int)(Main.getWIDTH()/6.6), (int)(Main.getWIDTH()/6.6), null);	
 	}
 
 }

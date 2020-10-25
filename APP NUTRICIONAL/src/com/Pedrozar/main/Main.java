@@ -22,19 +22,21 @@ import com.Pedrozar.sign.AccountSelecter;
 public class Main extends Canvas implements Runnable, KeyListener, MouseListener {
 
 	private static final long serialVersionUID = 1L;
-	public static JFrame frame;
-	public static final String Nome = "Wealth and Health";
+	private static JFrame frame;
+	private static final String Nome = "Wealth and Health";
 	private Thread thread;
 	private boolean isRunning = true;
-	public static final int HEIGHT = 720, WIDTH = (int)(HEIGHT*1.777777777777778);
+	private static final int HEIGHT = 720, WIDTH = (int)(getHEIGHT()*1.777777777777778);
+	private BufferedImage image;
+	private static String State = "MENU";
+	private static Spritesheet spritesheet;
+	
 	public Menu menu;
 	public Update update;
 	public Diary diary;
 	public FunctionalitySelector functionalitySelector;
 	public static AccountSelecter accountSelecter;
-	private BufferedImage image;
-	public static String State = "MENU";
-	public static Spritesheet spritesheet;
+	
 	
 	public static void main(String args[]){
 		Main main = new Main();
@@ -91,42 +93,42 @@ public class Main extends Canvas implements Runnable, KeyListener, MouseListener
 		}
 		Graphics g = image.getGraphics();
 		g.setColor(new Color(0,0,0));
-		g.fillRect(0, 0,WIDTH,HEIGHT);
+		g.fillRect(0, 0,getWIDTH(),getHEIGHT());
 		g.dispose();
 		g = bs.getDrawGraphics();
-		g.drawImage(image, 0, 0, WIDTH, HEIGHT,null);
-		if(State == "MENU")
+		g.drawImage(image, 0, 0, getWIDTH(), getHEIGHT(),null);
+		if(getState() == "MENU")
 			menu.render(g);
-		else if(State == "LOGIN" || State == "SIGNIN")
+		else if(getState() == "LOGIN" || getState() == "SIGNIN")
 			accountSelecter.render(g);
-		else if(State == "FUNC_SELEC")
+		else if(getState() == "FUNC_SELEC")
 			functionalitySelector.render(g);
-		else if(State == "DIARY")
+		else if(getState() == "DIARY")
 			diary.render(g);
-		else if(State == "UPDATE")
+		else if(getState() == "UPDATE")
 			update.render(g);
 		bs.show();
 	}
 
 	public void tick() {
-		if(State == "MENU") 
+		if(getState() == "MENU") 
 			menu.tick();
-		else if(State == "LOGIN" || State == "SIGNIN") 
+		else if(getState() == "LOGIN" || getState() == "SIGNIN") 
 			accountSelecter.tick();
-		else if(State == "FUNC_SELEC") 
+		else if(getState() == "FUNC_SELEC") 
 			functionalitySelector.tick();
-		else if(State == "DIARY")
+		else if(getState() == "DIARY")
 			diary.tick();
 	}
 
 	public Main() {
-		setPreferredSize(new Dimension(WIDTH,HEIGHT));
+		setPreferredSize(new Dimension(getWIDTH(),getHEIGHT()));
 		addKeyListener(this);
 		addMouseListener(this);
 		initFrame();
 		
-		spritesheet = new Spritesheet("res/spritesheet.png");	
-		image = new BufferedImage(WIDTH,HEIGHT,BufferedImage.TYPE_INT_RGB);
+		setSpritesheet(new Spritesheet("res/spritesheet.png"));	
+		image = new BufferedImage(getWIDTH(),getHEIGHT(),BufferedImage.TYPE_INT_RGB);
 		menu = new Menu();
 		diary = new Diary();
 		update = new Update();
@@ -135,7 +137,7 @@ public class Main extends Canvas implements Runnable, KeyListener, MouseListener
 	}
 
 	private void initFrame() {
-		frame = new JFrame(Nome);
+		frame = new JFrame(getNome());
 		frame.add(this);
 		frame.setResizable(false);
 		frame.pack();
@@ -146,9 +148,9 @@ public class Main extends Canvas implements Runnable, KeyListener, MouseListener
 	}
 
 	public void mouseClicked(MouseEvent e) {
-		accountSelecter.mouseClicked = true;
-		AccountSelecter.mouseY =  e.getY();
-		AccountSelecter.mouseX =  e.getX();
+		accountSelecter.setMouseClicked(true);
+		AccountSelecter.setMouseY(e.getY());
+		AccountSelecter.setMouseX(e.getX());
 	}
 
 	public void mouseEntered(MouseEvent arg0) {
@@ -168,38 +170,38 @@ public class Main extends Canvas implements Runnable, KeyListener, MouseListener
 	}
 
 	public void keyPressed(KeyEvent e) {
-		switch(State) {
+		switch(getState()) {
 		case "MENU":
 			if(e.getKeyCode() == KeyEvent.VK_DOWN) {
-				menu.down = true;
+				menu.setDown(true);
 			}else if(e.getKeyCode() == KeyEvent.VK_UP) {
-				menu.up = true;
+				menu.setUp(true);
 			}else if(e.getKeyCode() == KeyEvent.VK_ENTER) {
-				menu.enter = true;
+				menu.setEnter(true);
 			}
 			break;
 		case "SIGNIN" :
 		case "LOGIN"  :
 			if(e.getKeyCode() == KeyEvent.VK_LEFT) 
-				accountSelecter.left = true;
+				accountSelecter.setLeft(true);
 			else if(e.getKeyCode() == KeyEvent.VK_RIGHT) 
-				accountSelecter.right = true;
+				accountSelecter.setRight(true);
 			else if(e.getKeyCode() == KeyEvent.VK_ENTER) 
-				accountSelecter.enter = true;
+				accountSelecter.setEnter(true);
 			else if(e.getKeyCode() == KeyEvent.VK_ESCAPE) 
-				if(AccountSelecter.STATE == 1) {
-					State = "MENU";
+				if(AccountSelecter.getSTATE() == 1) {
+					setState("MENU");
 				}
 			break;
 		case "FUNC_SELEC":
 			if(e.getKeyCode() == KeyEvent.VK_DOWN) 
-				functionalitySelector.down = true;
+				functionalitySelector.setDown(true);
 			else if(e.getKeyCode() == KeyEvent.VK_UP) 
-				functionalitySelector.up = true;
+				functionalitySelector.setUp(true);
 			else if(e.getKeyCode() == KeyEvent.VK_ENTER) 
-				functionalitySelector.enter = true;
+				functionalitySelector.setEnter(true);
 			else if(e.getKeyCode() == KeyEvent.VK_ESCAPE)
-				functionalitySelector.escape = true;
+				functionalitySelector.setEscape(true);
 			break;
 		}
 	}
@@ -210,5 +212,33 @@ public class Main extends Canvas implements Runnable, KeyListener, MouseListener
 
 	public void keyTyped(KeyEvent e) {
 		
+	}
+
+	public static String getNome() {
+		return Nome;
+	}
+
+	public static int getWIDTH() {
+		return WIDTH;
+	}
+
+	public static int getHEIGHT() {
+		return HEIGHT;
+	}
+
+	public static String getState() {
+		return State;
+	}
+
+	public static void setState(String state) {
+		State = state;
+	}
+
+	public static Spritesheet getSpritesheet() {
+		return spritesheet;
+	}
+
+	public static void setSpritesheet(Spritesheet spritesheet) {
+		Main.spritesheet = spritesheet;
 	}
 }

@@ -12,11 +12,11 @@ public class CampoAlteracao extends CampoRegistro {
 	public void criarAlterator() {
 		criarRegistro();
 		setTitle("Alteração de dados");
-		this.jFormattedPassword.setText(Integer.toString(User.password));
-		this.jFormattedTextWeight.setText(Integer.toString(User.weight));
-		this.jFormattedTextHeight.setText(Integer.toString(User.height));
-		this.jFormattedTextAge.setText(Integer.toString(User.age));
-		if(User.gender == 1)
+		this.jFormattedPassword.setText(Integer.toString(User.getPassword()));
+		this.jFormattedTextWeight.setText(Integer.toString(User.getWeight()));
+		this.jFormattedTextHeight.setText(Integer.toString(User.getHeight()));
+		this.jFormattedTextAge.setText(Integer.toString(User.getAge()));
+		if(User.getGender() == 1)
 			jrbFem.setSelected(true);
 		else
 			jrbMas.setSelected(true);	
@@ -25,12 +25,12 @@ public class CampoAlteracao extends CampoRegistro {
 	@Override
 	public void finalizarRegistro() {
 		super.finalizarRegistro();
-		Save.applySave(Save.loadRegister(13, User.user));
+		Save.applySave(Save.loadRegister(13, User.getUser()));
 	}
 	
 	@Override
 	public void retornar() {
-		Main.State ="FUNC_SELEC";
+		Main.setState("FUNC_SELEC");
 		dispose();
 	}
 	

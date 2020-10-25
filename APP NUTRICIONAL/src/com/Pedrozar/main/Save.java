@@ -65,47 +65,49 @@ public class Save {
 			String[] spl2 = spl[i].split(":");
 			switch(spl2[0]) {
 			case "user":
-				User.user = Integer.parseInt(spl2[1]);
+				User.setUser(Integer.parseInt(spl2[1]));
 				break;
 			case "password":
-				User.password = Integer.parseInt(spl2[1]);
+				User.setPassword(Integer.parseInt(spl2[1]));
 				break;
 			case "weight":
-				User.weight = Integer.parseInt(spl2[1]);
+				User.setWeight(Integer.parseInt(spl2[1]));
 				break;
 			case "height":
-				User.height = Integer.parseInt(spl2[1]);
+				User.setHeight(Integer.parseInt(spl2[1]));
 				break;
 			case "gender":
-				User.gender = Integer.parseInt(spl2[1]);
+				User.setGender(Integer.parseInt(spl2[1]));
 				break;
 			case "age":
-				User.age = Integer.parseInt(spl2[1]);
+				User.setAge(Integer.parseInt(spl2[1]));
 				break;
 			case "wdcalories":
-				User.wdcalories = Integer.parseInt(spl2[1]);
+				User.setWdcalories(Integer.parseInt(spl2[1]));
 				break;
 			case "d1calories":
-				User.dcalories[0] = Integer.parseInt(spl2[1]);
+				User.getDcalories()[0] = Integer.parseInt(spl2[1]);
 				break;
 			case "d2calories":
-				User.dcalories[1] = Integer.parseInt(spl2[1]);
+				User.getDcalories()[1] = Integer.parseInt(spl2[1]);
 				break;
 			case "d3calories":
-				User.dcalories[2] = Integer.parseInt(spl2[1]);
+				User.getDcalories()[2] = Integer.parseInt(spl2[1]);
 				break;
 			case "d4calories":
-				User.dcalories[3] = Integer.parseInt(spl2[1]);
+				User.getDcalories()[3] = Integer.parseInt(spl2[1]);
 				break;
 			case "d5calories":
-				User.dcalories[4] = Integer.parseInt(spl2[1]);
+				User.getDcalories()[4] = Integer.parseInt(spl2[1]);
 				break;
 			case "d6calories":
-				User.dcalories[5] = Integer.parseInt(spl2[1]);
+				User.getDcalories()[5] = Integer.parseInt(spl2[1]);
 				break;
 			case "d7calories":
-				User.dcalories[6] = Integer.parseInt(spl2[1]);
+				User.getDcalories()[6] = Integer.parseInt(spl2[1]);
 				break;
+			case "firstLogin":
+				User.setFirtLogin(Integer.parseInt(spl2[1]));
 			}
 		}
 	}

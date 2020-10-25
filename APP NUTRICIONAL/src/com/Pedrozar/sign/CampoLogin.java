@@ -20,7 +20,7 @@ public class CampoLogin extends JFrame {
 	void logar() {
 		Container janela = getContentPane();
         setLayout(null);
-        JLabel labelUser = new JLabel("Usuário: " + Main.accountSelecter.slot);
+        JLabel labelUser = new JLabel("Usuário: " + Main.accountSelecter.getSlot());
         JLabel labelPassword = new JLabel("Senha: ");
         JButton buttonEntrar = new JButton("Entrar");
         JButton buttonCancelar = new JButton("Cancelar");
@@ -51,7 +51,7 @@ public class CampoLogin extends JFrame {
         buttonCancelar.addActionListener(new ActionListener() 
         {
 			public void actionPerformed(ActionEvent e) {
-				AccountSelecter.STATE--;
+				AccountSelecter.setSTATE(AccountSelecter.getSTATE() - 1);
 				dispose();
 			}
         });
@@ -61,17 +61,17 @@ public class CampoLogin extends JFrame {
         	public void actionPerformed(ActionEvent e) {
         		if(validation()) {
         			integrarDados();
-        			Main.State = "FUNC_SELEC";
+        			Main.setState("FUNC_SELEC");
         			dispose();
         		}
         	}
         	
         	private void integrarDados() {
-				Save.applySave(Save.loadRegister(13, Main.accountSelecter.slot));
+				Save.applySave(Save.loadRegister(13, Main.accountSelecter.getSlot()));
 			}
 
 			public boolean validation() {
-				return Save.getSave(Save.loadRegister(13, Main.accountSelecter.slot)) == Integer.parseInt(jFormattedPassword.getText());
+				return Save.getSave(Save.loadRegister(13, Main.accountSelecter.getSlot())) == Integer.parseInt(jFormattedPassword.getText());
 			}
         });
         

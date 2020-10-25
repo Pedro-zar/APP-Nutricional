@@ -161,7 +161,7 @@ public class CampoRegistro extends JFrame {
 		dispose();
 	}
 	protected void finalizarRegistro() {
-		String[] opt1 = {"user", "password", "gender", "age","weight", "height"};
+		String[] opt1 = {"user", "password", "gender", "age","weight", "height", "firstLogin"};
 		int gender;
 		if (jrbFem.isSelected())
 			gender = 1; //F
@@ -171,7 +171,8 @@ public class CampoRegistro extends JFrame {
 		int[] opt2 = {Main.accountSelecter.getSlot(),Integer.parseInt(jFormattedPassword.getText()), 
 				gender, Integer.parseInt(jFormattedTextAge.getText()),
 				Integer.parseInt(jFormattedTextWeight.getText()), 
-				Integer.parseInt(jFormattedTextHeight.getText())};
+				Integer.parseInt(jFormattedTextHeight.getText()),
+				0};
 		
 		Save.saveRegister(opt1, opt2, 13, Main.accountSelecter.getSlot());
 	}

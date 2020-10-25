@@ -8,6 +8,7 @@ import java.util.Calendar;
 
 import com.Pedrozar.entities.User;
 import com.Pedrozar.main.Main;
+import com.Pedrozar.main.Save;
 
 public class FunctionalitySelector {
 
@@ -24,33 +25,47 @@ public class FunctionalitySelector {
 		opt[2] = "Logout";
 	}
 	
+
 	public void tick() {
-		if(isUp()) {
-			currentOption--;
-			setUp(false);
-			if(currentOption < 0)
-				currentOption = maxOption;
-		}else if(isDown()){
-			currentOption++;
-			setDown(false);
-			if(currentOption > maxOption)
-				currentOption = 0;
-		}else if(isEnter()) {
-			if(options[currentOption] == "DIARY"|| options[currentOption] == "UPDATE") 
-				Main.setState(options[currentOption]);
-				if(options[currentOption] == "UPDATE")
-					Update.criarJanela();
-			else if(options[currentOption] == "LOGOUT") 
-				Logout.logout();
-			setEnter(false);
-		}else if(isEscape()) {
-			if(currentOption == 2)
-				Logout.logout();
-			currentOption = 2;
-			setEscape(false);
+		if(User.getFirstLogin() == 0) {
+		
+			tutorialEnd();
+		}else {
+			if(isUp()) {
+				currentOption--;
+				setUp(false);
+				if(currentOption < 0)
+					currentOption = maxOption;
+			}else if(isDown()){
+				currentOption++;
+				setDown(false);
+				if(currentOption > maxOption)
+					currentOption = 0;
+			}else if(isEnter()) {
+				if(options[currentOption] == "DIARY"|| options[currentOption] == "UPDATE") 
+					Main.setState(options[currentOption]);
+					if(options[currentOption] == "UPDATE")
+						Update.criarJanela();
+				else if(options[currentOption] == "LOGOUT") 
+					Logout.logout();
+				setEnter(false);
+			}else if(isEscape()) {
+				if(currentOption == 2)
+					Logout.logout();
+				currentOption = 2;
+				setEscape(false);
+			}
 		}
 	}
 	
+	private void tutorialEnd() {
+		User.setFirtLogin(1);
+		String[] opt1 = {"user", "password", "gender", "age","weight", "height", "firstLogin"};
+		int[] opt2 = {User.getUser(), User.getPassword(), User.getGender(), User.getAge(), User.getWeight(), User.getHeight(), 1};
+		Save.saveRegister(opt1, opt2, 13, User.getUser());	
+	}
+
+
 	public void render(Graphics g) {
 		//Texto de bem vindo
 		String dayPart, gender;
@@ -59,6 +74,12 @@ public class FunctionalitySelector {
 		else
 			gender = "o";
 		int hour = Calendar.HOUR_OF_DAY;
+		for(int i = 0; i < 4; i++) {
+			if(hour == 23)
+				hour = 0;
+			else 
+				hour++;
+		}
 		if(hour >= 6 && hour <= 12)
 			dayPart = "bom dia";
 		else if(hour >= 13 && hour <= 18)

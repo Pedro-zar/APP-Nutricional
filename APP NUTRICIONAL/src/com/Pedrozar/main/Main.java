@@ -127,7 +127,7 @@ public class Main extends Canvas implements Runnable, KeyListener, MouseListener
 		addMouseListener(this);
 		initFrame();
 		
-		setSpritesheet(new Spritesheet("res/spritesheet.png"));	
+		spritesheet = new Spritesheet("/spritesheet.png");	
 		image = new BufferedImage(getWIDTH(),getHEIGHT(),BufferedImage.TYPE_INT_RGB);
 		menu = new Menu();
 		diary = new Diary();
@@ -238,7 +238,4 @@ public class Main extends Canvas implements Runnable, KeyListener, MouseListener
 		return spritesheet;
 	}
 
-	public static void setSpritesheet(Spritesheet spritesheet) {
-		Main.spritesheet = spritesheet;
-	}
 }

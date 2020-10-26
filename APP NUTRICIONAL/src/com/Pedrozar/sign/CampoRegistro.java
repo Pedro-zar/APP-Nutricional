@@ -21,10 +21,11 @@ public class CampoRegistro extends JFrame {
 	private static final long serialVersionUID = 1L;
 	protected JFormattedTextField jFormattedTextWeight, jFormattedPassword, jFormattedTextAge, jFormattedTextHeight;
     protected JRadioButton jrbFem, jrbMas;
+    protected Container janela;
     
 	protected void criarRegistro() {
 		
-             Container janela = getContentPane();
+             janela = getContentPane();
              setLayout(null);
              
              JLabel labelUser = new JLabel("Usuário: " + Main.accountSelecter.getSlot());

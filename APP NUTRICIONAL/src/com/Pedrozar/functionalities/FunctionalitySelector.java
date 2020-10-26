@@ -25,7 +25,6 @@ public class FunctionalitySelector {
 		opt[2] = "Logout";
 	}
 	
-
 	public void tick() {
 		if(User.getFirstLogin() == 0) {
 		

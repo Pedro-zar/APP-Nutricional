@@ -26,7 +26,7 @@ public class Main extends Canvas implements Runnable, KeyListener, MouseListener
 	private static final String Nome = "Wealth and Health";
 	private Thread thread;
 	private boolean isRunning = true;
-	private static final int HEIGHT = 720, WIDTH = (int)(getHEIGHT()*1.777777777777778);
+	private static int HEIGHT = 720, WIDTH = (int)(getHEIGHT()*1.777777777777778);
 	private BufferedImage image;
 	private static String State = "MENU";
 	private static Spritesheet spritesheet;
@@ -122,7 +122,7 @@ public class Main extends Canvas implements Runnable, KeyListener, MouseListener
 	}
 
 	public Main() {
-		setPreferredSize(new Dimension(getWIDTH(),getHEIGHT()));
+		
 		addKeyListener(this);
 		addMouseListener(this);
 		initFrame();
@@ -138,8 +138,9 @@ public class Main extends Canvas implements Runnable, KeyListener, MouseListener
 
 	private void initFrame() {
 		frame = new JFrame(getNome());
-		frame.add(this);
-		frame.setResizable(false);
+		frame.setPreferredSize(new Dimension(getWIDTH(),getHEIGHT()));
+		frame.add(this); 
+		frame.setResizable(false); 
 		frame.pack();
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -218,6 +219,12 @@ public class Main extends Canvas implements Runnable, KeyListener, MouseListener
 		return Nome;
 	}
 
+	public static void setScreenSize(int height) {
+		HEIGHT = height;
+		WIDTH = (int)(getHEIGHT()*1.777777777777778);
+		frame.setPreferredSize(new Dimension(getWIDTH(),getHEIGHT()));
+	}
+	
 	public static int getWIDTH() {
 		return WIDTH;
 	}

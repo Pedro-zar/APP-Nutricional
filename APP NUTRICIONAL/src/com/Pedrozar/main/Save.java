@@ -133,6 +133,7 @@ public class Save {
 						line+=transition[1];
 						line+="/";
 					}
+					reader.close();
 				}catch(IOException e) {}
 			}catch(FileNotFoundException e) {}
 		}

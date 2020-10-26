@@ -1,5 +1,10 @@
 package com.Pedrozar.functionalities;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+
 import com.Pedrozar.entities.User;
 import com.Pedrozar.main.Main;
 import com.Pedrozar.main.Save;
@@ -12,14 +17,37 @@ public class CampoAlteracao extends CampoRegistro {
 	public void criarAlterator() {
 		criarRegistro();
 		setTitle("Alteração de dados");
+		JButton buttonDeletar = new JButton("Deletar");
+		buttonDeletar.setBounds(270,280, 100, 20);
+		janela.add(buttonDeletar);
 		this.jFormattedPassword.setText(Integer.toString(User.getPassword()));
-		this.jFormattedTextWeight.setText(Integer.toString(User.getWeight()));
-		this.jFormattedTextHeight.setText(Integer.toString(User.getHeight()));
-		this.jFormattedTextAge.setText(Integer.toString(User.getAge()));
+		if(User.getWeight() < 100) 
+			this.jFormattedTextWeight.setText("0" + Integer.toString(User.getWeight()));
+		else
+			this.jFormattedTextWeight.setText(Integer.toString(User.getWeight()));
+		
+		if(User.getHeight() < 100) 
+			this.jFormattedTextHeight.setText("0" + Integer.toString(User.getHeight()));
+		else
+			this.jFormattedTextHeight.setText(Integer.toString(User.getHeight()));
+		
+		if(User.getAge() < 10) 
+			this.jFormattedTextAge.setText("0" + Integer.toString(User.getAge()));
+		else
+			this.jFormattedTextAge.setText(Integer.toString(User.getAge()));
+
 		if(User.getGender() == 1)
 			jrbFem.setSelected(true);
 		else
 			jrbMas.setSelected(true);	
+		
+		buttonDeletar.addActionListener(new ActionListener() 
+        {
+			public void actionPerformed(ActionEvent e){
+				Save.deleteAccount(User.getUser());
+				dispose();
+			}
+        });
 	}
 
 	@Override

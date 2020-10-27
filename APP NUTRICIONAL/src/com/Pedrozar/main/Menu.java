@@ -1,11 +1,11 @@
-package com.Pedrozar.main;
+package com.pedrozar.main;
 
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.io.File;
 
-import com.Pedrozar.sign.AccountSelecter;
+import com.pedrozar.sign.AccountSelecter;
 
 public class Menu {
 	
@@ -58,21 +58,28 @@ public class Menu {
 		//Titulo
 		g.setColor(new Color(141, 255, 161));
 		g.setFont(new Font("arial",Font.BOLD, Main.getWIDTH() / 33));
-		g.drawString(Main.getNome(), (Main.getWIDTH()) / 2 - (Main.getWIDTH() / 8), (Main.getHEIGHT()) / 2 - (Main.getHEIGHT()/3));
+		g.drawString(Main.getNome(), (Main.getWIDTH()) / 2 - (Main.getWIDTH() / 8),
+				(Main.getHEIGHT()) / 2 - (Main.getHEIGHT()/3));
 		
 		//Opcoes de menu
 		g.setFont(new Font("arial",Font.BOLD, Main.getWIDTH() / 50));
-		g.drawString("Entrar", (Main.getWIDTH()) / 2 - (Main.getWIDTH() / 15), (int) (Main.getHEIGHT() / 3.75));
-		g.drawString("Registrar-se", (Main.getWIDTH()) / 2 - (Main.getWIDTH() / 15), Main.getHEIGHT() / 3);
-		g.drawString("Sair", (Main.getWIDTH()) / 2 - (Main.getWIDTH() / 15), (int) (Main.getHEIGHT() / 2.5));
+		g.drawString("Entrar", (Main.getWIDTH()) / 2 - (Main.getWIDTH() / 15), 
+				(int) (Main.getHEIGHT() / 3.75));
+		g.drawString("Registrar-se", (Main.getWIDTH()) / 2 - (Main.getWIDTH() / 15), 
+				Main.getHEIGHT() / 3);
+		g.drawString("Sair", (Main.getWIDTH()) / 2 - (Main.getWIDTH() / 15), 
+				(int) (Main.getHEIGHT() / 2.5));
 		
 		//Seleção da opção
 		if(options[currentOption] == "LOGIN") {
-			g.drawString(">", (Main.getWIDTH()) / 2 - (Main.getWIDTH() / 10), (int) (Main.getHEIGHT()/3.75));
+			g.drawString(">", (Main.getWIDTH()) / 2 - (Main.getWIDTH() / 10), 
+					(int) (Main.getHEIGHT()/3.75));
 		}else if(options[currentOption] == "SIGN IN") {
-			g.drawString(">", (Main.getWIDTH()) / 2 - (Main.getWIDTH() / 10), Main.getHEIGHT()/3);
+			g.drawString(">", (Main.getWIDTH()) / 2 - (Main.getWIDTH() / 10), 
+					Main.getHEIGHT()/3);
 		}else if(options[currentOption] == "EXIT") {
-			g.drawString(">", (Main.getWIDTH()) / 2 - (Main.getWIDTH() / 10),(int) (Main.getHEIGHT()/2.5));
+			g.drawString(">", (Main.getWIDTH()) / 2 - (Main.getWIDTH() / 10),
+					(int) (Main.getHEIGHT()/2.5));
 		}
 	}
 

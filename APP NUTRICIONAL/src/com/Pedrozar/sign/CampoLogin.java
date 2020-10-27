@@ -1,4 +1,4 @@
-package com.Pedrozar.sign;
+package com.pedrozar.sign;
 
 import java.awt.Container;
 import java.awt.event.ActionEvent;
@@ -10,8 +10,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.text.MaskFormatter;
 
-import com.Pedrozar.main.Main;
-import com.Pedrozar.main.Save;
+import com.pedrozar.main.Main;
+import com.pedrozar.main.Save;
 
 public class CampoLogin extends JFrame {
 
@@ -31,12 +31,12 @@ public class CampoLogin extends JFrame {
         buttonCancelar.setBounds(30, 120, 100, 20);
         
         try{
-       	 mascaraPassword = new MaskFormatter("####");
-       	 mascaraPassword.setPlaceholderCharacter('_');
+        	mascaraPassword = new MaskFormatter("####");
+       	 	mascaraPassword.setPlaceholderCharacter('_');
         }
         catch(ParseException excp) {
-               System.err.println("Erro na formatação: " + excp.getMessage());
-               System.exit(-1);
+        	System.err.println("Erro na formatação: " + excp.getMessage());
+        	System.exit(-1);
         }
         
         JFormattedTextField jFormattedPassword = new JFormattedTextField(mascaraPassword);
@@ -50,8 +50,8 @@ public class CampoLogin extends JFrame {
         
         buttonCancelar.addActionListener(new ActionListener() 
         {
-			public void actionPerformed(ActionEvent e) {
-				AccountSelecter.setSTATE(AccountSelecter.getSTATE() - 1);
+        	public void actionPerformed(ActionEvent e) {
+        		AccountSelecter.setSTATE(AccountSelecter.getSTATE() - 1);
 				dispose();
 			}
         });
@@ -71,7 +71,9 @@ public class CampoLogin extends JFrame {
 			}
 
 			public boolean validation() {
-				return Save.getSave(Save.loadRegister(13, Main.accountSelecter.getSlot())) == Integer.parseInt(jFormattedPassword.getText());
+				return Save.getSave(Save.loadRegister(13, 
+						Main.accountSelecter.getSlot())) 
+						== Integer.parseInt(jFormattedPassword.getText());
 			}
         });
         

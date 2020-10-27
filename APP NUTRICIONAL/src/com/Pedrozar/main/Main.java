@@ -1,4 +1,4 @@
-package com.Pedrozar.main;
+package com.pedrozar.main;
 
 import java.awt.Canvas;
 import java.awt.Color;
@@ -13,36 +13,74 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.JFrame;
 
-import com.Pedrozar.functionalities.Diary;
-import com.Pedrozar.functionalities.FunctionalitySelector;
-import com.Pedrozar.functionalities.Update;
-import com.Pedrozar.graphics.Spritesheet;
-import com.Pedrozar.sign.AccountSelecter;
+import com.pedrozar.functionalities.Diary;
+import com.pedrozar.functionalities.FunctionalitySelector;
+import com.pedrozar.functionalities.Update;
+import com.pedrozar.graphics.Spritesheet;
+import com.pedrozar.sign.AccountSelecter;
 
 public class Main extends Canvas implements Runnable, KeyListener, MouseListener {
 
+	public static AccountSelecter accountSelecter;
 	private static final long serialVersionUID = 1L;
 	private static JFrame frame;
-	private static final String Nome = "Wealth and Health";
-	private Thread thread;
-	private boolean isRunning = true;
+	private static final String NOME = "Wealth and Health";
 	private static int HEIGHT = 720, WIDTH = (int)(getHEIGHT()*1.777777777777778);
-	private BufferedImage image;
 	private static String State = "MENU";
 	private static Spritesheet spritesheet;
-	
 	public Menu menu;
 	public Update update;
 	public Diary diary;
 	public FunctionalitySelector functionalitySelector;
-	public static AccountSelecter accountSelecter;
-	
-	
+	private boolean isRunning = true;
+	private Thread thread;	
+	private BufferedImage image;
+
+	public Main() {
+		addKeyListener(this);
+		addMouseListener(this);
+		initFrame();
+		
+		spritesheet = new Spritesheet("/spritesheet.png");	
+		image = new BufferedImage(getWIDTH(),getHEIGHT(),BufferedImage.TYPE_INT_RGB);
+		menu = new Menu();
+		diary = new Diary();
+		update = new Update();
+		functionalitySelector = new FunctionalitySelector();
+		accountSelecter = new AccountSelecter();
+	}
+
 	public static void main(String args[]){
 		Main main = new Main();
 		main.start();
 	}
 	
+	public static void setScreenSize(int height) {
+		HEIGHT = height;
+		WIDTH = (int)(getHEIGHT()*1.777777777777778);
+		frame.setPreferredSize(new Dimension(getWIDTH(),getHEIGHT()));
+	}
+	
+	public static int getWIDTH() {
+		return WIDTH;
+	}
+
+	public static int getHEIGHT() {
+		return HEIGHT;
+	}
+
+	public static String getState() {
+		return State;
+	}
+
+	public static void setState(String state) {
+		State = state;
+	}
+
+	public static Spritesheet getSpritesheet() {
+		return spritesheet;
+	}
+
 	public synchronized void start() {
 		thread = new Thread(this);
 		isRunning = true;
@@ -121,33 +159,6 @@ public class Main extends Canvas implements Runnable, KeyListener, MouseListener
 			diary.tick();
 	}
 
-	public Main() {
-		
-		addKeyListener(this);
-		addMouseListener(this);
-		initFrame();
-		
-		spritesheet = new Spritesheet("/spritesheet.png");	
-		image = new BufferedImage(getWIDTH(),getHEIGHT(),BufferedImage.TYPE_INT_RGB);
-		menu = new Menu();
-		diary = new Diary();
-		update = new Update();
-		functionalitySelector = new FunctionalitySelector();
-		accountSelecter = new AccountSelecter();
-	}
-
-	private void initFrame() {
-		frame = new JFrame(getNome());
-		frame.setPreferredSize(new Dimension(getWIDTH(),getHEIGHT()));
-		frame.add(this); 
-		frame.setResizable(false); 
-		frame.pack();
-		frame.setLocationRelativeTo(null);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setVisible(true);
-		
-	}
-
 	public void mouseClicked(MouseEvent e) {
 		accountSelecter.setMouseClicked(true);
 		AccountSelecter.setMouseY(e.getY());
@@ -216,33 +227,19 @@ public class Main extends Canvas implements Runnable, KeyListener, MouseListener
 	}
 
 	public static String getNome() {
-		return Nome;
-	}
-
-	public static void setScreenSize(int height) {
-		HEIGHT = height;
-		WIDTH = (int)(getHEIGHT()*1.777777777777778);
-		frame.setPreferredSize(new Dimension(getWIDTH(),getHEIGHT()));
+		return NOME;
 	}
 	
-	public static int getWIDTH() {
-		return WIDTH;
-	}
-
-	public static int getHEIGHT() {
-		return HEIGHT;
-	}
-
-	public static String getState() {
-		return State;
-	}
-
-	public static void setState(String state) {
-		State = state;
-	}
-
-	public static Spritesheet getSpritesheet() {
-		return spritesheet;
+	private void initFrame() {
+		frame = new JFrame(getNome());
+		frame.setPreferredSize(new Dimension(getWIDTH(),getHEIGHT()));
+		frame.add(this); 
+		frame.setResizable(false); 
+		frame.pack();
+		frame.setLocationRelativeTo(null);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setVisible(true);
+		
 	}
 
 }

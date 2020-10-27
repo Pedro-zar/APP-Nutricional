@@ -1,4 +1,4 @@
-package com.Pedrozar.functionalities;
+package com.pedrozar.functionalities;
 
 import java.awt.Graphics;
 

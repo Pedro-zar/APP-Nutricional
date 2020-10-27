@@ -1,4 +1,4 @@
-package com.Pedrozar.sign;
+package com.pedrozar.sign;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -8,13 +8,14 @@ import java.io.File;
 
 import javax.swing.JOptionPane;
 
-import com.Pedrozar.main.Main;
+import com.pedrozar.entities.User;
+import com.pedrozar.main.Main;
 
 public class AccountSelecter {
 	
 	private static BufferedImage[] PERFIL = new BufferedImage[3];	
-	private final String[] options = { "1","2", "3"};
-	private int currentOption = 0, maxOption = options.length-1, slot = 0;
+	private final String[] OPTIONS = { "1","2", "3"};
+	private int currentOption = 0, maxOption = OPTIONS.length-1, slot = 0;
 	private boolean left = false, right = false, enter = false;
 	private static int mouseX, mouseY, STATE = 1;
 	private boolean mouseClicked;
@@ -30,7 +31,9 @@ public class AccountSelecter {
 		if(getSTATE() == 1) {
 			if(isMouseClicked()) {
 				setMouseClicked(false);
-				if(getMouseX() >= Main.getWIDTH()/5.61 && getMouseX() <= Main.getWIDTH()/2.95 && getMouseY() >= Main.getHEIGHT()/3.3 && getMouseY() <= Main.getHEIGHT()/1.76) {
+				if(getMouseX() >= Main.getWIDTH()/5.61 && getMouseX() <= Main.getWIDTH()
+						/2.95 && getMouseY() >= Main.getHEIGHT()/3.3 && getMouseY() 
+						<= Main.getHEIGHT()/1.76) {
 					if(currentOption == 0) {
 						if(getState() == "SIGNIN")
 							signin();
@@ -38,7 +41,9 @@ public class AccountSelecter {
 							login();
 					}
 					currentOption = 0;
-				}else if(getMouseX() >= Main.getWIDTH()/2.25 && getMouseX() <= Main.getWIDTH()/1.65 && getMouseY() >= Main.getHEIGHT()/3.3 && getMouseY() <= Main.getHEIGHT()/1.76) {
+				}else if(getMouseX() >= Main.getWIDTH()/2.25 && getMouseX() 
+						<= Main.getWIDTH()/1.65 && getMouseY() >= Main.getHEIGHT()/3.3 
+						&& getMouseY() <= Main.getHEIGHT()/1.76) {
 					if(currentOption == 1) {
 						if(getState() == "SIGNIN")
 							signin();
@@ -46,7 +51,9 @@ public class AccountSelecter {
 							login();
 					}
 					currentOption = 1;
-				}else if(getMouseX() >= Main.getWIDTH()/1.41 && getMouseX() <= Main.getWIDTH()/1.15 && getMouseY() >= Main.getHEIGHT()/3.3 && getMouseY() <= Main.getHEIGHT()/1.76) {
+				}else if(getMouseX() >= Main.getWIDTH()/1.41 && getMouseX() 
+						<= Main.getWIDTH()/1.15 && getMouseY() >= Main.getHEIGHT()/3.3 
+						&& getMouseY() <= Main.getHEIGHT()/1.76) {
 					if(currentOption == 2 ) {
 						if(getState() == "SIGNIN")
 							signin();
@@ -86,14 +93,24 @@ public class AccountSelecter {
 	
 	public void render(Graphics g) {
 		if(getSTATE()==1) {
-			g.drawImage(PERFIL[0],(int) (Main.getWIDTH()/4) - (int)(Main.getWIDTH()/12.12), (int)(Main.getHEIGHT()/3.273), (int)(Main.getWIDTH()/6.6), (int)(Main.getWIDTH()/6.6), null);
-			g.drawImage(PERFIL[1], (int) (Main.getWIDTH()/4*2) - (int)(Main.getWIDTH()/12.12), (int)(Main.getHEIGHT()/3.273), (int)(Main.getWIDTH()/6.6), (int)(Main.getWIDTH()/6.6), null);
-			g.drawImage(PERFIL[2], (int) (Main.getWIDTH()/4*3) - (int)(Main.getWIDTH()/12.12), (int)(Main.getHEIGHT()/3.273), (int)(Main.getWIDTH()/6.6), (int)(Main.getWIDTH()/6.6), null);
+			g.drawImage(PERFIL[0],(int) (Main.getWIDTH()/4) - 
+					(int)(Main.getWIDTH()/12.12), (int)(Main.getHEIGHT()/3.273), 
+					(int)(Main.getWIDTH()/6.6), (int)(Main.getWIDTH()/6.6), null);
+			g.drawImage(PERFIL[1], (int) (Main.getWIDTH()/4*2) - 
+					(int)(Main.getWIDTH()/12.12), (int)(Main.getHEIGHT()/3.273), 
+					(int)(Main.getWIDTH()/6.6), (int)(Main.getWIDTH()/6.6), null);
+			g.drawImage(PERFIL[2], (int) (Main.getWIDTH()/4*3) - 
+					(int)(Main.getWIDTH()/12.12), (int)(Main.getHEIGHT()/3.273), 
+					(int)(Main.getWIDTH()/6.6), (int)(Main.getWIDTH()/6.6), null);
 			g.setColor(Color.green);
 			g.setFont(new Font("arial",Font.BOLD,90));
-			g.drawString("^",(int) (((Main.getWIDTH()/4)*(currentOption+1)) - Main.getWIDTH()/40), Main.getHEIGHT() / 2 + (int)(Main.getHEIGHT() / 4.6));	
+			g.drawString("^",(int) (((Main.getWIDTH()/4)*(currentOption+1)) - 
+					Main.getWIDTH()/40), Main.getHEIGHT() / 2 + 
+					(int)(Main.getHEIGHT() / 4.6));	
 		}else if(getSTATE()==2) {
-			g.drawImage(PERFIL[getSlot()-1],Main.getWIDTH()/10, (int)(Main.getHEIGHT()/3.273), (int)(Main.getWIDTH()/6.6), (int)(Main.getWIDTH()/6.6), null);		
+			g.drawImage(PERFIL[getSlot()-1],Main.getWIDTH()/10, 
+					(int)(Main.getHEIGHT()/3.273), (int)(Main.getWIDTH()/6.6), 
+					(int)(Main.getWIDTH()/6.6), null);		
 		}
 	}
 
@@ -105,7 +122,10 @@ public class AccountSelecter {
 			CampoRegistro campo = new CampoRegistro();
 			campo.criarRegistro();
 		}else 
-			JOptionPane.showMessageDialog(null,"Uma conta já foi criada com este usuário, selecione outro slot de salvamento, ou aperte ESC para retornar a tela inicial!","Conta já criada!", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(null,
+					"Uma conta já foi criada com este usuário, selecione outro slot "
+					+ "de salvamento, ou aperte ESC para retornar a tela inicial!",
+					"Conta já criada!", JOptionPane.INFORMATION_MESSAGE);
 	
 	}
 
@@ -117,10 +137,26 @@ public class AccountSelecter {
 			CampoLogin campo = new CampoLogin();
 			campo.logar();
 		}else 
-			JOptionPane.showMessageDialog(null,"Conta não registrada neste usuário!","Conta não criada!", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(null,"Conta não registrada neste usuário!",
+					"Conta não criada!", JOptionPane.INFORMATION_MESSAGE);
 	
 	}
-
+	
+	public static void logout()
+	{
+		User.setHeight(0); 
+		User.setWeight(0);
+		User.setWdcalories(0);
+		User.setAge(0);
+		User.setGender(0); 
+		User.setPassword(0);
+		User.setUser(0);
+		for(int i = 0; i < 7; i++) 
+			User.getDcalories()[i] = 0;
+		Main.setState("MENU");
+		AccountSelecter.setSTATE(1);
+	}
+	
 	public int getSlot() {
 		return slot;
 	}

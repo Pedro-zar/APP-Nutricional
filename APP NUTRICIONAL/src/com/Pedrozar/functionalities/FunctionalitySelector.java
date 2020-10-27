@@ -1,4 +1,4 @@
-package com.Pedrozar.functionalities;
+package com.pedrozar.functionalities;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -6,9 +6,10 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.util.Calendar;
 
-import com.Pedrozar.entities.User;
-import com.Pedrozar.main.Main;
-import com.Pedrozar.main.Save;
+import com.pedrozar.entities.User;
+import com.pedrozar.main.Main;
+import com.pedrozar.main.Save;
+import com.pedrozar.sign.AccountSelecter;
 
 public class FunctionalitySelector {
 
@@ -41,16 +42,17 @@ public class FunctionalitySelector {
 				if(currentOption > maxOption)
 					currentOption = 0;
 			}else if(isEnter()) {
-				if(options[currentOption] == "DIARY"|| options[currentOption] == "UPDATE") 
+				if(options[currentOption] == "DIARY"
+						|| options[currentOption] == "UPDATE") 
 					Main.setState(options[currentOption]);
-					if(options[currentOption] == "UPDATE")
-						Update.criarJanela();
+				if(options[currentOption] == "UPDATE")
+					Update.criarJanela();
 				else if(options[currentOption] == "LOGOUT") 
-					Logout.logout();
+					AccountSelecter.logout();
 				setEnter(false);
 			}else if(isEscape()) {
 				if(currentOption == 2)
-					Logout.logout();
+					AccountSelecter.logout();
 				currentOption = 2;
 				setEscape(false);
 			}
@@ -59,8 +61,10 @@ public class FunctionalitySelector {
 	
 	private void tutorialEnd() {
 		User.setFirtLogin(1);
-		String[] opt1 = {"user", "password", "gender", "age","weight", "height", "firstLogin"};
-		int[] opt2 = {User.getUser(), User.getPassword(), User.getGender(), User.getAge(), User.getWeight(), User.getHeight(), 1};
+		String[] opt1 = {"user", "password", "gender", "age","weight", 
+				"height", "firstLogin"};
+		int[] opt2 = {User.getUser(), User.getPassword(), User.getGender(), 
+				User.getAge(), User.getWeight(), User.getHeight(), 1};
 		Save.saveRegister(opt1, opt2, 13, User.getUser());	
 	}
 
@@ -88,15 +92,20 @@ public class FunctionalitySelector {
 		//Fonte e escrita
 		g.setColor(new Color(141, 255, 161));
 		g.setFont(new Font("arial",Font.BOLD, Main.getWIDTH() / 33));
-		g.drawString("Olá, " + dayPart + ". Seja bem vind" + gender + "!", Main.getWIDTH() / 10, Main.getHEIGHT() / 10);
-		g.drawString("Escolha uma das opções para prosseguir:", (Main.getWIDTH() / 10), (Main.getHEIGHT() / 10) * 2);
+		g.drawString("Olá, " + dayPart + ". Seja bem vind" + gender + "!", 
+				Main.getWIDTH() / 10, Main.getHEIGHT() / 10);
+		g.drawString("Escolha uma das opções para prosseguir:", (Main.getWIDTH() / 10), 
+				(Main.getHEIGHT() / 10) * 2);
 		
 		//opções
 		for(int i = 1; i < 4; i++) {
-			g.drawImage(optionSprite, Main.getWIDTH()/6, Main.getHEIGHT()/6 * (i + 1), (int)(Main.getWIDTH()/3.125), (int)(Main.getHEIGHT()/8.57), null);
-			g.drawString(opt[i-1], (int)(Main.getWIDTH()/6 * 1.2), Main.getHEIGHT()/6 * (i + 1) + (int)(Main.getHEIGHT()/8.57/1.5));
+			g.drawImage(optionSprite, Main.getWIDTH()/6, Main.getHEIGHT()/6 * (i + 1), 
+					(int)(Main.getWIDTH()/3.125), (int)(Main.getHEIGHT()/8.57), null);
+			g.drawString(opt[i-1], (int)(Main.getWIDTH()/6 * 1.2), 
+					Main.getHEIGHT()/6 * (i + 1) + (int)(Main.getHEIGHT()/8.57/1.5));
 		}
-		g.drawString(">", (int)(Main.getWIDTH()/6 * 0.7), Main.getHEIGHT()/6 * (currentOption + 2) + (int)(Main.getHEIGHT()/8.57/1.5));
+		g.drawString(">", (int)(Main.getWIDTH()/6 * 0.7), Main.getHEIGHT()/6 
+				* (currentOption + 2) + (int)(Main.getHEIGHT()/8.57/1.5));
 		
 	}
 

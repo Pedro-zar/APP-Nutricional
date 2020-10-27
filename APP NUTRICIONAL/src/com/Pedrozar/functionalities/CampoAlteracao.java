@@ -1,14 +1,14 @@
-package com.Pedrozar.functionalities;
+package com.pedrozar.functionalities;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
-import com.Pedrozar.entities.User;
-import com.Pedrozar.main.Main;
-import com.Pedrozar.main.Save;
-import com.Pedrozar.sign.CampoRegistro;
+import com.pedrozar.entities.User;
+import com.pedrozar.main.Main;
+import com.pedrozar.main.Save;
+import com.pedrozar.sign.CampoRegistro;
 
 public class CampoAlteracao extends CampoRegistro {
 

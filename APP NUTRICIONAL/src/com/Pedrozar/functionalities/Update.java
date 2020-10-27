@@ -1,10 +1,10 @@
-package com.Pedrozar.functionalities;
+package com.pedrozar.functionalities;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
-import com.Pedrozar.entities.User;
-import com.Pedrozar.main.Main;
+import com.pedrozar.entities.User;
+import com.pedrozar.main.Main;
 
 public class Update {
 	
@@ -22,7 +22,9 @@ public class Update {
 	}
 
 	public void render(Graphics g) {
-		g.drawImage(PERFIL[User.getUser() - 1], Main.getWIDTH()/10, (int)(Main.getHEIGHT()/3.273), (int)(Main.getWIDTH()/6.6), (int)(Main.getWIDTH()/6.6), null);	
+		g.drawImage(PERFIL[User.getUser() - 1], Main.getWIDTH()/10, 
+				(int)(Main.getHEIGHT()/3.273), (int)(Main.getWIDTH()/6.6), 
+				(int)(Main.getWIDTH()/6.6), null);	
 	}
 
 }

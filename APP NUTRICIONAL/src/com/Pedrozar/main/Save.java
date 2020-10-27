@@ -1,4 +1,4 @@
-package com.Pedrozar.main;
+package com.pedrozar.main;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -8,15 +8,15 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import com.Pedrozar.entities.User;
-import com.Pedrozar.functionalities.Logout;
+import com.pedrozar.entities.User;
+import com.pedrozar.sign.AccountSelecter;
 
 public class Save {
 	
 	public static void deleteAccount(int slot) {
 		File file = new File("contas" + slot + ".txt");
 		file.delete();
-		Logout.logout();
+		AccountSelecter.logout();
 	}
 	
 	public static void saveRegister(String[] val1, int[] val2, int encode, int slot) {
@@ -118,7 +118,8 @@ public class Save {
 		if(file.exists()) {
 			try {
 				String singleLine  = null;
-				BufferedReader reader = new BufferedReader(new FileReader("contas" + slot + ".txt"));
+				BufferedReader reader = new BufferedReader(new FileReader(
+						"contas" + slot + ".txt"));
 				try {
 					while((singleLine = reader.readLine()) != null) {
 						String[] transition = singleLine.split(":");

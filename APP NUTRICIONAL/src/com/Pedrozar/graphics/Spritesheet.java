@@ -1,4 +1,4 @@
-package com.Pedrozar.graphics;
+package com.pedrozar.graphics;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;

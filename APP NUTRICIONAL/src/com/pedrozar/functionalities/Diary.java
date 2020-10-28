@@ -18,20 +18,25 @@ public class Diary {
 	private String[] options = {"ADICIONAR","VOLTAR"};
 	private int currentOption = 0, maxOption = options.length-1;
 	private BufferedImage spritesheet;
+	private int nutrientsDivision = 0, necProt, necFats, necCarbs;
 	
 	public Diary() {
 		spritesheet = Main.getSpritesheet().getSprite(64, 64,96,21);
-		foodList = new String[100][5];
+		setFoodList(new String[100][5]);
 	}
 	
 	public void tick() {
-		if(isMouseClicked()) {
-			if(getMouseX() >= Main.getWIDTH() * 0.7 && tutorialState < 10) {
+		int calories = User.getWdcalories() / 100;
+		necProt =  calories * User.getProteinsDivision()[0];
+		necFats = calories * User.getProteinsDivision()[1];
+		necCarbs = calories * User.getProteinsDivision()[2];
+		if(User.getFirstLogin() == 0) {
+			if(getMouseX() >= Main.getWIDTH() * 0.7 && mouseClicked) {
 				tutorialState++;
-			}
+			}else if(tutorialState > 10)
+				User.setFirtLogin(1);
 			setMouseClicked(false);
-		}
-		if(isUp()) {
+		}else if(isUp()) {
 			currentOption--;
 			setUp(false);
 			if(currentOption < 0)
@@ -71,7 +76,7 @@ public class Diary {
 				(int)(Main.getWIDTH() * 0.69), 
 				(int)(Main.getHEIGHT() * 0.815));
 		//Calories
-		g.drawString("Meta de Calorias: " + 1800,
+		g.drawString("Meta de Calorias: " + User.getWdcalories(),
 				(int)(Main.getWIDTH() * 0.05), 
 				(int)(Main.getHEIGHT() * 0.1));
 		g.drawString("Calorias Consumidas: " + 1200,
@@ -85,24 +90,24 @@ public class Diary {
 				(int)(Main.getWIDTH() * 0.37), 
 				(int)(Main.getHEIGHT() * 0.15));
 		//Fats
-		g.drawString("Proteinas necessárias: " + 200 + "g",
+		g.drawString("Proteinas necessárias: " + necProt + "g",
 				(int)(Main.getWIDTH() * 0.6), 
 				(int)(Main.getHEIGHT() * 0.1));
-		g.drawString("Proteinas consumidas: " + 200 + "g",
+		g.drawString("Proteinas consumidas: " + 2 + "g",
 				(int)(Main.getWIDTH() * 0.6), 
 				(int)(Main.getHEIGHT() * 0.15));
 		//Protein
-		g.drawString("Gorduras necessárias: " + 200 + "g",
+		g.drawString("Gorduras necessárias: " + necFats + "g",
 				(int)(Main.getWIDTH() * 0.6), 
 				(int)(Main.getHEIGHT() * 0.3));
-		g.drawString("Gorduras consumidas: " + 200 + "g",
+		g.drawString("Gorduras consumidas: " + 2 + "g",
 				(int)(Main.getWIDTH() * 0.6), 
 				(int)(Main.getHEIGHT() * 0.35));
 		//Carbs
-		g.drawString("Carboidratos necessários: " + 200 + "g",
+		g.drawString("Carboidratos necessários: " + necCarbs + "g",
 				(int)(Main.getWIDTH() * 0.6), 
 				(int)(Main.getHEIGHT() * 0.5));
-		g.drawString("Carboidratos consumidos: " + 200 + "g",
+		g.drawString("Carboidratos consumidos: " + 2 + "g",
 				(int)(Main.getWIDTH() * 0.6), 
 				(int)(Main.getHEIGHT() * 0.55));
 	}
@@ -112,6 +117,23 @@ public class Diary {
 	}
 	
 	private void endTutorial() {
+		int[] nutrientChosed = new int[3];
+		if(this.getNutrientsDivision() == 0) {//moderate carb
+			nutrientChosed[0] = 30;
+			nutrientChosed[1] = 35;
+			nutrientChosed[2] = 35;
+			User.setProteinsDivision(nutrientChosed);
+		}else if(this.getNutrientsDivision() == 1){//low carb
+			nutrientChosed[0] = 40;
+			nutrientChosed[1] = 40;
+			nutrientChosed[2] = 20;
+			User.setProteinsDivision(nutrientChosed);
+		}else {//high carb
+			nutrientChosed[0] = 30;
+			nutrientChosed[1] = 20;
+			nutrientChosed[2] = 50;
+			User.setProteinsDivision(nutrientChosed);
+		}
 		if(User.getGender() == 0)
 			wdCalories = (int)((66.47 + (13.75 * User.getWeight()) 
 					+ (5.003 * User.getHeight()) - (6.755 * User.getAge())) 
@@ -176,6 +198,22 @@ public class Diary {
 
 	public void setEnter(boolean enter) {
 		this.enter = enter;
+	}
+
+	public int getNutrientsDivision() {
+		return nutrientsDivision;
+	}
+
+	public void setNutrientsDivision(int nutrientsDivision) {
+		this.nutrientsDivision = nutrientsDivision;
+	}
+
+	public String[][] getFoodList() {
+		return foodList;
+	}
+
+	public void setFoodList(String[][] foodList) {
+		this.foodList = foodList;
 	}
 	
 }

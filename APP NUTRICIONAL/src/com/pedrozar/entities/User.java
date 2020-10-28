@@ -4,7 +4,7 @@ public class User {
 
 	private static int height, weight, wdcalories, age, gender; //1 = F, 0 = M
 	private static int password, user, firstLogin; //1 = true, 0 = false;
-	private static int[] dcalories = new int[7];
+	private static int[] dcalories = new int[7], proteinsDivision = new int[3]; //prot fat carb
 	
 	public static int getGender() {
 		return gender;
@@ -76,5 +76,13 @@ public class User {
 	
 	public static int getFirstLogin() {
 		return User.firstLogin;
+	}
+
+	public static int[] getProteinsDivision() {
+		return proteinsDivision;
+	}
+
+	public static void setProteinsDivision(int[] proteinsDivision) {
+		User.proteinsDivision = proteinsDivision;
 	}
 }

@@ -103,7 +103,7 @@ public class AccountSelecter {
 					(int)(Main.getWIDTH()/12.12), (int)(Main.getHEIGHT()/3.273), 
 					(int)(Main.getWIDTH()/6.6), (int)(Main.getWIDTH()/6.6), null);
 			g.setColor(Color.green);
-			g.setFont(new Font("arial",Font.BOLD,90));
+			g.setFont(new Font("arial",Font.BOLD, Main.getHEIGHT()/8));
 			g.drawString("^",(int) (((Main.getWIDTH()/4)*(currentOption+1)) - 
 					Main.getWIDTH()/40), Main.getHEIGHT() / 2 + 
 					(int)(Main.getHEIGHT() / 4.6));	

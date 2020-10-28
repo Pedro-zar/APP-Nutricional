@@ -160,9 +160,18 @@ public class Main extends Canvas implements Runnable, KeyListener, MouseListener
 	}
 
 	public void mouseClicked(MouseEvent e) {
-		accountSelecter.setMouseClicked(true);
-		AccountSelecter.setMouseY(e.getY());
-		AccountSelecter.setMouseX(e.getX());
+		switch(Main.getState()) {
+		case "SIGNIN":
+		case "LOGIN":
+			accountSelecter.setMouseClicked(true);
+			AccountSelecter.setMouseY(e.getY());
+			AccountSelecter.setMouseX(e.getX());
+			break;
+		case "DIARY":
+			Diary.setMouseX(e.getX());
+			Diary.setMouseY(e.getY());
+			diary.setMouseClicked(true);
+		}
 	}
 
 	public void mouseEntered(MouseEvent arg0) {
@@ -214,6 +223,14 @@ public class Main extends Canvas implements Runnable, KeyListener, MouseListener
 				functionalitySelector.setEnter(true);
 			else if(e.getKeyCode() == KeyEvent.VK_ESCAPE)
 				functionalitySelector.setEscape(true);
+			break;
+		case "DIARY":
+			if(e.getKeyCode() == KeyEvent.VK_DOWN) 
+				diary.setDown(true);
+			else if(e.getKeyCode() == KeyEvent.VK_UP) 
+				diary.setUp(true);
+			else if(e.getKeyCode() == KeyEvent.VK_ENTER) 
+				diary.setEnter(true);
 			break;
 		}
 	}

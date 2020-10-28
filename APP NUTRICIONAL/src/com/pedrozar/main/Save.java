@@ -8,6 +8,8 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import javax.swing.DefaultListModel;
+
 import com.pedrozar.entities.User;
 import com.pedrozar.sign.AccountSelecter;
 
@@ -112,7 +114,7 @@ public class Save {
 		}
 	}
 	
-	public static String loadRegister(int encode, int slot) {
+	public static String loadRegister(int encode, int slot) {//dados do user
 		String line = "";
 		File file = new File("contas" + slot + ".txt");
 		if(file.exists()) {
@@ -138,7 +140,36 @@ public class Save {
 				}catch(IOException e) {}
 			}catch(FileNotFoundException e) {}
 		}
-		
 		return line;
+	}
+	
+	public static void loadRegister(DefaultListModel<String> model) {//lista de alimentos
+		String line = "";
+		File file = new File("lista de alimentos.txt");
+		if(file.exists()) {
+			try {
+				String singleLine  = null;
+				BufferedReader reader = new BufferedReader(new FileReader(
+						"lista de alimentos.txt"));
+				try {
+					while((singleLine = reader.readLine()) != null) {
+						String[] transition = singleLine.split(":");
+						
+						line+= transition[0];
+						line+=":";
+						line+=transition[1];
+						line+="/";
+					}
+					reader.close();
+				}catch(IOException e) {}
+			}catch(FileNotFoundException e) {}
+		}
+		
+		String[] spl = line.split("/");
+		for(int i = 0; i< spl.length; i++) {
+			String[] spl2 = spl[i].split(":");
+			model.addElement(spl2[0]);;
+			
+		}
 	}
 }

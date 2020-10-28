@@ -33,8 +33,8 @@ public class FunctionalitySelector {
 		optionText[1][1] = "Aqui você poderá";
 		optionText[1][2] = "alterar seu registro";
 		
-		optionText[2][0] = "";
-		optionText[2][1] = "";
+		optionText[2][0] = "Faça o logout da sua conta";
+		optionText[2][1] = "e volte ao menu principal";
 		optionText[2][2] = "";
 	}
 	
@@ -77,7 +77,7 @@ public class FunctionalitySelector {
 		//Fonte e escrita
 		g.setColor(new Color(141, 255, 161));
 		g.setFont(new Font("arial",Font.BOLD, Main.getWIDTH() / 33));
-		g.drawString("Olá., seja bem vind" + gender + "!", Main.getWIDTH() / 10, 
+		g.drawString("Olá, seja bem vind" + gender + "!", Main.getWIDTH() / 10, 
 				Main.getHEIGHT() / 10);
 		g.drawString("Escolha uma das opções para prosseguir:", (Main.getWIDTH() / 10), 
 				(Main.getHEIGHT() / 10) * 2);

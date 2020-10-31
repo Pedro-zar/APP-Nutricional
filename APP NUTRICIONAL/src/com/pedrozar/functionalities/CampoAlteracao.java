@@ -53,7 +53,7 @@ public class CampoAlteracao extends CampoRegistro {
 	@Override
 	public void finalizarRegistro() {
 		super.finalizarRegistro();
-		Save.applySave(Save.loadRegister(13, User.getUser()));
+		Save.applySave(Save.loadRegister(13, User.getUser(), "contas"));
 	}
 	
 	@Override

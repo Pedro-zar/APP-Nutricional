@@ -67,12 +67,14 @@ public class CampoLogin extends JFrame {
         	}
         	
         	private void integrarDados() {
-				Save.applySave(Save.loadRegister(13, Main.accountSelecter.getSlot()));
+				Save.applySave(
+						Save.loadRegister(13, Main.accountSelecter.getSlot(),
+								"contas"));
 			}
 
 			public boolean validation() {
 				return Save.getSave(Save.loadRegister(13, 
-						Main.accountSelecter.getSlot())) 
+						Main.accountSelecter.getSlot(), "contas")) 
 						== Integer.parseInt(jFormattedPassword.getText());
 			}
         });

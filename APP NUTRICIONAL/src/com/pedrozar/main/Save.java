@@ -11,6 +11,7 @@ import java.io.IOException;
 import javax.swing.DefaultListModel;
 
 import com.pedrozar.entities.User;
+import com.pedrozar.functionalities.Diary;
 import com.pedrozar.sign.AccountSelecter;
 
 public class Save {
@@ -18,13 +19,15 @@ public class Save {
 	public static void deleteAccount(int slot) {
 		File file = new File("contas" + slot + ".txt");
 		file.delete();
+		file = new File("calorias" + slot + ".txt");
+		file.delete();
 		AccountSelecter.logout();
 	}
 	
-	public static void saveRegister(String[] val1, int[] val2, int encode, int slot) {
+	public static void saveRegister(String[] val1, int[] val2, int encode, int slot, String arquivo) {
 		BufferedWriter write = null;
 		try {
-			write = new BufferedWriter(new FileWriter("contas" + slot + ".txt"));
+			write = new BufferedWriter(new FileWriter(arquivo + slot + ".txt"));
 		}catch(IOException e) {
 			e.printStackTrace();
 		}
@@ -63,6 +66,7 @@ public class Save {
 	}
 	public static void applySave(String str) {
 		String[] spl = str.split("/");
+		int foodLine = 0;
 		for(int i = 0; i< spl.length; i++) {
 			String[] spl2 = spl[i].split(":");
 			switch(spl2[0]) {
@@ -84,44 +88,56 @@ public class Save {
 			case "age":
 				User.setAge(Integer.parseInt(spl2[1]));
 				break;
+			case "firstLogin":
+				User.setFirtLogin(Integer.parseInt(spl2[1]));
+				break;
 			case "wdcalories":
 				User.setWdcalories(Integer.parseInt(spl2[1]));
 				break;
-			case "d1calories":
-				User.getDcalories()[0] = Integer.parseInt(spl2[1]);
+			case "wweight":
+				User.setwWeight(Integer.parseInt(spl2[1]));
 				break;
-			case "d2calories":
-				User.getDcalories()[1] = Integer.parseInt(spl2[1]);
+			case "dcalories":
+				User.setDcalories(Integer.parseInt(spl2[1]));
 				break;
-			case "d3calories":
-				User.getDcalories()[2] = Integer.parseInt(spl2[1]);
+			case "protDiv":
+				User.setProtDivision(Integer.parseInt(spl2[1]));
 				break;
-			case "d4calories":
-				User.getDcalories()[3] = Integer.parseInt(spl2[1]);
+			case "carbDiv":
+				User.setCarbDivision(Integer.parseInt(spl2[1]));
 				break;
-			case "d5calories":
-				User.getDcalories()[4] = Integer.parseInt(spl2[1]);
+			case "fatDiv":
+				User.setFatDivision(Integer.parseInt(spl2[1]));
 				break;
-			case "d6calories":
-				User.getDcalories()[5] = Integer.parseInt(spl2[1]);
+			case "protCon":
+				User.setProtNut(Integer.parseInt(spl2[1]));
 				break;
-			case "d7calories":
-				User.getDcalories()[6] = Integer.parseInt(spl2[1]);
+			case "fatCon":
+				User.setFatNut(Integer.parseInt(spl2[1]));
 				break;
-			case "firstLogin":
-				User.setFirtLogin(Integer.parseInt(spl2[1]));
+			case "carbCon":
+				User.setCarbNut(Integer.parseInt(spl2[1]));
+				break;
+			default:
+				Diary.foodList[foodLine][0] = spl2[0]; //Name
+				Diary.foodList[foodLine][1] = spl2[1]; //Calories(g)
+				Diary.foodList[foodLine][2] = spl2[2]; //Weight(g)
+				Diary.foodList[foodLine][3] = spl2[3]; //Carb
+				Diary.foodList[foodLine][4] = spl2[4]; //Proteins
+				Diary.foodList[foodLine][5] = spl2[5]; //Fats
+				foodLine++;
 			}
 		}
 	}
 	
-	public static String loadRegister(int encode, int slot) {//dados do user
+	public static String loadRegister(int encode, int slot, String arquivo) {//dados do user
 		String line = "";
-		File file = new File("contas" + slot + ".txt");
+		File file = new File(arquivo + slot + ".txt");
 		if(file.exists()) {
 			try {
 				String singleLine  = null;
 				BufferedReader reader = new BufferedReader(new FileReader(
-						"contas" + slot + ".txt"));
+						arquivo + slot + ".txt"));
 				try {
 					while((singleLine = reader.readLine()) != null) {
 						String[] transition = singleLine.split(":");
@@ -132,9 +148,9 @@ public class Save {
 							transition[1]+=val[i];
 						}
 						line+= transition[0];
-						line+=":";
-						line+=transition[1];
-						line+="/";
+						line+= ":";
+						line+= transition[1];
+						line+= "/";
 					}
 					reader.close();
 				}catch(IOException e) {}

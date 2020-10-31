@@ -1,10 +1,13 @@
 package com.pedrozar.entities;
 
 public class User {
-
-	private static int height, weight, wdcalories, age, gender; //1 = F, 0 = M
+	//save 1
+	private static int height, weight, age, gender; //1 = F, 0 = M
 	private static int password, user, firstLogin; //1 = true, 0 = false;
-	private static int[] dcalories = new int[7], proteinsDivision = new int[3]; //prot fat carb
+	//save 2
+	private static int wdcalories, dcalories, wWeight;//w = wanted 
+	private static int protNut, carbNut, fatNut; //prot fat carb
+	private static int protDivision, carbDivision, fatDivision; //prot fat carb
 	
 	public static int getGender() {
 		return gender;
@@ -62,11 +65,11 @@ public class User {
 		User.wdcalories = wdcalories;
 	}
 	
-	public static int[] getDcalories() {
+	public static int getDcalories() {
 		return dcalories;
 	}
 	
-	public static void setDcalories(int[] dcalories) {
+	public static void setDcalories(int dcalories) {
 		User.dcalories = dcalories;
 	}
 	
@@ -78,11 +81,59 @@ public class User {
 		return User.firstLogin;
 	}
 
-	public static int[] getProteinsDivision() {
-		return proteinsDivision;
+	public static int getwWeight() {
+		return wWeight;
 	}
 
-	public static void setProteinsDivision(int[] proteinsDivision) {
-		User.proteinsDivision = proteinsDivision;
+	public static void setwWeight(int wWeight) {
+		User.wWeight = wWeight;
+	}
+
+	public static int getProtDivision() {
+		return protDivision;
+	}
+
+	public static void setProtDivision(int protDivision) {
+		User.protDivision = protDivision;
+	}
+
+	public static int getCarbDivision() {
+		return carbDivision;
+	}
+
+	public static void setCarbDivision(int carbDivision) {
+		User.carbDivision = carbDivision;
+	}
+
+	public static int getFatDivision() {
+		return fatDivision;
+	}
+
+	public static void setFatDivision(int fatDivision) {
+		User.fatDivision = fatDivision;
+	}
+
+	public static int getProtNut() {
+		return protNut;
+	}
+
+	public static void setProtNut(int protNut) {
+		User.protNut = protNut;
+	}
+
+	public static int getFatNut() {
+		return fatNut;
+	}
+
+	public static void setFatNut(int fatNut) {
+		User.fatNut = fatNut;
+	}
+
+	public static int getCarbNut() {
+		return carbNut;
+	}
+
+	public static void setCarbNut(int carbNut) {
+		User.carbNut = carbNut;
 	}
 }

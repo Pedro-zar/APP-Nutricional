@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.text.MaskFormatter;
 
+import com.pedrozar.entities.User;
 import com.pedrozar.main.Main;
 import com.pedrozar.main.Save;
 
@@ -189,6 +190,7 @@ public class CampoRegistro extends JFrame {
 				Integer.parseInt(jFormattedTextHeight.getText()),
 				0};
 		
-		Save.saveRegister(opt1, opt2, 13, Main.accountSelecter.getSlot());
+		Save.saveRegister(opt1, opt2, 13, Main.accountSelecter.getSlot(), 
+				"contas");
 	}
 }

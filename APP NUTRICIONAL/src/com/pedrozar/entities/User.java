@@ -6,9 +6,9 @@ public class User {
 	private static int password, user, firstLogin; //1 = true, 0 = false;
 	//save 2
 	private static int wdcalories, dcalories, wWeight;//w = wanted 
-	private static int protNut, carbNut, fatNut; //prot fat carb
 	private static int protDivision, carbDivision, fatDivision; //prot fat carb
-	
+	private static String[] consumedList;
+
 	public static int getGender() {
 		return gender;
 	}
@@ -113,27 +113,12 @@ public class User {
 		User.fatDivision = fatDivision;
 	}
 
-	public static int getProtNut() {
-		return protNut;
+	public static String[] getConsumedList() {
+		return consumedList;
 	}
 
-	public static void setProtNut(int protNut) {
-		User.protNut = protNut;
+	public static void setConsumedList(String[] consumedList) {
+		User.consumedList = consumedList;
 	}
 
-	public static int getFatNut() {
-		return fatNut;
-	}
-
-	public static void setFatNut(int fatNut) {
-		User.fatNut = fatNut;
-	}
-
-	public static int getCarbNut() {
-		return carbNut;
-	}
-
-	public static void setCarbNut(int carbNut) {
-		User.carbNut = carbNut;
-	}
 }

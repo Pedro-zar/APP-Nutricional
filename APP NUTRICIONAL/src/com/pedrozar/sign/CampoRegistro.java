@@ -13,7 +13,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.text.MaskFormatter;
 
-import com.pedrozar.entities.User;
 import com.pedrozar.main.Main;
 import com.pedrozar.main.Save;
 

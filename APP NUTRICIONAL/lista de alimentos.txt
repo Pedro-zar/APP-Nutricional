@@ -1,1 +1,44 @@
-banana:89:100:22.84:1.09:0.33
+Almôndegas de Carne de Vaca:202:100:7.58:12.41:13.16
+Almôndegas de Carne de Vaca e Porco:178:100:7.15:13.61:10.19
+Almôndegas de Carne de Frango:161:100:6.94:19.39:5.62
+Asa de Frango:288:100:0:26.64:19.3
+Asa de Frango (Pele Não Consumida):201:100:0:30.21:8.06
+Asa de Frango no Forno ou Grelhada ou Assada (Pele Consumida):288:100:0:26.64:19.3
+Bacon:541:100:1.43:37.04:41.78
+Bacon Canadense:185:100:1.35:24.24:8.44
+Bacon Curado ou Defumado:541:100:1.43:37.04:41.78
+Bife de Carne de Vaca:252:100:0:27.29:15.01
+Bife de Carne de Vaca (apenas Parte Magra Consumida):187:100:0:29.81:6.63
+Bife de Carne de Vaca da Ponta de Agulha (Magra Cortada até 0.5 cm de Gordura):164:100:0:21.08:8.24
+Bolo de Carne Moída feito com Carne de Vaca:204:100:6.52:16.16:12.11
+Bolo de Carne Moída feito com Carne de Vaca e Porco:191:100:6.43:16.73:10.42
+Carne da Sobrecoxa de Frango:119:110:0:19.65:3.91
+Carne de Cordeiro Assada:266:100:0:23.93:18.15
+Carne de Cordeiro Moída:282:100:0:16.56:23.41
+Carne de Frango Moída:237:100:0:27.07:13.49
+Carne de Peru Moída (Cozido):235:100:0:27.36:13.15
+Carne de Porco:271:100:0:27.34:17.04
+Carne de Porco Moída:263:100:0:16.88:21.19
+Carne de Porco Moída (Cozido):297:100:0:25.69:20.77
+Carne de Vaca:288:100:0:26.33:19.54
+Carne de Vaca Assada:267:100:0:25.91:17.32
+Carne de Vaca Assada (apenas Parte Magra Consumida):198:100:0:28.32:8.52
+Carne de Vaca do Acém (Cortada até 0.5 cm de Gordura):149:100:0:19.07:7.48
+Carne de Vaca Moída:276:100:0:25.35:18.58
+Carne de Vaca Moída Extra Magra:248:100:0:25.71:15.35
+Carne de Vaca Moída Magra:269:100:0:25.54:17.67
+Cordeiro:292:100:0:24.32:20.77
+Costeleta de Cordeiro (apenas Parte Magra Consumida):215:100:0:28.17:10.48
+Costeleta de Cordeiro (Parte Magra e Gordura Consumida):314:100:0:22.03:24.37
+Costeleta de Porco:250:100:0:27.91:14.57
+Costeleta de Porco no Forno ou Grelhada:240:100:0:27.09:13.8
+Costeleta de Porco Empanada no Forno ou Grelhada:257:100:7.77:25.66:12.85
+Empadas de Presunto (Curado):315:100:1.69:12.78:28.19
+Entrecosto de Porco:395:100:0:28.94:30.17
+Entrecosto de Porco no Churrasco com Molho:310:100:4.2:21.44:22.33
+Hambúrguer ou Carne de Vaca Moída Empanados:319:100:14.95:16.69:20.98
+Hambúrguer de Frango Empanado com Queijo:279:100:16.26:15.69:16.67
+Hambúrguer ou Filé de Frango Empanado:297:100:16.32:15.59:18.82
+Ripa de Costela de Carne de Vaca:469:100:4.2:21.44:22.33
+Sobrecoxa de Frango:245:100:0:24.85:15.36
+Sobrecoxa de Frango (Pele Não Consumida):207:100:0:25.72:10.79

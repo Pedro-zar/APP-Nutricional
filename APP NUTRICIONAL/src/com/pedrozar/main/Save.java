@@ -67,6 +67,7 @@ public class Save {
 	public static void applySave(String str) {
 		String[] spl = str.split("/");
 		int foodLine = 0;
+		int consumeLine = 0;
 		for(int i = 0; i< spl.length; i++) {
 			String[] spl2 = spl[i].split(":");
 			switch(spl2[0]) {
@@ -109,14 +110,10 @@ public class Save {
 			case "fatDiv":
 				User.setFatDivision(Integer.parseInt(spl2[1]));
 				break;
-			case "protCon":
-				User.setProtNut(Integer.parseInt(spl2[1]));
-				break;
-			case "fatCon":
-				User.setFatNut(Integer.parseInt(spl2[1]));
-				break;
-			case "carbCon":
-				User.setCarbNut(Integer.parseInt(spl2[1]));
+			case "consumido":
+				String[] lista = User.getConsumedList();
+				lista[consumeLine] = spl2[1];
+				User.setConsumedList(lista);
 				break;
 			default:
 				Diary.foodList[foodLine][0] = spl2[0]; //Name

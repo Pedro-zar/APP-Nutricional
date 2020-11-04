@@ -10,51 +10,68 @@ import com.pedrozar.main.Main;
 import com.pedrozar.main.Save;
 
 public class Diary {
-
+	
+	//menu
 	private static int mouseX, mouseY;
-	private int wdCalories = 0, wWeight = 0, exerciseRate = 0, dietOption = 0;
-	public static String[][] foodList;
-	private int carbCon, fatCon, protCon;
 	private boolean mouseClicked, down = false, up = false, enter = false;
 	private String[] options = {"ADICIONAR","VOLTAR"};
 	private int currentOption = 0, maxOption = options.length-1;
 	private BufferedImage spritesheet;
+	static boolean enabled = true;
+	
+	//nutrientes
+	private int wdCalories = 0, wWeight = 0, exerciseRate = 0, dietOption = 0;
+	private int carbCon, fatCon, protCon;
 	private int[] nutrientChosed = new int[3];
 	private int nutrientsDivision = 0;
-	int f = 0;
+	private int f = 0;
+	
+	//lista de comida
+	private int currentFood = 0;
+	public static String[][] foodList;
+	private String[] alimentos;
 	
 	public Diary() {
 		spritesheet = Main.getSpritesheet().getSprite(64, 64,96,21);
 		foodList = new String[100][6];
+		alimentos = new String[100];
+		for(int i = 0; i < 100; i++) {
+			alimentos[i] = "";
+		}
 	}
 	
 	public void tick() {
-		if(f == 0) {
-			adicionarList();
-			setValues();
-			f++;
-		}
-		if(isMouseClicked()) {
-			if(getMouseX() >= Main.getWIDTH() * 0.7 && getMouseY() 
-					>= Main.getHEIGHT() * 0.8 && isMouseClicked()){
-				
+		if(enabled) {
+			if(f == 0) {
+				adicionarList();
+				setValues();
+				f++;
 			}
-			
-		}else if(isUp()) {
-			currentOption--;
-			if(currentOption < 0)
-				currentOption = maxOption;
-		}else if(isDown()) {
-			currentOption++;
-			if(currentOption > maxOption)
-				currentOption = 0;
-		}else if(isEnter()) {
-			if(currentOption == 0) {
-			}else if (currentOption == 1) {
-				f = 0;
-				Main.setState("FUNC_SELEC");
+			if(isMouseClicked()) {
+				if(getMouseX() >= Main.getWIDTH() * 0.7 && getMouseY() 
+						>= Main.getHEIGHT() * 0.8 && isMouseClicked()){
+					
+				}
+			}else if(isUp()) {
+				currentOption--;
+				if(currentOption < 0)
+					currentOption = maxOption;
+			}else if(isDown()) {
+				currentOption++;
+				if(currentOption > maxOption)
+					currentOption = 0;
+			}else if(isEnter()) {
+				if(currentOption == 0) {
+					CampoAlimento campo = new CampoAlimento();
+					enabled = false;
+					campo.criarLista();
+				}else if (currentOption == 1) {
+					f = 0;
+					Main.setState("FUNC_SELEC");
+				}
 			}
 		}
+		
 		setUp(false);
 		setDown(false);
 		setEnter(false);
@@ -62,13 +79,12 @@ public class Diary {
 	}
 	
 	public void render(Graphics g) {
-
 		g.drawImage(spritesheet, (int)(Main.getWIDTH() * 0.61), 
-				(int)(Main.getHEIGHT() * 0.6), (int)(Main.getWIDTH()/3), 
-				(int)(Main.getHEIGHT()/10), null);
+				(int)(Main.getHEIGHT() * 0.6), (int)(Main.getWIDTH() / 3), 
+				(int)(Main.getHEIGHT() / 10), null);
 		g.drawImage(spritesheet, (int)(Main.getWIDTH() * 0.61), 
-				(int)(Main.getHEIGHT() * 0.75), (int)(Main.getWIDTH()/3), 
-				(int)(Main.getHEIGHT()/10), null);
+				(int)(Main.getHEIGHT() * 0.75), (int)(Main.getWIDTH() / 3), 
+				(int)(Main.getHEIGHT() / 10), null);
 		g.setColor(new Color(141, 255, 161));
 		g.setFont(new Font("arial",Font.BOLD, Main.getWIDTH() / 20));
 		g.drawString(">", (int)(Main.getWIDTH() * 0.58),
@@ -82,7 +98,7 @@ public class Diary {
 				(int)(Main.getWIDTH() * 0.69), 
 				(int)(Main.getHEIGHT() * 0.815));
 		adicionarHUD(g);
-		
+		adicionarList(g, currentFood);
 	}
 	
 	private void setValues() {
@@ -154,11 +170,29 @@ public class Diary {
 	private void readData() {
 		Save.applySave(
 				Save.loadRegister(13, User.getUser(), "calorias"));
-		System.out.println(User.getProtDivision());
 	}
 
 	private void adicionarList() {
 
+	}
+	
+	private void adicionarList(Graphics g, int d) {
+		int c = 0;
+		for(int i = 0 + d; i < alimentos.length; i++) {
+			if(alimentos[i].length() <= 0) {
+				i = alimentos.length;
+				if(c == 0)
+					g.drawString("Não há alimentos consumidos ainda hoje!",
+							(int)(Main.getWIDTH() * 0.03), Main.getHEIGHT()/2);
+				break;
+			}else {
+				if(c < 5) {
+					g.drawString(alimentos[i], (int)(Main.getWIDTH()/2 
+							* (c * 0.3)), Main.getHEIGHT()/2);	
+				}
+				c++;
+			}
+		}
 	}
 	
 	private void adicionarHUD(Graphics g) {

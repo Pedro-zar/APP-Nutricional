@@ -7,7 +7,7 @@ public class User {
 	//save 2
 	private static int wdcalories, dcalories, wWeight;//w = wanted 
 	private static int protDivision, carbDivision, fatDivision; //prot fat carb
-	private static String[] consumedList;
+	private static String[] consumedList = new String[23];
 
 	public static int getGender() {
 		return gender;

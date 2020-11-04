@@ -25,10 +25,10 @@ public class CampoLogin extends JFrame {
         JButton buttonEntrar = new JButton("Entrar");
         JButton buttonCancelar = new JButton("Cancelar");
         MaskFormatter mascaraPassword = null;
-        labelUser.setBounds(30,40,100,20);
-        labelPassword.setBounds(30,80,100,20);
-        buttonEntrar.setBounds(150, 120, 100, 20);
-        buttonCancelar.setBounds(30, 120, 100, 20);
+        labelUser.setBounds(30,40,100,(Main.getWIDTH()/16/4));
+        labelPassword.setBounds(30,(int)(Main.getWIDTH()/16),100,(Main.getWIDTH()/16/4));
+        buttonEntrar.setBounds(150, 120, 100, (Main.getWIDTH()/16/4));
+        buttonCancelar.setBounds(30, 120, 100, (Main.getWIDTH()/16/4));
         
         try{
         	mascaraPassword = new MaskFormatter("####");
@@ -40,7 +40,7 @@ public class CampoLogin extends JFrame {
         }
         
         JFormattedTextField jFormattedPassword = new JFormattedTextField(mascaraPassword);
-        jFormattedPassword.setBounds(150,80,100,20);
+        jFormattedPassword.setBounds(150,80,100,(Main.getWIDTH()/16/4));
         
         janela.add(labelPassword);
         janela.add(jFormattedPassword);

@@ -48,15 +48,15 @@ public class CampoRegistro extends JFrame {
         MaskFormatter mascaraPassword = null;
         MaskFormatter mascaraWeight = null;
 	             
-        labelUser.setBounds(30,40,100,20);
-        labelPassword.setBounds(30,80,100,20);
-        labelGenre.setBounds(30,120,100,20);
-        labelAge.setBounds(30,160,100,20);
-        labelWeight.setBounds(30,200,100,20);
-        labelHeight.setBounds(30,240,100,20);
+        labelUser.setBounds(30,40,100,(Main.getWIDTH()/16/4));
+        labelPassword.setBounds(30,(Main.getWIDTH()/16),100,(Main.getWIDTH()/16/4));
+        labelGenre.setBounds(30,120,100,(Main.getWIDTH()/16/4));
+        labelAge.setBounds(30,160,100,(Main.getWIDTH()/16/4));
+        labelWeight.setBounds(30,200,100,(Main.getWIDTH()/16/4));
+        labelHeight.setBounds(30,240,100,(Main.getWIDTH()/16/4));
         
-        buttonRegistrar.setBounds(150,280, 100, 20);
-        buttonCancelar.setBounds(30,280, 100, 20);
+        buttonRegistrar.setBounds(150,280, 100, (Main.getWIDTH()/16/4));
+        buttonCancelar.setBounds(30,280, 100, (Main.getWIDTH()/16/4));
 	             
         try{
         	mascaraAge = new MaskFormatter("##");
@@ -79,12 +79,12 @@ public class CampoRegistro extends JFrame {
         jFormattedTextHeight = new JFormattedTextField(mascaraHeight);
         
         
-        jFormattedPassword.setBounds(150,80,100,20);
-        jrbFem.setBounds(150,120,50,20);
-        jrbMas.setBounds(200,120,50,20);
-        jFormattedTextAge.setBounds(150,160,100,20);
-        jFormattedTextWeight.setBounds(150,200,100,20);
-        jFormattedTextHeight.setBounds(150,240,100,20);
+        jFormattedPassword.setBounds(150,(Main.getWIDTH()/16),100,(Main.getWIDTH()/16/4));
+        jrbFem.setBounds(150,120,50,(Main.getWIDTH()/16/4));
+        jrbMas.setBounds(200,120,50,(Main.getWIDTH()/16/4));
+        jFormattedTextAge.setBounds(150,160,100,(Main.getWIDTH()/16/4));
+        jFormattedTextWeight.setBounds(150,200,100,(Main.getWIDTH()/16/4));
+        jFormattedTextHeight.setBounds(150,240,100,(Main.getWIDTH()/16/4));
         
         janela.add(labelGenre);
         janela.add(labelUser);
@@ -171,6 +171,7 @@ public class CampoRegistro extends JFrame {
 
 	protected void retornar() {
 		AccountSelecter.setSTATE(1);
+		Main.setState("MENU");
 		dispose();
 	}
 	protected void finalizarRegistro() {

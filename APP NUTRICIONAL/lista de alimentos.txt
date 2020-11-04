@@ -42,3 +42,33 @@ Hambúrguer ou Filé de Frango Empanado:297:100:16.32:15.59:18.82
 Ripa de Costela de Carne de Vaca:469:100:4.2:21.44:22.33
 Sobrecoxa de Frango:245:100:0:24.85:15.36
 Sobrecoxa de Frango (Pele Não Consumida):207:100:0:25.72:10.79
+Feijão Preto:91:100:16.56:6.03:0.29
+Feijão Preto(SementeMadura,comSal,Cozido,Fervido):132:100:23.71:8.86:0.54
+Feijão Verde:31:100:7.13:1.82:0.12
+Feijão VerdeCongelado:33:100:7.58:1.8:0.21
+Feijão Verde(SolidosEscorridos,Enlatado):20:100:4.5:1.15:0.1
+Feijão Vermelho:218:100:39.91:13.44:0.87
+Feijões Em Molho de Tomate:151:100:21.39:5.54:5.15
+Feijões Em Molhode Tomate Vegetariano:94:100:21.14:4.75:0.37
+Feijões Em Molho de Tomate Com Carne Porco:106:100:19.98:5.19:1.55
+Grão De Bico Semente:119:100:22.62:4.95:1.14
+Grão De Bico Cozido:236:100:27.55:8.77:10.70
+Grão De Bico:180:100:29.98:9.54:2.99
+Lentilhas Cozidas:165:100:18.73:8.39:6.76
+Lentilhas:353:100:60.08:25.80:1.06
+Tofu Duro:62:100:2.40:6.90:2.70
+Tofu Mole:55:100:2.90:4.80:2.70
+Tofu Frito:271:100:10.49:17.19:20.18
+Ameijoas:74:100:2.57:12.77:0.97
+Ameijoas(Cozidas,Cozidas A Vapor):92:100:3.19:15.83:1.20
+Anchovas(Solidos,Escorridos em Oléo,Enlatado):210:100:0:28.89:9.71
+Anchovas:131:100:0:20.35:4.84
+Arenque em Conserva:262:100:9.64:14.19:18
+Atum em Água (Enlatado):116:100:0:25.51:0.82
+Atum em Óleo (Enlatado):198:100:0:29.13:8.21
+Atum-Rabilho (Peixe):144:100:0:23.33:4.9
+Bacalhau:211:100:8.25:19.20:10.84
+Bacalhau no Forno ou Grelhado:122:100:0.41:20.91:3.59
+Bacalhau do Atlântico:82:100:0:17.81:0.67
+Calamari Fervido ou Cozidos a Vapor:91:100:3.05:15.45:1.37
+Calamari Frito:125:100:9.90:15.13:2.17

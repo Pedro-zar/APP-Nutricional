@@ -64,10 +64,10 @@ public class Save {
 		}
 		return 0;
 	}
+	
 	public static void applySave(String str) {
 		String[] spl = str.split("/");
 		int foodLine = 0;
-		int consumeLine = 0;
 		for(int i = 0; i< spl.length; i++) {
 			String[] spl2 = spl[i].split(":");
 			switch(spl2[0]) {
@@ -110,15 +110,10 @@ public class Save {
 			case "fatDiv":
 				User.setFatDivision(Integer.parseInt(spl2[1]));
 				break;
-			case "consumido":
-				String[] lista = User.getConsumedList();
-				lista[consumeLine] = spl2[1];
-				User.setConsumedList(lista);
-				break;
 			default:
 				Diary.foodList[foodLine][0] = spl2[0]; //Name
 				Diary.foodList[foodLine][1] = spl2[1]; //Calories(g)
-				Diary.foodList[foodLine][2] = spl2[2]; //Weight(g)
+				Diary.foodList[foodLine][2] = spl2[2]; //Weight(kg)
 				Diary.foodList[foodLine][3] = spl2[3]; //Carb
 				Diary.foodList[foodLine][4] = spl2[4]; //Proteins
 				Diary.foodList[foodLine][5] = spl2[5]; //Fats

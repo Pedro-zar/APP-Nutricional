@@ -20,8 +20,8 @@ import com.pedrozar.main.Save;
 public class CampoAlimento extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-	public static JTextField textSearch;
 	int addedFoods = 0;
+	public static JTextField textSearch;
 	
 	public CampoAlimento(int addedFoods) {
 		super();
@@ -90,11 +90,13 @@ public class CampoAlimento extends JFrame {
 
 			public void valueChanged(ListSelectionEvent arg0) {
 				int i = listFood.getSelectedIndex(); 
-		        labelProt.setText("Proteínas: " + Diary.foodList[i][4] + "g");
-		        labelCal.setText("Calorías: " + Diary.foodList[i][1]);
-		        labelFats.setText("Gorduras: " + Diary.foodList[i][5] + "g");
-		        labelCarb.setText("Carboidratos: " + Diary.foodList[i][3] + "g");
-		        labelWeig.setText("Peso: " + Diary.foodList[i][2] + "g");
+				if(i >= 0) {
+			        labelProt.setText("Proteínas: " + Diary.foodList[i][4] + "g");
+			        labelCal.setText("Calorías: " + Diary.foodList[i][1]);
+			        labelFats.setText("Gorduras: " + Diary.foodList[i][5] + "g");
+			        labelCarb.setText("Carboidratos: " + Diary.foodList[i][3] + "g");
+			        labelWeig.setText("Peso: " + Diary.foodList[i][2] + "g");
+				}
 			}
 			
 		});
@@ -111,13 +113,17 @@ public class CampoAlimento extends JFrame {
         buttonAdicionar.addActionListener(new ActionListener() {
         	
         	public void actionPerformed(ActionEvent arg0) {
+        		
         		int i = listFood.getSelectedIndex();
-        		Diary.alimentos[Diary.contadorFood] = Diary.foodList[i][0];
-        		Diary.carbCon[Diary.contadorFood] = Double.parseDouble(Diary.foodList[i][3]);
-        		Diary.fatCon[Diary.contadorFood] = Double.parseDouble(Diary.foodList[i][5]);
-        		Diary.protCon[Diary.contadorFood] = Double.parseDouble(Diary.foodList[i][4]);
-        		Diary.contadorFood++;
-        		User.setDcalories(Integer.parseInt(Diary.foodList[i][1]), true);
+				if(i >= 0) {
+	        		Diary.alimentos[Diary.contadorFood] = Diary.foodList[i][0];
+	        		Diary.carbCon[Diary.contadorFood] = Double.parseDouble(Diary.foodList[i][3]);
+	        		Diary.fatCon[Diary.contadorFood] = Double.parseDouble(Diary.foodList[i][5]);
+	        		Diary.protCon[Diary.contadorFood] = Double.parseDouble(Diary.foodList[i][4]);
+	        		Diary.weiCon[Diary.contadorFood] = Integer.parseInt(Diary.foodList[i][2]);
+	        		Diary.contadorFood++;
+	        		User.setDcalories(Integer.parseInt(Diary.foodList[i][1]), true);
+				}
         	}
     	
         });
@@ -138,4 +144,5 @@ public class CampoAlimento extends JFrame {
         setLocationRelativeTo(null);
         setTitle("Alimentos");
 	}
+
 }

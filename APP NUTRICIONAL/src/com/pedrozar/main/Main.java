@@ -21,26 +21,25 @@ import com.pedrozar.sign.AccountSelecter;
 
 public class Main extends Canvas implements Runnable, KeyListener, MouseListener {
 
-	public static AccountSelecter accountSelecter;
 	private static final long serialVersionUID = 1L;
 	private static JFrame frame;
 	private static final String NOME = "Wealth and Health";
 	private static int HEIGHT = 720, WIDTH = (int)(getHEIGHT()*1.777777777777778);
 	private static String State = "MENU";
 	private static Spritesheet spritesheet;
+	public static AccountSelecter accountSelecter;
+	private boolean isRunning = true;
+	private Thread thread;	
+	private BufferedImage image;
 	public Menu menu;
 	public Update update;
 	public Diary diary;
 	public FunctionalitySelector functionalitySelector;
-	private boolean isRunning = true;
-	private Thread thread;	
-	private BufferedImage image;
-
+	
 	public Main() {
 		addKeyListener(this);
 		addMouseListener(this);
 		initFrame();
-		
 		spritesheet = new Spritesheet("/spritesheet.png");	
 		image = new BufferedImage(getWIDTH(),getHEIGHT(),BufferedImage.TYPE_INT_RGB);
 		menu = new Menu();
@@ -69,6 +68,10 @@ public class Main extends Canvas implements Runnable, KeyListener, MouseListener
 		return HEIGHT;
 	}
 
+	public static String getNome() {
+		return NOME;
+	}
+	
 	public static String getState() {
 		return State;
 	}
@@ -79,6 +82,18 @@ public class Main extends Canvas implements Runnable, KeyListener, MouseListener
 
 	public static Spritesheet getSpritesheet() {
 		return spritesheet;
+	}
+
+	private void initFrame() {
+		frame = new JFrame(getNome());
+		frame.setPreferredSize(new Dimension(getWIDTH(),getHEIGHT()));
+		frame.add(this); 
+		frame.setResizable(false); 
+		frame.pack();
+		frame.setLocationRelativeTo(null);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setVisible(true);
+		
 	}
 
 	public synchronized void start() {
@@ -95,7 +110,7 @@ public class Main extends Canvas implements Runnable, KeyListener, MouseListener
 			e.printStackTrace();
 		}
 	}
-
+	
 	public void run() {
 		long lastTime = System.nanoTime();
 		double amountOfTicks = 60.0;
@@ -240,22 +255,6 @@ public class Main extends Canvas implements Runnable, KeyListener, MouseListener
 	}
 
 	public void keyTyped(KeyEvent e) {
-		
-	}
-
-	public static String getNome() {
-		return NOME;
-	}
-	
-	private void initFrame() {
-		frame = new JFrame(getNome());
-		frame.setPreferredSize(new Dimension(getWIDTH(),getHEIGHT()));
-		frame.add(this); 
-		frame.setResizable(false); 
-		frame.pack();
-		frame.setLocationRelativeTo(null);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setVisible(true);
 		
 	}
 

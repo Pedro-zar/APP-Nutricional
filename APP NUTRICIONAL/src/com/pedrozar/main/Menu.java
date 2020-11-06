@@ -9,10 +9,10 @@ import com.pedrozar.sign.AccountSelecter;
 
 public class Menu {
 	
+	private static boolean accountExists = false;
 	private String[] options = { "LOGIN","SIGN IN", "EXIT"};
 	private int currentOption = 0, maxOption = options.length-1;
 	private boolean down = false, up = false, enter = false;
-	private static boolean accountExists = false;
 	
 	public void tick() {
 		for(int i = 1; i <= 3 ; i++) {

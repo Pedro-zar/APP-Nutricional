@@ -129,4 +129,5 @@ public class FunctionalitySelector {
 	public void setEscape(boolean escape) {
 		this.escape = escape;
 	}
+
 }

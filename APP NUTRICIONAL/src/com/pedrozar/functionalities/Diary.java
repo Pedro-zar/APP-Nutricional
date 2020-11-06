@@ -11,28 +11,22 @@ import com.pedrozar.main.Save;
 
 public class Diary {
 	
-	//menu
 	private static int mouseX, mouseY;
+	static String[] alimentos = new String[100];
+	static double[] carbCon = new double[alimentos.length],
+			fatCon = new double[alimentos.length],
+			protCon = new double[alimentos.length];
+	static int[] weiCon = new int[alimentos.length];
+	static int contadorFood = 0;
+	static boolean enabled = true;
+	public static String[][] foodList = new String[alimentos.length][6];
 	private boolean mouseClicked, down = false, up = false, enter = false;
 	private String[] options = {"ADICIONAR","VOLTAR"};
-	private int currentOption = 0, maxOption = options.length-1;
 	private BufferedImage spritesheet;
-	static boolean enabled = true;
-	
-	//lista de comida
-	static int contadorFood = 0;
-	private int currentFood = 0;
-	public static String[][] foodList = new String[100][6];
-	static String[] alimentos = new String[foodList.length];
-
-	//nutrientes
-	private int wdCalories = 0, wWeight = 0, exerciseRate = 0, dietOption = 0;
-	static double[] carbCon = new double[foodList.length],
-			fatCon = new double[foodList.length],
-			protCon = new double[foodList.length];
+	private int wdCalories = 0, wWeight = 0, exerciseRate = 0, dietOption = 0,
+			nutrientsDivision = 0, f = 0, currentOption = 0,
+			maxOption = options.length-1, currentFood = 0;;
 	private int[] nutrientChosed = new int[3];
-	private int nutrientsDivision = 0;
-	private int f = 0;
 	
 	public Diary() {
 		spritesheet = Main.getSpritesheet().getSprite(64, 64,96,21);
@@ -40,6 +34,7 @@ public class Diary {
 			for(int s = 0; s < 6; s++) {
 				foodList[i][s] = "";
 			}
+			weiCon[i] = 0;
 			carbCon[i] = 0;
 			fatCon[i] = 0;
 			protCon[i] = 0;
@@ -47,85 +42,20 @@ public class Diary {
 		}
 	}
 	
-	public void tick() {
-		if(enabled) {
-			if(f == 0) {
-				setValues();
-				f++;
-			}
-			if(isMouseClicked()) {
-				if(getMouseX() >= Main.getWIDTH() * 0.7 && getMouseY() 
-						>= Main.getHEIGHT() * 0.8 && isMouseClicked()){
-				}else if(true) {
-					int maxFood = 0;
-					for(int i = 0; i < alimentos.length; i++) {
-						if(alimentos[i].isEmpty()) {
-							maxFood = i - 1;
-							i = alimentos.length;
-						}
-					}
-					if(currentFood < 0)
-						currentFood = 0;
-					else if(currentFood > maxFood) {
-						currentFood = maxFood;
-					}
-				}
-			}else if(isUp()) {
-				currentOption--;
-				if(currentOption < 0)
-					currentOption = maxOption;
-			}else if(isDown()) {
-				currentOption++;
-				if(currentOption > maxOption)
-					currentOption = 0;
-			}else if(isEnter()) {
-				if(currentOption == 0) {
-					CampoAlimento campo = new CampoAlimento(contadorFood);
-					enabled = false;
-					campo.criarLista();
-				}else if (currentOption == 1) {
-					for(int i = 0; i < 100; i++) {
-						for(int s = 0; s < 6; s++) {
-							foodList[i][s] = "";
-						}
-						carbCon[i] = 0;
-						fatCon[i] = 0;
-						protCon[i] = 0;
-						alimentos[i] = "";
-					}
-					f = 0;
-					Main.setState("FUNC_SELEC");
-				}
-			}
-		}
-		
-		setUp(false);
-		setDown(false);
-		setEnter(false);
-		setMouseClicked(false);
+	public static int getMouseX() {
+		return mouseX;
 	}
-	
-	public void render(Graphics g) {
-		g.drawImage(spritesheet, (int)(Main.getWIDTH() * 0.61), 
-				(int)(Main.getHEIGHT() * 0.6), (int)(Main.getWIDTH() / 3), 
-				(int)(Main.getHEIGHT() / 10), null);
-		g.drawImage(spritesheet, (int)(Main.getWIDTH() * 0.61), 
-				(int)(Main.getHEIGHT() * 0.75), (int)(Main.getWIDTH() / 3), 
-				(int)(Main.getHEIGHT() / 10), null);
-		g.setColor(new Color(141, 255, 161));
-		g.setFont(new Font("arial",Font.BOLD, Main.getWIDTH() / 20));
-		g.drawString(">", (int)(Main.getWIDTH() * 0.58),
-				(int)(Main.getHEIGHT() * (0.683 + currentOption * 0.15)));
-		g.setFont(new Font("arial",Font.BOLD, Main.getWIDTH() / 43));
-		//menu
-		g.drawString("Adicionar Alimentos",
-				(int)(Main.getWIDTH() * 0.666), 
-				(int)(Main.getHEIGHT() * 0.666));
-		g.drawString("Voltar ao menu",
-				(int)(Main.getWIDTH() * 0.69), 
-				(int)(Main.getHEIGHT() * 0.815));
-		adicionarHUD(g);
-		adicionarList(g, currentFood);
+
+	public static void setMouseX(int mouseX) {
+		Diary.mouseX = mouseX;
+	}
+
+	public static int getMouseY() {
+		return mouseY;
+	}
+
+	public static void setMouseY(int mouseY) {
+		Diary.mouseY = mouseY;
 	}
 	
 	private void setValues() {
@@ -163,22 +93,6 @@ public class Diary {
 		}
 	}
 	
-	public static int getMouseX() {
-		return mouseX;
-	}
-
-	public static void setMouseX(int mouseX) {
-		Diary.mouseX = mouseX;
-	}
-
-	public static int getMouseY() {
-		return mouseY;
-	}
-
-	public static void setMouseY(int mouseY) {
-		Diary.mouseY = mouseY;
-	}
-	
 	private void saveData() {
 		String[] opt1 = {"user", "password", "gender", "age","weight", 
 				"height", "firstLogin"};
@@ -199,7 +113,6 @@ public class Diary {
 				Save.loadRegister(13, User.getUser(), "calorias"));
 	}
 
-
 	private void adicionarList(Graphics g, int d) {
 		int c = 0;
 		g.setFont(new Font("arial",Font.PLAIN, Main.getWIDTH() / 65));
@@ -212,8 +125,8 @@ public class Diary {
 				break;
 			}else {
 				if(c < 5) {
-					g.drawString(alimentos[i], (int)(Main.getWIDTH() * 0.03), 
-							(int)(Main.getHEIGHT()/3 + (c * 100)));	
+					g.drawString(alimentos[i] + " (" + weiCon[i] + ") ", (int)(Main.getWIDTH() * 0.03), 
+							(int)(Main.getHEIGHT()/3 + ((c - 0.5) * (Main.getHEIGHT()/7.2))));	
 				}
 				c++;
 			}
@@ -283,6 +196,67 @@ public class Diary {
 				(int)(Main.getHEIGHT() * 0.55));
 	}
 	
+	public void tick() {
+		if(enabled) {
+			if(f == 0) {
+				setValues();
+				f++;
+			}
+			if(isMouseClicked()) {
+				if(getMouseX() >= Main.getWIDTH() * 0.7 && getMouseY() 
+						>= Main.getHEIGHT() * 0.8 && isMouseClicked()){
+				}else if(true) {
+					int maxFood = 0;
+					for(int i = 0; i < alimentos.length; i++) {
+						if(alimentos[i].isEmpty()) {
+							maxFood = i - 1;
+							i = alimentos.length;
+							if(maxFood < 0)
+								maxFood = 0;
+						}
+					}
+					if(currentFood < 0)
+						currentFood = 0;
+					else if(currentFood > maxFood) {
+						currentFood = maxFood;
+					}
+				}
+			}else if(isUp()) {
+				currentOption--;
+				if(currentOption < 0)
+					currentOption = maxOption;
+			}else if(isDown()) {
+				currentOption++;
+				if(currentOption > maxOption)
+					currentOption = 0;
+			}else if(isEnter()) {
+				if(currentOption == 0) {
+					CampoAlimento campo = new CampoAlimento(contadorFood);
+					enabled = false;
+					campo.criarLista();
+				}else if (currentOption == 1) {
+					for(int i = 0; i < 100; i++) {
+						for(int s = 0; s < 6; s++) {
+							foodList[i][s] = "";
+						}
+						weiCon[i] = 0;
+						carbCon[i] = 0;
+						fatCon[i] = 0;
+						protCon[i] = 0;
+						alimentos[i] = "";
+					}
+					f = 0;
+					Main.setState("FUNC_SELEC");
+				}
+			}
+		}
+		
+		setUp(false);
+		setDown(false);
+		setEnter(false);
+		setMouseClicked(false);
+	}
+	
 	public boolean isMouseClicked() {
 		return mouseClicked;
 	}
@@ -293,6 +267,29 @@ public class Diary {
 	
 	public boolean isUp() {
 		return up;
+	}
+	
+	public void render(Graphics g) {
+		g.drawImage(spritesheet, (int)(Main.getWIDTH() * 0.61), 
+				(int)(Main.getHEIGHT() * 0.6), (int)(Main.getWIDTH() / 3), 
+				(int)(Main.getHEIGHT() / 10), null);
+		g.drawImage(spritesheet, (int)(Main.getWIDTH() * 0.61), 
+				(int)(Main.getHEIGHT() * 0.75), (int)(Main.getWIDTH() / 3), 
+				(int)(Main.getHEIGHT() / 10), null);
+		g.setColor(new Color(141, 255, 161));
+		g.setFont(new Font("arial",Font.BOLD, Main.getWIDTH() / 20));
+		g.drawString(">", (int)(Main.getWIDTH() * 0.58),
+				(int)(Main.getHEIGHT() * (0.683 + currentOption * 0.15)));
+		g.setFont(new Font("arial",Font.BOLD, Main.getWIDTH() / 43));
+		//menu
+		g.drawString("Adicionar Alimentos",
+				(int)(Main.getWIDTH() * 0.666), 
+				(int)(Main.getHEIGHT() * 0.666));
+		g.drawString("Voltar ao menu",
+				(int)(Main.getWIDTH() * 0.69), 
+				(int)(Main.getHEIGHT() * 0.815));
+		adicionarHUD(g);
+		adicionarList(g, currentFood);
 	}
 	
 	public void setUp(boolean up) {

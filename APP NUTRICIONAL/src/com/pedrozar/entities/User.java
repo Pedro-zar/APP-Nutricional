@@ -1,6 +1,7 @@
 package com.pedrozar.entities;
 
 public class User {
+	
 	//save 1
 	private static int height, weight, age, gender; //1 = F, 0 = M
 	private static int password, user, firstLogin; //1 = true, 0 = false;

@@ -25,10 +25,14 @@ public class CampoLogin extends JFrame {
         JButton buttonEntrar = new JButton("Entrar");
         JButton buttonCancelar = new JButton("Cancelar");
         MaskFormatter mascaraPassword = null;
-        labelUser.setBounds(30,40,100,(Main.getWIDTH()/16/4));
-        labelPassword.setBounds(30,(int)(Main.getWIDTH()/16),100,(Main.getWIDTH()/16/4));
-        buttonEntrar.setBounds(150, 120, 100, (Main.getWIDTH()/16/4));
-        buttonCancelar.setBounds(30, 120, 100, (Main.getWIDTH()/16/4));
+        labelUser.setBounds(Main.getHEIGHT()/24,Main.getHEIGHT()/18,
+        		(int)(Main.getHEIGHT()/7.2),(Main.getWIDTH()/16/4));
+        labelPassword.setBounds(Main.getHEIGHT()/24,(int)(Main.getWIDTH()/16),
+        		(int)(Main.getHEIGHT()/7.2),(Main.getWIDTH()/16/4));
+        buttonEntrar.setBounds((int)(Main.getHEIGHT()/4.8), Main.getHEIGHT()/6, 
+        		(int)(Main.getHEIGHT()/7.2), (Main.getWIDTH()/16/4));
+        buttonCancelar.setBounds(Main.getHEIGHT()/24, Main.getHEIGHT()/6, 
+        		(int)(Main.getHEIGHT()/7.2), (Main.getWIDTH()/16/4));
         
         try{
         	mascaraPassword = new MaskFormatter("####");
@@ -40,7 +44,8 @@ public class CampoLogin extends JFrame {
         }
         
         JFormattedTextField jFormattedPassword = new JFormattedTextField(mascaraPassword);
-        jFormattedPassword.setBounds(150,80,100,(Main.getWIDTH()/16/4));
+        jFormattedPassword.setBounds((int)(Main.getHEIGHT()/4.8),Main.getHEIGHT()/9,
+        		(int)(Main.getHEIGHT()/7.2),(Main.getWIDTH()/16/4));
         
         janela.add(labelPassword);
         janela.add(jFormattedPassword);
@@ -79,7 +84,7 @@ public class CampoLogin extends JFrame {
 			}
         });
         
-        setSize(300, 240);
+        setSize((int)(Main.getHEIGHT()/2.4), Main.getHEIGHT()/3);
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setVisible(true);
         setResizable(false);

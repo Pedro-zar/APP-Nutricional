@@ -46,7 +46,7 @@ Feijão Preto:91:100:16.56:6.03:0.29
 Feijão Preto(SementeMadura,comSal,Cozido,Fervido):132:100:23.71:8.86:0.54
 Feijão Verde:31:100:7.13:1.82:0.12
 Feijão VerdeCongelado:33:100:7.58:1.8:0.21
-Feijão Verde(SolidosEscorridos,Enlatado):20:100:4.5:1.15:0.1
+Feijão Verde(Solidos Escorridos, Enlatado):20:100:4.5:1.15:0.1
 Feijão Vermelho:218:100:39.91:13.44:0.87
 Feijões Em Molho de Tomate:151:100:21.39:5.54:5.15
 Feijões Em Molhode Tomate Vegetariano:94:100:21.14:4.75:0.37

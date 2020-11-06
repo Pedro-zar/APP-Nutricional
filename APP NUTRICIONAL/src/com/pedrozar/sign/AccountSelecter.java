@@ -151,7 +151,7 @@ public class AccountSelecter {
 		User.setGender(0); 
 		User.setPassword(0);
 		User.setUser(0); 
-		User.setDcalories(0);
+		User.setDcalories(0, false);
 		User.setFirtLogin(0);
 		User.setwWeight(0);
 		Main.setState("MENU");

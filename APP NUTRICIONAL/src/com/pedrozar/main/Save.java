@@ -11,6 +11,7 @@ import java.io.IOException;
 import javax.swing.DefaultListModel;
 
 import com.pedrozar.entities.User;
+import com.pedrozar.functionalities.CampoAlimento;
 import com.pedrozar.functionalities.Diary;
 import com.pedrozar.sign.AccountSelecter;
 
@@ -67,7 +68,6 @@ public class Save {
 	
 	public static void applySave(String str) {
 		String[] spl = str.split("/");
-		int foodLine = 0;
 		for(int i = 0; i< spl.length; i++) {
 			String[] spl2 = spl[i].split(":");
 			switch(spl2[0]) {
@@ -99,7 +99,7 @@ public class Save {
 				User.setwWeight(Integer.parseInt(spl2[1]));
 				break;
 			case "dcalories":
-				User.setDcalories(Integer.parseInt(spl2[1]));
+				User.setDcalories(Integer.parseInt(spl2[1]), false);
 				break;
 			case "protDiv":
 				User.setProtDivision(Integer.parseInt(spl2[1]));
@@ -110,14 +110,6 @@ public class Save {
 			case "fatDiv":
 				User.setFatDivision(Integer.parseInt(spl2[1]));
 				break;
-			default:
-				Diary.foodList[foodLine][0] = spl2[0]; //Name
-				Diary.foodList[foodLine][1] = spl2[1]; //Calories(g)
-				Diary.foodList[foodLine][2] = spl2[2]; //Weight(kg)
-				Diary.foodList[foodLine][3] = spl2[3]; //Carb
-				Diary.foodList[foodLine][4] = spl2[4]; //Proteins
-				Diary.foodList[foodLine][5] = spl2[5]; //Fats
-				foodLine++;
 			}
 		}
 	}
@@ -162,22 +154,39 @@ public class Save {
 				try {
 					while((singleLine = reader.readLine()) != null) {
 						String[] transition = singleLine.split(":");
-						
 						line+= transition[0];
 						line+=":";
 						line+=transition[1];
+						line+=":";
+						line+=transition[2];
+						line+=":";
+						line+=transition[3];
+						line+=":";
+						line+=transition[4];
+						line+=":";
+						line+=transition[5];
 						line+="/";
 					}
 					reader.close();
 				}catch(IOException e) {}
 			}catch(FileNotFoundException e) {}
 		}
-		
+				
 		String[] spl = line.split("/");
-		for(int i = 0; i< spl.length; i++) {
+		model.clear();
+		int a = 0;
+		for(int i = 0; i < spl.length; i++) {
 			String[] spl2 = spl[i].split(":");
-			model.addElement(spl2[0]);;
-			
+			if(spl2[0].trim().toLowerCase().contains(CampoAlimento.textSearch.getText().trim().toLowerCase())) {
+				Diary.foodList[a][0] = spl2[0];
+				Diary.foodList[a][1] = spl2[1];
+				Diary.foodList[a][2] = spl2[2];
+				Diary.foodList[a][3] = spl2[3];
+				Diary.foodList[a][4] = spl2[4];
+				Diary.foodList[a][5] = spl2[5];
+				a++;
+				model.addElement(spl2[0]);
+			}
 		}
 	}
 }

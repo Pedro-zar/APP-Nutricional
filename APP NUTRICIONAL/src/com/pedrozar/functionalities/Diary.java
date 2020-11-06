@@ -19,23 +19,30 @@ public class Diary {
 	private BufferedImage spritesheet;
 	static boolean enabled = true;
 	
+	//lista de comida
+	static int contadorFood = 0;
+	private int currentFood = 0;
+	public static String[][] foodList = new String[100][6];
+	static String[] alimentos = new String[foodList.length];
+
 	//nutrientes
 	private int wdCalories = 0, wWeight = 0, exerciseRate = 0, dietOption = 0;
-	private int carbCon, fatCon, protCon;
+	static double[] carbCon = new double[foodList.length],
+			fatCon = new double[foodList.length],
+			protCon = new double[foodList.length];
 	private int[] nutrientChosed = new int[3];
 	private int nutrientsDivision = 0;
 	private int f = 0;
 	
-	//lista de comida
-	private int currentFood = 0;
-	public static String[][] foodList;
-	private String[] alimentos;
-	
 	public Diary() {
 		spritesheet = Main.getSpritesheet().getSprite(64, 64,96,21);
-		foodList = new String[100][6];
-		alimentos = new String[100];
 		for(int i = 0; i < 100; i++) {
+			for(int s = 0; s < 6; s++) {
+				foodList[i][s] = "";
+			}
+			carbCon[i] = 0;
+			fatCon[i] = 0;
+			protCon[i] = 0;
 			alimentos[i] = "";
 		}
 	}
@@ -43,14 +50,25 @@ public class Diary {
 	public void tick() {
 		if(enabled) {
 			if(f == 0) {
-				adicionarList();
 				setValues();
 				f++;
 			}
 			if(isMouseClicked()) {
 				if(getMouseX() >= Main.getWIDTH() * 0.7 && getMouseY() 
 						>= Main.getHEIGHT() * 0.8 && isMouseClicked()){
-					
+				}else if(true) {
+					int maxFood = 0;
+					for(int i = 0; i < alimentos.length; i++) {
+						if(alimentos[i].isEmpty()) {
+							maxFood = i - 1;
+							i = alimentos.length;
+						}
+					}
+					if(currentFood < 0)
+						currentFood = 0;
+					else if(currentFood > maxFood) {
+						currentFood = maxFood;
+					}
 				}
 			}else if(isUp()) {
 				currentOption--;
@@ -62,10 +80,19 @@ public class Diary {
 					currentOption = 0;
 			}else if(isEnter()) {
 				if(currentOption == 0) {
-					CampoAlimento campo = new CampoAlimento();
+					CampoAlimento campo = new CampoAlimento(contadorFood);
 					enabled = false;
 					campo.criarLista();
 				}else if (currentOption == 1) {
+					for(int i = 0; i < 100; i++) {
+						for(int s = 0; s < 6; s++) {
+							foodList[i][s] = "";
+						}
+						carbCon[i] = 0;
+						fatCon[i] = 0;
+						protCon[i] = 0;
+						alimentos[i] = "";
+					}
 					f = 0;
 					Main.setState("FUNC_SELEC");
 				}
@@ -172,12 +199,10 @@ public class Diary {
 				Save.loadRegister(13, User.getUser(), "calorias"));
 	}
 
-	private void adicionarList() {
 
-	}
-	
 	private void adicionarList(Graphics g, int d) {
 		int c = 0;
+		g.setFont(new Font("arial",Font.PLAIN, Main.getWIDTH() / 65));
 		for(int i = 0 + d; i < alimentos.length; i++) {
 			if(alimentos[i].length() <= 0) {
 				i = alimentos.length;
@@ -187,8 +212,8 @@ public class Diary {
 				break;
 			}else {
 				if(c < 5) {
-					g.drawString(alimentos[i], (int)(Main.getWIDTH()/2 
-							* (c * 0.3)), Main.getHEIGHT()/2);	
+					g.drawString(alimentos[i], (int)(Main.getWIDTH() * 0.03), 
+							(int)(Main.getHEIGHT()/3 + (c * 100)));	
 				}
 				c++;
 			}
@@ -219,20 +244,29 @@ public class Diary {
 	
 	private void adicionarNutrientes(Graphics g) {
 		int calories = User.getWdcalories() / 100;
-		//Fats
+		//Protein
 		g.drawString("Proteinas necessárias: " + calories / 4 
 				* User.getProtDivision() + "g",
 				(int)(Main.getWIDTH() * 0.6), 
 				(int)(Main.getHEIGHT() * 0.1));
-		g.drawString("Proteinas consumidas: " + protCon + "g",
+		double soma = 0;
+		for(int i = 0; i < protCon.length; i++) {
+			soma+= protCon[i];
+		}
+		g.drawString("Proteinas consumidas: " + soma
+				+ "g",//ARRUMAR VALORES COM ARRAYS
 				(int)(Main.getWIDTH() * 0.6), 
 				(int)(Main.getHEIGHT() * 0.15));
-		//Protein
+		//Fats
 		g.drawString("Gorduras necessárias: " + ((calories / 9)
 				* User.getFatDivision()) + "g",
 				(int)(Main.getWIDTH() * 0.6), 
 				(int)(Main.getHEIGHT() * 0.3));
-		g.drawString("Gorduras consumidas: " + fatCon + "g",
+		soma = 0;
+		for(int i = 0; i < fatCon.length; i++) {
+			soma+= fatCon[i];
+		}
+		g.drawString("Gorduras consumidas: " + soma + "g",
 				(int)(Main.getWIDTH() * 0.6), 
 				(int)(Main.getHEIGHT() * 0.35));
 		//Carbs
@@ -240,7 +274,11 @@ public class Diary {
 				* User.getCarbDivision() + "g",
 				(int)(Main.getWIDTH() * 0.6), 
 				(int)(Main.getHEIGHT() * 0.5));
-		g.drawString("Carboidratos consumidos: " + carbCon + "g",
+		soma = 0;
+		for(int i = 0; i < carbCon.length; i++) {
+			soma+= carbCon[i];
+		}
+		g.drawString("Carboidratos consumidos: " + soma + "g",
 				(int)(Main.getWIDTH() * 0.6), 
 				(int)(Main.getHEIGHT() * 0.55));
 	}

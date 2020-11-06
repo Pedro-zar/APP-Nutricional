@@ -48,15 +48,23 @@ public class CampoRegistro extends JFrame {
         MaskFormatter mascaraPassword = null;
         MaskFormatter mascaraWeight = null;
 	             
-        labelUser.setBounds(30,40,100,(Main.getWIDTH()/16/4));
-        labelPassword.setBounds(30,(Main.getWIDTH()/16),100,(Main.getWIDTH()/16/4));
-        labelGenre.setBounds(30,120,100,(Main.getWIDTH()/16/4));
-        labelAge.setBounds(30,160,100,(Main.getWIDTH()/16/4));
-        labelWeight.setBounds(30,200,100,(Main.getWIDTH()/16/4));
-        labelHeight.setBounds(30,240,100,(Main.getWIDTH()/16/4));
+        labelUser.setBounds(Main.getHEIGHT()/24,Main.getHEIGHT()/18,
+        		(int)(Main.getWIDTH()/7.2),(Main.getWIDTH()/16/4));
+        labelPassword.setBounds(Main.getHEIGHT()/24,(Main.getWIDTH()/16),
+        		(int)(Main.getWIDTH()/7.2),(Main.getWIDTH()/16/4));
+        labelGenre.setBounds(Main.getHEIGHT()/24,Main.getHEIGHT()/6,
+        		(int)(Main.getWIDTH()/7.2),(Main.getWIDTH()/16/4));
+        labelAge.setBounds(Main.getHEIGHT()/24,(int)(Main.getHEIGHT()/4.5),
+        		(int)(Main.getWIDTH()/7.2),(Main.getWIDTH()/16/4));
+        labelWeight.setBounds(Main.getHEIGHT()/24,(int)(Main.getWIDTH()/3.6),
+        		(int)(Main.getWIDTH()/7.2),(Main.getWIDTH()/16/4));
+        labelHeight.setBounds(Main.getHEIGHT()/24,Main.getHEIGHT()/3,
+        		(int)(Main.getWIDTH()/7.2),(Main.getWIDTH()/16/4));
         
-        buttonRegistrar.setBounds(150,280, 100, (Main.getWIDTH()/16/4));
-        buttonCancelar.setBounds(30,280, 100, (Main.getWIDTH()/16/4));
+        buttonRegistrar.setBounds((int)(Main.getHEIGHT()/4.8),(int)(Main.getHEIGHT()/2.57), 
+        		(int)(Main.getHEIGHT()/7.2), (Main.getWIDTH()/16/4));
+        buttonCancelar.setBounds(Main.getHEIGHT()/24,(int)(Main.getHEIGHT()/2.57), 
+        		(int)(Main.getHEIGHT()/7.2), (Main.getWIDTH()/16/4));
 	             
         try{
         	mascaraAge = new MaskFormatter("##");
@@ -79,12 +87,18 @@ public class CampoRegistro extends JFrame {
         jFormattedTextHeight = new JFormattedTextField(mascaraHeight);
         
         
-        jFormattedPassword.setBounds(150,(Main.getWIDTH()/16),100,(Main.getWIDTH()/16/4));
-        jrbFem.setBounds(150,120,50,(Main.getWIDTH()/16/4));
-        jrbMas.setBounds(200,120,50,(Main.getWIDTH()/16/4));
-        jFormattedTextAge.setBounds(150,160,100,(Main.getWIDTH()/16/4));
-        jFormattedTextWeight.setBounds(150,200,100,(Main.getWIDTH()/16/4));
-        jFormattedTextHeight.setBounds(150,240,100,(Main.getWIDTH()/16/4));
+        jFormattedPassword.setBounds((int)(Main.getHEIGHT()/4.8),(Main.getWIDTH()/16),
+        		(int)(Main.getHEIGHT()/7.2),(Main.getWIDTH()/16/4));
+        jrbFem.setBounds((int)(Main.getHEIGHT()/4.8),Main.getHEIGHT()/6,
+        		(int)(Main.getHEIGHT()/14.4),(Main.getWIDTH()/16/4));
+        jrbMas.setBounds((int)(Main.getHEIGHT()/3.6),Main.getHEIGHT()/6,
+        		(int)(Main.getHEIGHT()/14.4),(Main.getWIDTH()/16/4));
+        jFormattedTextAge.setBounds((int)(Main.getHEIGHT()/4.8),(int)(Main.getHEIGHT()/4.5),
+        		(int)(Main.getHEIGHT()/7.2), (Main.getWIDTH()/16/4));
+        jFormattedTextWeight.setBounds((int)(Main.getHEIGHT()/4.8),(int)(Main.getHEIGHT()/3.6),
+        		(int)(Main.getHEIGHT()/7.2),(Main.getWIDTH()/16/4));
+        jFormattedTextHeight.setBounds((int)(Main.getHEIGHT()/4.8),Main.getHEIGHT()/3,
+        		(int)(Main.getHEIGHT()/7.2),(Main.getWIDTH()/16/4));
         
         janela.add(labelGenre);
         janela.add(labelUser);
@@ -160,7 +174,7 @@ public class CampoRegistro extends JFrame {
         	}
         });
              
-        setSize(Main.getWIDTH()/3, Main.getHEIGHT()/2);
+        setSize(Main.getWIDTH()/4, Main.getHEIGHT()/2);
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setVisible(true);
         setResizable(false);
@@ -174,6 +188,7 @@ public class CampoRegistro extends JFrame {
 		Main.setState("MENU");
 		dispose();
 	}
+	
 	protected void finalizarRegistro() {
 		String[] opt1 = {"user", "password", "gender", "age","weight", 
 				"height", "firstLogin"};

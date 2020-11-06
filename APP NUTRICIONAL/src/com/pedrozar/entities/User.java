@@ -7,7 +7,6 @@ public class User {
 	//save 2
 	private static int wdcalories, dcalories, wWeight;//w = wanted 
 	private static int protDivision, carbDivision, fatDivision; //prot fat carb
-	private static String[] consumedList = new String[23];
 
 	public static int getGender() {
 		return gender;
@@ -69,8 +68,11 @@ public class User {
 		return dcalories;
 	}
 	
-	public static void setDcalories(int dcalories) {
-		User.dcalories = dcalories;
+	public static void setDcalories(int dcalories, boolean a) {
+		if(a)
+			User.dcalories+= dcalories;
+		else
+			User.dcalories = dcalories;
 	}
 	
 	public static void setFirtLogin(int firstLogin) {
@@ -111,14 +113,6 @@ public class User {
 
 	public static void setFatDivision(int fatDivision) {
 		User.fatDivision = fatDivision;
-	}
-
-	public static String[] getConsumedList() {
-		return consumedList;
-	}
-
-	public static void setConsumedList(String[] consumedList) {
-		User.consumedList = consumedList;
 	}
 
 }

@@ -258,19 +258,7 @@ public class Diary {
 		setEnter(false);
 		setMouseClicked(false);
 	}
-	
-	public boolean isMouseClicked() {
-		return mouseClicked;
-	}
 
-	public void setMouseClicked(boolean mouseClicked) {
-		this.mouseClicked = mouseClicked;
-	}
-	
-	public boolean isUp() {
-		return up;
-	}
-	
 	public void render(Graphics g) {
 		g.drawImage(spritesheet, (int)(Main.getWIDTH() * 0.61), 
 				(int)(Main.getHEIGHT() * 0.6), (int)(Main.getWIDTH() / 3), 
@@ -292,6 +280,18 @@ public class Diary {
 				(int)(Main.getHEIGHT() * 0.815));
 		adicionarHUD(g);
 		adicionarList(g, currentFood);
+	}
+	
+	public boolean isMouseClicked() {
+		return mouseClicked;
+	}
+
+	public void setMouseClicked(boolean mouseClicked) {
+		this.mouseClicked = mouseClicked;
+	}
+	
+	public boolean isUp() {
+		return up;
 	}
 	
 	public void setUp(boolean up) {

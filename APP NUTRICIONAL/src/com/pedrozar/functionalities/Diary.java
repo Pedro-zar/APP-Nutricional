@@ -22,14 +22,18 @@ public class Diary {
 	public static String[][] foodList = new String[alimentos.length][6];
 	private boolean mouseClicked, down = false, up = false, enter = false;
 	private String[] options = {"ADICIONAR","VOLTAR"};
-	private BufferedImage spritesheet;
+	private BufferedImage spriteRectangle, spriteX, spriteArrowUp, spriteArrowDown;
 	private int wdCalories = 0, wWeight = 0, exerciseRate = 0, dietOption = 0,
 			nutrientsDivision = 0, f = 0, currentOption = 0,
 			maxOption = options.length-1, currentFood = 0;;
 	private int[] nutrientChosed = new int[3];
 	
 	public Diary() {
-		spritesheet = Main.getSpritesheet().getSprite(64, 64,96,21);
+		spriteArrowUp = Main.getSpritesheet().getSprite(128, 0, 32, 32);
+		spriteArrowDown = Main.getSpritesheet().getSprite(128, 0, 32, 32);
+		spriteX = Main.getSpritesheet().getSprite(128, 32, 32, 32);
+		Main.getSpritesheet().getSprite(0, 0,64,64);
+		spriteRectangle = Main.getSpritesheet().getSprite(64, 64,96,21);
 		for(int i = 0; i < 100; i++) {
 			for(int s = 0; s < 6; s++) {
 				foodList[i][s] = "";
@@ -128,9 +132,25 @@ public class Diary {
 					String peso = Double.toString(weiCon[i]) ;
 					if(weiCon[i] >= 1000)
 						peso = Double.toString((weiCon[i]/1000)) + "k";
-					g.drawString(alimentos[i] + " (" + peso + "g) ", (int)(Main.getWIDTH() * 0.03), 
+					g.drawImage(spriteX, (int)(Main.getWIDTH() * 0.54), 
+							(int)(Main.getHEIGHT()/2.99 + ((c - 0.5) * (Main.getHEIGHT()/7.2))), 
+							32, 32, null);
+					g.drawString(alimentos[i], (int)(Main.getWIDTH() * 0.03), 
 							(int)(Main.getHEIGHT()/3 + ((c - 0.5) * (Main.getHEIGHT()/7.2))));	
+					g.drawString("(" + peso + "g) " + " Carb: " + carbCon[i] + "g. Prot: " + protCon[i] 
+							+ "g. Gord: " + fatCon[i] + "g." ,
+							(int)(Main.getWIDTH() * 0.03), (int)(Main.getHEIGHT()/2.7 
+									+ ((c - 0.5) * (Main.getHEIGHT()/7.2))));	
+				}else if(c >= 5){
+					g.drawImage(spriteArrowUp, (int)(Main.getWIDTH() * 0.54), 
+						(int)(Main.getHEIGHT()/5.4), Main.getHEIGHT()/20,
+						Main.getHEIGHT()/20, null);
+					g.drawImage(spriteArrowDown, (int)(Main.getWIDTH() * 0.54), 
+							(int)(Main.getHEIGHT()/1.12), Main.getHEIGHT()/20,
+							Main.getHEIGHT()/20, null);
+					
 				}
+				
 				c++;
 			}
 		}
@@ -260,10 +280,10 @@ public class Diary {
 	}
 
 	public void render(Graphics g) {
-		g.drawImage(spritesheet, (int)(Main.getWIDTH() * 0.61), 
+		g.drawImage(spriteRectangle, (int)(Main.getWIDTH() * 0.61), 
 				(int)(Main.getHEIGHT() * 0.6), (int)(Main.getWIDTH() / 3), 
 				(int)(Main.getHEIGHT() / 10), null);
-		g.drawImage(spritesheet, (int)(Main.getWIDTH() * 0.61), 
+		g.drawImage(spriteRectangle, (int)(Main.getWIDTH() * 0.61), 
 				(int)(Main.getHEIGHT() * 0.75), (int)(Main.getWIDTH() / 3), 
 				(int)(Main.getHEIGHT() / 10), null);
 		g.setColor(new Color(141, 255, 161));

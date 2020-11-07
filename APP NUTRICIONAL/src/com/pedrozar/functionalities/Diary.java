@@ -16,7 +16,7 @@ public class Diary {
 	static double[] carbCon = new double[alimentos.length],
 			fatCon = new double[alimentos.length],
 			protCon = new double[alimentos.length];
-	static int[] weiCon = new int[alimentos.length];
+	static double[] weiCon = new double[alimentos.length];
 	static int contadorFood = 0;
 	static boolean enabled = true;
 	public static String[][] foodList = new String[alimentos.length][6];
@@ -125,7 +125,10 @@ public class Diary {
 				break;
 			}else {
 				if(c < 5) {
-					g.drawString(alimentos[i] + " (" + weiCon[i] + ") ", (int)(Main.getWIDTH() * 0.03), 
+					String peso = Double.toString(weiCon[i]) ;
+					if(weiCon[i] >= 1000)
+						peso = Double.toString((weiCon[i]/1000)) + "k";
+					g.drawString(alimentos[i] + " (" + peso + "g) ", (int)(Main.getWIDTH() * 0.03), 
 							(int)(Main.getHEIGHT()/3 + ((c - 0.5) * (Main.getHEIGHT()/7.2))));	
 				}
 				c++;
@@ -203,9 +206,7 @@ public class Diary {
 				f++;
 			}
 			if(isMouseClicked()) {
-				if(getMouseX() >= Main.getWIDTH() * 0.7 && getMouseY() 
-						>= Main.getHEIGHT() * 0.8 && isMouseClicked()){
-				}else if(true) {
+				if(true) {
 					int maxFood = 0;
 					for(int i = 0; i < alimentos.length; i++) {
 						if(alimentos[i].isEmpty()) {
@@ -245,6 +246,7 @@ public class Diary {
 						protCon[i] = 0;
 						alimentos[i] = "";
 					}
+					contadorFood = 0;
 					f = 0;
 					Main.setState("FUNC_SELEC");
 				}

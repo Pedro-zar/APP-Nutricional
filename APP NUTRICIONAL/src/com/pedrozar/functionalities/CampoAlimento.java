@@ -47,7 +47,7 @@ public class CampoAlimento extends JFrame {
 		JButton buttonSearch = new JButton("Procurar");
 		JButton buttonFechar = new JButton("Fechar");
 		JButton buttonAdicionar = new JButton("Adicionar");
-		double a = 2.1, b = 7.2, x = 25;
+		double a = 2.1, b = 6.1, x = 25;
 		int c = 64;
 		labelProt.setBounds((int)(Main.getWIDTH()/a),
 				(int) (Main.getWIDTH()/8 + (x * -2)),(int)(Main.getHEIGHT()/b),(Main.getWIDTH()/c));
@@ -66,13 +66,13 @@ public class CampoAlimento extends JFrame {
 		listFood.setBounds((int)(Main.getWIDTH()/30), (Main.getWIDTH()/16), 550, 200);
 
 		buttonAdicionar.setBounds((int)(Main.getWIDTH()/5.8),
-				(int)(Main.getHEIGHT()/2.57), 
+				(int)(Main.getHEIGHT()/2.5), 
 				Main.getHEIGHT()/7, Main.getHEIGHT()/7/5);
 		buttonSearch.setBounds((int)(Main.getWIDTH()/4),
 				(int)(Main.getWIDTH()/32), 
 				Main.getHEIGHT()/8, Main.getHEIGHT()/7/5);
         buttonFechar.setBounds((int)(Main.getWIDTH()/16),
-        		(int)(Main.getHEIGHT()/2.57), 
+        		(int)(Main.getHEIGHT()/2.5), 
         		Main.getHEIGHT()/7, Main.getHEIGHT()/7/5);
 
         janela.add(listFood);
@@ -113,17 +113,32 @@ public class CampoAlimento extends JFrame {
         buttonAdicionar.addActionListener(new ActionListener() {
         	
         	public void actionPerformed(ActionEvent arg0) {
-        		
         		int i = listFood.getSelectedIndex();
-				if(i >= 0) {
-	        		Diary.alimentos[Diary.contadorFood] = Diary.foodList[i][0];
-	        		Diary.carbCon[Diary.contadorFood] = Double.parseDouble(Diary.foodList[i][3]);
-	        		Diary.fatCon[Diary.contadorFood] = Double.parseDouble(Diary.foodList[i][5]);
-	        		Diary.protCon[Diary.contadorFood] = Double.parseDouble(Diary.foodList[i][4]);
-	        		Diary.weiCon[Diary.contadorFood] = Integer.parseInt(Diary.foodList[i][2]);
-	        		Diary.contadorFood++;
-	        		User.setDcalories(Integer.parseInt(Diary.foodList[i][1]), true);
-				}
+        		boolean b = false;
+        		int c = 0;
+        		if(i >= 0) {
+        			for(int f = 0; f < Diary.alimentos.length; f++) {
+            			if(Diary.alimentos[f].equalsIgnoreCase(Diary.foodList[i][0])) {
+            				b = true;
+            				c = f;
+            			}
+            		}
+	        		if(b) {
+	        			Diary.weiCon[c] +=  Integer.parseInt(Diary.foodList[i][2]);
+	        			Diary.carbCon[c] += Double.parseDouble(Diary.foodList[i][3]);
+	        			Diary.fatCon[c] += Double.parseDouble(Diary.foodList[i][5]);
+	        			Diary.protCon[c] += Double.parseDouble(Diary.foodList[i][4]);
+	        			User.setDcalories(Integer.parseInt(Diary.foodList[i][1]), true);
+	        		}else{
+		        		Diary.alimentos[Diary.contadorFood] = Diary.foodList[i][0];
+		        		Diary.carbCon[Diary.contadorFood] = Double.parseDouble(Diary.foodList[i][3]);
+		        		Diary.fatCon[Diary.contadorFood] = Double.parseDouble(Diary.foodList[i][5]);
+		        		Diary.protCon[Diary.contadorFood] = Double.parseDouble(Diary.foodList[i][4]);
+		        		Diary.weiCon[Diary.contadorFood] = Integer.parseInt(Diary.foodList[i][2]);
+		        		Diary.contadorFood++;
+		        		User.setDcalories(Integer.parseInt(Diary.foodList[i][1]), true);
+					}
+        		}
         	}
     	
         });
@@ -131,7 +146,6 @@ public class CampoAlimento extends JFrame {
 		buttonSearch.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent arg0) {
-				
 				Save.loadRegister(list);   
 			}
 			

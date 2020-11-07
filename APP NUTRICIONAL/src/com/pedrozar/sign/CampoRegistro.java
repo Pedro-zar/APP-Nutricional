@@ -56,7 +56,7 @@ public class CampoRegistro extends JFrame {
         		(int)(Main.getWIDTH()/7.2),(Main.getWIDTH()/16/4));
         labelAge.setBounds(Main.getHEIGHT()/24,(int)(Main.getHEIGHT()/4.5),
         		(int)(Main.getWIDTH()/7.2),(Main.getWIDTH()/16/4));
-        labelWeight.setBounds(Main.getHEIGHT()/24,(int)(Main.getWIDTH()/3.6),
+        labelWeight.setBounds(Main.getHEIGHT()/24,(int)(Main.getHEIGHT()/3.6),
         		(int)(Main.getWIDTH()/7.2),(Main.getWIDTH()/16/4));
         labelHeight.setBounds(Main.getHEIGHT()/24,Main.getHEIGHT()/3,
         		(int)(Main.getWIDTH()/7.2),(Main.getWIDTH()/16/4));

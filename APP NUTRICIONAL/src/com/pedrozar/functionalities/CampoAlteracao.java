@@ -17,6 +17,7 @@ public class CampoAlteracao extends CampoRegistro {
 	public void criarAlterator() {
 		criarRegistro();
 		setTitle("Alteração de dados");
+		setSize(Main.getWIDTH()/3, Main.getHEIGHT()/2);
 		JButton buttonDeletar = new JButton("Deletar");
 		buttonDeletar.setBounds(270,280, 100, 20);
 		janela.add(buttonDeletar);

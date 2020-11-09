@@ -15,7 +15,8 @@ public class Diary {
 	static String[] alimentos = new String[100];
 	static double[] carbCon = new double[alimentos.length],
 			fatCon = new double[alimentos.length],
-			protCon = new double[alimentos.length];
+			protCon = new double[alimentos.length],
+			calCon = new double[alimentos.length];
 	static double[] weiCon = new double[alimentos.length];
 	static int contadorFood = 0;
 	static boolean enabled = true;
@@ -38,6 +39,7 @@ public class Diary {
 			for(int s = 0; s < 6; s++) {
 				foodList[i][s] = "";
 			}
+			calCon[i] = 0;
 			weiCon[i] = 0;
 			carbCon[i] = 0;
 			fatCon[i] = 0;
@@ -105,10 +107,10 @@ public class Diary {
 				1};
 		Save.saveRegister(opt1, opt2, 13, User.getUser(), "contas");
 		String[] opt3 = {"wdcalories", "protDiv","fatDiv" ,"carbDiv",
-				"dcalories","wweight"};
+				"wweight"};
 		int[] opt4 = {User.getWdcalories(), User.getProtDivision(),
 				User.getFatDivision(), User.getCarbDivision(),
-				User.getDcalories(), User.getwWeight()};
+				User.getwWeight()};
 		Save.saveRegister(opt3, opt4, 13, User.getUser(), "calorias");
 	}
 	
@@ -134,7 +136,7 @@ public class Diary {
 						peso = Double.toString((weiCon[i]/1000)) + "k";
 					g.drawImage(spriteX, (int)(Main.getWIDTH() * 0.54), 
 							(int)(Main.getHEIGHT()/2.99 + ((c - 0.5) * (Main.getHEIGHT()/7.2))), 
-							32, 32, null);
+							Main.getHEIGHT()/20, Main.getHEIGHT()/20, null);
 					g.drawString(alimentos[i], (int)(Main.getWIDTH() * 0.03), 
 							(int)(Main.getHEIGHT()/3 + ((c - 0.5) * (Main.getHEIGHT()/7.2))));	
 					g.drawString("(" + peso + "g) " + " Carb: " + carbCon[i] + "g. Prot: " + protCon[i] 
@@ -166,7 +168,11 @@ public class Diary {
 		g.drawString("Meta de Calorias: " + User.getWdcalories(),
 				(int)(Main.getWIDTH() * 0.05), 
 				(int)(Main.getHEIGHT() * 0.1));
-		g.drawString("Calorias Consumidas: " + User.getDcalories(),
+		double soma = 0;
+		for(int i = 0; i < calCon.length; i++) {
+			soma+= calCon[i];
+		}
+		g.drawString("Calorias Consumidas: " + soma,
 				(int)(Main.getWIDTH() * 0.05), 
 				(int)(Main.getHEIGHT() * 0.15));
 		//Weight
@@ -240,14 +246,14 @@ public class Diary {
 								+ Main.getHEIGHT()/20) 
 						&& mouseY <= ((Main.getHEIGHT()/5.4) 
 								+ Main.getHEIGHT()/20)) {
-					currentFood++;
+					currentFood--;
 				}else if(mouseX >= (Main.getWIDTH() * 0.54) &&
 						mouseY >= (Main.getHEIGHT()/1.12) &&
 						mouseX <= ((Main.getWIDTH() * 0.54) 
 								+ Main.getHEIGHT()/20) 
 						&& mouseY <= ((Main.getHEIGHT()/1.12)
 								+ Main.getHEIGHT()/20)) {
-					currentFood--;
+					currentFood++;
 				}
 				if(currentFood < 0)
 					currentFood = 0;
@@ -255,6 +261,28 @@ public class Diary {
 					currentFood = maxFood - 4;
 					if(currentFood < 0)
 						currentFood = 0;
+				}
+				for(int i = 0; i < 5; i++) {
+					if(mouseX >= Main.getWIDTH() * 0.54 
+							&& mouseY >= Main.getHEIGHT()/2.99 
+							+ ((i - 0.5) * (Main.getHEIGHT()/7.2))
+							&& mouseX <= Main.getWIDTH() * 0.54 
+							+ (Main.getHEIGHT()/20)
+							&& mouseY <= Main.getHEIGHT()/2.99 
+							+ ((i - 0.5) * (Main.getHEIGHT()/7.2))
+							+ (Main.getHEIGHT()/20)) {
+						for(int e = i + 1; e <= contadorFood; e++) {
+							alimentos[e-1] = alimentos[e];
+							calCon[e-1] = calCon[e];
+							protCon[e-1] = protCon[e];
+							carbCon[e-1] = carbCon[e];
+							fatCon[e-1] = fatCon[e];
+							weiCon[e-1] = weiCon[e];
+						}
+						contadorFood--;
+						if(contadorFood == 5)
+							currentFood = 0;
+					}
 				}
 			}else if(isUp()) {
 				currentOption--;
@@ -274,6 +302,7 @@ public class Diary {
 						for(int s = 0; s < 6; s++) {
 							foodList[i][s] = "";
 						}
+						calCon[i] = 0;
 						weiCon[i] = 0;
 						carbCon[i] = 0;
 						fatCon[i] = 0;

@@ -6,7 +6,7 @@ public class User {
 	private static int height, weight, age, gender; //1 = F, 0 = M
 	private static int password, user, firstLogin; //1 = true, 0 = false;
 	//save 2
-	private static int wdcalories, dcalories, wWeight;//w = wanted 
+	private static int wdcalories, wWeight;//w = wanted 
 	private static int protDivision, carbDivision, fatDivision; //prot fat carb
 
 	public static int getGender() {
@@ -63,17 +63,6 @@ public class User {
 	
 	public static void setWdcalories(int wdcalories) {
 		User.wdcalories = wdcalories;
-	}
-	
-	public static int getDcalories() {
-		return dcalories;
-	}
-	
-	public static void setDcalories(int dcalories, boolean a) {
-		if(a)
-			User.dcalories+= dcalories;
-		else
-			User.dcalories = dcalories;
 	}
 	
 	public static void setFirtLogin(int firstLogin) {

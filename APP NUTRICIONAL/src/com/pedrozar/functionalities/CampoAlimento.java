@@ -13,7 +13,6 @@ import javax.swing.JTextField;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import com.pedrozar.entities.User;
 import com.pedrozar.main.Main;
 import com.pedrozar.main.Save;
 
@@ -128,15 +127,15 @@ public class CampoAlimento extends JFrame {
 	        			Diary.carbCon[c] += Double.parseDouble(Diary.foodList[i][3]);
 	        			Diary.fatCon[c] += Double.parseDouble(Diary.foodList[i][5]);
 	        			Diary.protCon[c] += Double.parseDouble(Diary.foodList[i][4]);
-	        			User.setDcalories(Integer.parseInt(Diary.foodList[i][1]), true);
+	        			Diary.calCon[c] += Double.parseDouble(Diary.foodList[i][1]);
 	        		}else{
 		        		Diary.alimentos[Diary.contadorFood] = Diary.foodList[i][0];
 		        		Diary.carbCon[Diary.contadorFood] = Double.parseDouble(Diary.foodList[i][3]);
 		        		Diary.fatCon[Diary.contadorFood] = Double.parseDouble(Diary.foodList[i][5]);
 		        		Diary.protCon[Diary.contadorFood] = Double.parseDouble(Diary.foodList[i][4]);
 		        		Diary.weiCon[Diary.contadorFood] = Integer.parseInt(Diary.foodList[i][2]);
+		        		Diary.calCon[Diary.contadorFood] = Double.parseDouble(Diary.foodList[i][1]);
 		        		Diary.contadorFood++;
-		        		User.setDcalories(Integer.parseInt(Diary.foodList[i][1]), true);
 					}
         		}
         	}

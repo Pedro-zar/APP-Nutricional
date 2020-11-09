@@ -98,9 +98,6 @@ public class Save {
 			case "wweight":
 				User.setwWeight(Integer.parseInt(spl2[1]));
 				break;
-			case "dcalories":
-				User.setDcalories(Integer.parseInt(spl2[1]), false);
-				break;
 			case "protDiv":
 				User.setProtDivision(Integer.parseInt(spl2[1]));
 				break;

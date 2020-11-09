@@ -25,12 +25,12 @@ public class Diary {
 	private BufferedImage spriteRectangle, spriteX, spriteArrowUp, spriteArrowDown;
 	private int wdCalories = 0, wWeight = 0, exerciseRate = 0, dietOption = 0,
 			nutrientsDivision = 0, f = 0, currentOption = 0,
-			maxOption = options.length-1, currentFood = 0;;
+			maxOption = options.length-1, currentFood = 0, maxFood = 0;
 	private int[] nutrientChosed = new int[3];
 	
 	public Diary() {
 		spriteArrowUp = Main.getSpritesheet().getSprite(128, 0, 32, 32);
-		spriteArrowDown = Main.getSpritesheet().getSprite(128, 0, 32, 32);
+		spriteArrowDown = Main.getSpritesheet().getSprite(128, 96, 32, 32);
 		spriteX = Main.getSpritesheet().getSprite(128, 32, 32, 32);
 		Main.getSpritesheet().getSprite(0, 0,64,64);
 		spriteRectangle = Main.getSpritesheet().getSprite(64, 64,96,21);
@@ -141,14 +141,14 @@ public class Diary {
 							+ "g. Gord: " + fatCon[i] + "g." ,
 							(int)(Main.getWIDTH() * 0.03), (int)(Main.getHEIGHT()/2.7 
 									+ ((c - 0.5) * (Main.getHEIGHT()/7.2))));	
-				}else if(c >= 5){
+				}
+				if(maxFood > 4){	
 					g.drawImage(spriteArrowUp, (int)(Main.getWIDTH() * 0.54), 
 						(int)(Main.getHEIGHT()/5.4), Main.getHEIGHT()/20,
 						Main.getHEIGHT()/20, null);
 					g.drawImage(spriteArrowDown, (int)(Main.getWIDTH() * 0.54), 
 							(int)(Main.getHEIGHT()/1.12), Main.getHEIGHT()/20,
 							Main.getHEIGHT()/20, null);
-					
 				}
 				
 				c++;
@@ -220,27 +220,41 @@ public class Diary {
 	}
 	
 	public void tick() {
+		for(int i = 0; i < alimentos.length; i++) {
+			if(alimentos[i].isEmpty()) {
+				maxFood = i - 1;
+				i = alimentos.length;
+				if(maxFood < 0)
+					maxFood = 0;
+			}
+		}
 		if(enabled) {
 			if(f == 0) {
 				setValues();
 				f++;
 			}
 			if(isMouseClicked()) {
-				if(true) {
-					int maxFood = 0;
-					for(int i = 0; i < alimentos.length; i++) {
-						if(alimentos[i].isEmpty()) {
-							maxFood = i - 1;
-							i = alimentos.length;
-							if(maxFood < 0)
-								maxFood = 0;
-						}
-					}
+				if(mouseX >= (Main.getWIDTH() * 0.54) &&
+						mouseY >= (Main.getHEIGHT()/5.4) &&
+						mouseX <= ((Main.getWIDTH() * 0.54) 
+								+ Main.getHEIGHT()/20) 
+						&& mouseY <= ((Main.getHEIGHT()/5.4) 
+								+ Main.getHEIGHT()/20)) {
+					currentFood++;
+				}else if(mouseX >= (Main.getWIDTH() * 0.54) &&
+						mouseY >= (Main.getHEIGHT()/1.12) &&
+						mouseX <= ((Main.getWIDTH() * 0.54) 
+								+ Main.getHEIGHT()/20) 
+						&& mouseY <= ((Main.getHEIGHT()/1.12)
+								+ Main.getHEIGHT()/20)) {
+					currentFood--;
+				}
+				if(currentFood < 0)
+					currentFood = 0;
+				else if(currentFood > maxFood - 4) {
+					currentFood = maxFood - 4;
 					if(currentFood < 0)
 						currentFood = 0;
-					else if(currentFood > maxFood) {
-						currentFood = maxFood;
-					}
 				}
 			}else if(isUp()) {
 				currentOption--;
@@ -266,6 +280,8 @@ public class Diary {
 						protCon[i] = 0;
 						alimentos[i] = "";
 					}
+					maxFood = 0;
+					currentFood = 0;
 					contadorFood = 0;
 					f = 0;
 					Main.setState("FUNC_SELEC");

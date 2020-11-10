@@ -11,6 +11,7 @@ import com.pedrozar.sign.AccountSelecter;
 
 public class FunctionalitySelector {
 
+	public static boolean running = true;
 	private String[] opt = new String[3];
 	private String[][] optionText = new String[3][3];
 	private BufferedImage optionSprite;
@@ -39,30 +40,37 @@ public class FunctionalitySelector {
 	}
 	
 	public void tick() {
-		if(isUp()) {
-			currentOption--;
-			setUp(false);
-			if(currentOption < 0)
-				currentOption = maxOption;
-		}else if(isDown()){
-			currentOption++;
-			setDown(false);
-			if(currentOption > maxOption)
-				currentOption = 0;
-		}else if(isEnter()) {
-			if(options[currentOption] == "DIARY"
-					|| options[currentOption] == "UPDATE") 
-				Main.setState(options[currentOption]);
-			if(options[currentOption] == "UPDATE")
-				Update.criarJanela();
-			else if(options[currentOption] == "LOGOUT") 
-				AccountSelecter.logout();
-			setEnter(false);
-		}else if(isEscape()) {
-			if(currentOption == 2)
-				AccountSelecter.logout();
-			currentOption = 2;
-			setEscape(false);
+		if(running) {
+			if(isUp()) {
+				currentOption--;
+				setUp(false);
+				if(currentOption < 0)
+					currentOption = maxOption;
+			}else if(isDown()){
+				currentOption++;
+				setDown(false);
+				if(currentOption > maxOption)
+					currentOption = 0;
+			}else if(isEnter()) {
+				if(options[currentOption] == "DIARY") {
+					if(User.getFirstLogin() == 0) {
+						CampoFinalizarRegistro campo = new CampoFinalizarRegistro();
+						running = false;
+						campo.criarRegistro();
+					}else
+						Main.setState(options[currentOption]);
+					}
+				if(options[currentOption] == "UPDATE")
+					Update.criarJanela();
+				else if(options[currentOption] == "LOGOUT") 
+					AccountSelecter.logout();
+				setEnter(false);
+			}else if(isEscape()) {
+				if(currentOption == 2)
+					AccountSelecter.logout();
+				currentOption = 2;
+				setEscape(false);
+			}
 		}
 	}
 

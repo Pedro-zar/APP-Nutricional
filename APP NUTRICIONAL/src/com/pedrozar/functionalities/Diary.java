@@ -10,8 +10,10 @@ import com.pedrozar.main.Main;
 import com.pedrozar.main.Save;
 
 public class Diary {
-	
+
 	private static int mouseX, mouseY;
+	public static int wWeight = 0, exerciseRate = 0, dietOption = 0,
+			nutrientsDivision = 0;
 	static String[] alimentos = new String[100];
 	static double[] carbCon = new double[alimentos.length],
 			fatCon = new double[alimentos.length],
@@ -24,8 +26,7 @@ public class Diary {
 	private boolean mouseClicked, down = false, up = false, enter = false;
 	private String[] options = {"ADICIONAR","VOLTAR"};
 	private BufferedImage spriteRectangle, spriteX, spriteArrowUp, spriteArrowDown;
-	private int wdCalories = 0, wWeight = 0, exerciseRate = 0, dietOption = 0,
-			nutrientsDivision = 0, f = 0, currentOption = 0,
+	private int wdCalories = 0, f = 0, currentOption = 0,
 			maxOption = options.length-1, currentFood = 0, maxFood = 0;
 	private int[] nutrientChosed = new int[3];
 	
@@ -66,11 +67,11 @@ public class Diary {
 	
 	private void setValues() {
 		if(User.getFirstLogin() == 0) {
-			if(this.getNutrientsDivision() == 0) {//moderate carb
+			if(nutrientsDivision == 2) {//moderate carb
 				nutrientChosed[0] = 30;
 				nutrientChosed[1] = 35;
 				nutrientChosed[2] = 35;
-			}else if(this.getNutrientsDivision() == 1){//low carb
+			}else if(nutrientsDivision == 1){//low carb
 				nutrientChosed[0] = 40;
 				nutrientChosed[1] = 40;
 				nutrientChosed[2] = 20;
@@ -139,8 +140,8 @@ public class Diary {
 							Main.getHEIGHT()/20, Main.getHEIGHT()/20, null);
 					g.drawString(alimentos[i], (int)(Main.getWIDTH() * 0.03), 
 							(int)(Main.getHEIGHT()/3 + ((c - 0.5) * (Main.getHEIGHT()/7.2))));	
-					g.drawString("(" + peso + "g) " + " Carb: " + carbCon[i] + "g. Prot: " + protCon[i] 
-							+ "g. Gord: " + fatCon[i] + "g." ,
+					g.drawString("(" + peso + "g) " + " Carb: " + (int)carbCon[i] + "g. Prot: " 
+							+ (int)protCon[i] + "g. Gord: " + (int)fatCon[i] + "g." ,
 							(int)(Main.getWIDTH() * 0.03), (int)(Main.getHEIGHT()/2.7 
 									+ ((c - 0.5) * (Main.getHEIGHT()/7.2))));	
 				}
@@ -165,14 +166,14 @@ public class Diary {
 	
 	private void adicionarDados(Graphics g) {
 		//Calories
-		g.drawString("Meta de Calorias: " + User.getWdcalories(),
+		g.drawString("Meta de Calorias: " + (int)User.getWdcalories(),
 				(int)(Main.getWIDTH() * 0.05), 
 				(int)(Main.getHEIGHT() * 0.1));
 		double soma = 0;
 		for(int i = 0; i < calCon.length; i++) {
 			soma+= calCon[i];
 		}
-		g.drawString("Calorias Consumidas: " + soma,
+		g.drawString("Calorias Consumidas: " + (int)soma,
 				(int)(Main.getWIDTH() * 0.05), 
 				(int)(Main.getHEIGHT() * 0.15));
 		//Weight
@@ -195,32 +196,32 @@ public class Diary {
 		for(int i = 0; i < protCon.length; i++) {
 			soma+= protCon[i];
 		}
-		g.drawString("Proteinas consumidas: " + soma
+		g.drawString("Proteinas consumidas: " + (int)soma
 				+ "g",//ARRUMAR VALORES COM ARRAYS
 				(int)(Main.getWIDTH() * 0.6), 
 				(int)(Main.getHEIGHT() * 0.15));
 		//Fats
-		g.drawString("Gorduras necessárias: " + ((calories / 9)
-				* User.getFatDivision()) + "g",
+		g.drawString("Gorduras necessárias: " + (calories / 9
+				* User.getFatDivision() * 1.8) + "g",
 				(int)(Main.getWIDTH() * 0.6), 
 				(int)(Main.getHEIGHT() * 0.3));
 		soma = 0;
 		for(int i = 0; i < fatCon.length; i++) {
 			soma+= fatCon[i];
 		}
-		g.drawString("Gorduras consumidas: " + soma + "g",
+		g.drawString("Gorduras consumidas: " + (int)soma + "g",
 				(int)(Main.getWIDTH() * 0.6), 
 				(int)(Main.getHEIGHT() * 0.35));
 		//Carbs
-		g.drawString("Carboidratos necessários: " + calories / 4
-				* User.getCarbDivision() + "g",
+		g.drawString("Carboidratos necessários: " + (int)(calories / 4
+				* User.getCarbDivision()) + "g",
 				(int)(Main.getWIDTH() * 0.6), 
 				(int)(Main.getHEIGHT() * 0.5));
 		soma = 0;
 		for(int i = 0; i < carbCon.length; i++) {
 			soma+= carbCon[i];
 		}
-		g.drawString("Carboidratos consumidos: " + soma + "g",
+		g.drawString("Carboidratos consumidos: " + (int)soma + "g",
 				(int)(Main.getWIDTH() * 0.6), 
 				(int)(Main.getHEIGHT() * 0.55));
 	}
@@ -377,14 +378,6 @@ public class Diary {
 
 	public void setEnter(boolean enter) {
 		this.enter = enter;
-	}
-
-	public int getNutrientsDivision() {
-		return nutrientsDivision;
-	}
-
-	public void setNutrientsDivision(int nutrientsDivision) {
-		this.nutrientsDivision = nutrientsDivision;
 	}
 	
 }

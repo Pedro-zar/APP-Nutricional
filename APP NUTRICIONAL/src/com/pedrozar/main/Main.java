@@ -113,10 +113,10 @@ public class Main extends Canvas implements Runnable, KeyListener, MouseListener
 	
 	public void run() {
 		long lastTime = System.nanoTime();
-		double amountOfTicks = 500.0;
+		double amountOfTicks = 60.0;
 		double ns = 1000000000 / amountOfTicks;
 		double delta = 0;
-		int frames = 0;
+		//int frames = 0;
 		requestFocus();
 		double timer = System.currentTimeMillis();
 		while(isRunning){
@@ -126,12 +126,12 @@ public class Main extends Canvas implements Runnable, KeyListener, MouseListener
 			if(delta >= 1) {
 				tick();
 				render();
-				frames++;
+				//frames++;
 				delta--;
 			}
 			if(System.currentTimeMillis() - timer >= 1000){
-				System.out.println("FPS: "+ frames);
-				frames = 0;
+				//System.out.println("FPS: "+ frames);
+				//frames = 0;
 				timer+=1000;
 			}
 		}

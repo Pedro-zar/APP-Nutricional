@@ -19,8 +19,8 @@ import com.pedrozar.main.Save;
 public class CampoRegistro extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-	protected JFormattedTextField jFormattedTextWeight, jFormattedPassword;
-	protected JFormattedTextField jFormattedTextAge, jFormattedTextHeight;
+	protected JFormattedTextField jFormattedTextWeight, jFormattedPassword,
+	jFormattedTextAge, jFormattedTextHeight;
     protected JRadioButton jrbFem, jrbMas;
     protected Container janela;
     
@@ -125,6 +125,7 @@ public class CampoRegistro extends JFrame {
         	}
             	 	
         });	
+        
         buttonRegistrar.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		if (verificarCampos()) { 
@@ -143,7 +144,7 @@ public class CampoRegistro extends JFrame {
 						if((jFormattedPassword.getText().length() == 4)) {
 							if(Integer.parseInt(jFormattedTextWeight.getText()) <= 600 ) {
 								if(Integer.parseInt(jFormattedTextHeight.getText()) 
-										<= 300 ) {		
+										<= 300 ) {
 									return true;
 								}else {
 									JOptionPane.showMessageDialog(null,

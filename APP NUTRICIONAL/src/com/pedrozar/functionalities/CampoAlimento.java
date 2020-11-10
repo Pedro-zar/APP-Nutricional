@@ -90,11 +90,11 @@ public class CampoAlimento extends JFrame {
 			public void valueChanged(ListSelectionEvent arg0) {
 				int i = listFood.getSelectedIndex(); 
 				if(i >= 0) {
-			        labelProt.setText("Proteínas: " + Diary.foodList[i][4] + "g");
-			        labelCal.setText("Calorías: " + Diary.foodList[i][1]);
-			        labelFats.setText("Gorduras: " + Diary.foodList[i][5] + "g");
-			        labelCarb.setText("Carboidratos: " + Diary.foodList[i][3] + "g");
-			        labelWeig.setText("Peso: " + Diary.foodList[i][2] + "g");
+			        labelProt.setText("Proteínas: " + (int)Double.parseDouble(Diary.foodList[i][4])/10 + "g");
+			        labelCal.setText("Calorías: " + (int)Double.parseDouble(Diary.foodList[i][1])/10);
+			        labelFats.setText("Gorduras: " + (int)Double.parseDouble(Diary.foodList[i][5])/10 + "g");
+			        labelCarb.setText("Carboidratos: " + (int)Double.parseDouble(Diary.foodList[i][3])/10 + "g");
+			        labelWeig.setText("Peso: " + (int)Double.parseDouble(Diary.foodList[i][2])/10 + "g");
 				}
 			}
 			
@@ -123,18 +123,18 @@ public class CampoAlimento extends JFrame {
             			}
             		}
 	        		if(b) {
-	        			Diary.weiCon[c] +=  Integer.parseInt(Diary.foodList[i][2]);
-	        			Diary.carbCon[c] += Double.parseDouble(Diary.foodList[i][3]);
-	        			Diary.fatCon[c] += Double.parseDouble(Diary.foodList[i][5]);
-	        			Diary.protCon[c] += Double.parseDouble(Diary.foodList[i][4]);
-	        			Diary.calCon[c] += Double.parseDouble(Diary.foodList[i][1]);
+	        			Diary.weiCon[c] +=  Integer.parseInt(Diary.foodList[i][2])/10;
+	        			Diary.carbCon[c] += Double.parseDouble(Diary.foodList[i][3])/10;
+	        			Diary.fatCon[c] += Double.parseDouble(Diary.foodList[i][5])/10;
+	        			Diary.protCon[c] += Double.parseDouble(Diary.foodList[i][4])/10;
+	        			Diary.calCon[c] += Double.parseDouble(Diary.foodList[i][1])/10;
 	        		}else{
 		        		Diary.alimentos[Diary.contadorFood] = Diary.foodList[i][0];
-		        		Diary.carbCon[Diary.contadorFood] = Double.parseDouble(Diary.foodList[i][3]);
-		        		Diary.fatCon[Diary.contadorFood] = Double.parseDouble(Diary.foodList[i][5]);
-		        		Diary.protCon[Diary.contadorFood] = Double.parseDouble(Diary.foodList[i][4]);
-		        		Diary.weiCon[Diary.contadorFood] = Integer.parseInt(Diary.foodList[i][2]);
-		        		Diary.calCon[Diary.contadorFood] = Double.parseDouble(Diary.foodList[i][1]);
+		        		Diary.carbCon[Diary.contadorFood] = Double.parseDouble(Diary.foodList[i][3])/10;
+		        		Diary.fatCon[Diary.contadorFood] = Double.parseDouble(Diary.foodList[i][5])/10;
+		        		Diary.protCon[Diary.contadorFood] = Double.parseDouble(Diary.foodList[i][4])/10;
+		        		Diary.weiCon[Diary.contadorFood] = Integer.parseInt(Diary.foodList[i][2])/10;
+		        		Diary.calCon[Diary.contadorFood] = Double.parseDouble(Diary.foodList[i][1])/10;
 		        		Diary.contadorFood++;
 					}
         		}

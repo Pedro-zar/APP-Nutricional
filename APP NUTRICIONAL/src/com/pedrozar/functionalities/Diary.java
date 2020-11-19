@@ -36,7 +36,7 @@ public class Diary {
 		spriteX = Main.getSpritesheet().getSprite(128, 32, 32, 32);
 		Main.getSpritesheet().getSprite(0, 0,64,64);
 		spriteRectangle = Main.getSpritesheet().getSprite(64, 64,96,21);
-		for(int i = 0; i < 100; i++) {
+		for(int i = 0; i < foodList.length; i++) {
 			for(int s = 0; s < 6; s++) {
 				foodList[i][s] = "";
 			}
@@ -299,7 +299,7 @@ public class Diary {
 					enabled = false;
 					campo.criarLista();
 				}else if (currentOption == 1) {
-					for(int i = 0; i < 100; i++) {
+					for(int i = 0; i < foodList.length; i++) {
 						for(int s = 0; s < 6; s++) {
 							foodList[i][s] = "";
 						}

@@ -1,32 +1,42 @@
-Alm�ndegas de Carne de Vaca:202:100:7.58:12.41:13.16
-Alm�ndegas de Carne de Vaca e Porco:178:100:7.15:13.61:10.19
-Alm�ndegas de Carne de Frango:161:100:6.94:19.39:5.62
+Almôndegas de Carne de Vaca:202:100:7.58:12.41:13.16
+Almôndegas de Carne de Vaca e Porco:178:100:7.15:13.61:10.19
+Almôndegas de Carne de Frango:161:100:6.94:19.39:5.62
 Asa de Frango:288:100:0:26.64:19.3
-Asa de Frango (Pele N�o Consumida):201:100:0:30.21:8.06
-Asa de Frango no Forno ou Grelhada ou Assada (Pele Consumida):288:100:0:26.64:19.3
+Asa de Frango (Pele Não Consumida):201:100:0:30.21:8.06
+Asa de Frango Frita sem Revestimento (Pele Consumida):318:100:0:27.01:22.62
+Asa de Frango no Forno, Grelhada ou Assada (Pele Consumida):288:100:0:26.64:19.3
 Bacon:541:100:1.43:37.04:41.78
 Bacon Canadense:185:100:1.35:24.24:8.44
 Bacon Curado ou Defumado:541:100:1.43:37.04:41.78
 Bife de Carne de Vaca:252:100:0:27.29:15.01
 Bife de Carne de Vaca (apenas Parte Magra Consumida):187:100:0:29.81:6.63
-Bife de Carne de Vaca da Ponta de Agulha (Magra Cortada at� 0.5 cm de Gordura):164:100:0:21.08:8.24
-Bolo de Carne Mo�da feito com Carne de Vaca:204:100:6.52:16.16:12.11
-Bolo de Carne Mo�da feito com Carne de Vaca e Porco:191:100:6.43:16.73:10.42
+Bife de Carne de Vaca da Ponta de Agulha (Magra, Cortada até 0,5 cm de Gordura):164:100:0:21.08:8.24
+Bolo de Carne Moída feito com Carne de Vaca:204:100:6.52:16.16:12.11
+Bolo de Carne Moída feito com Carne de Vaca e Porco:191:100:6.43:16.73:10.42
 Carne da Sobrecoxa de Frango:119:110:0:19.65:3.91
 Carne de Cordeiro Assada:266:100:0:23.93:18.15
-Carne de Cordeiro Mo�da:282:100:0:16.56:23.41
-Carne de Frango Mo�da:237:100:0:27.07:13.49
-Carne de Peru Mo�da (Cozido):235:100:0:27.36:13.15
+Carne de Cordeiro Moída:282:100:0:16.56:23.41
+Carne de Frango Moída:237:100:0:27.07:13.49
+Carne de Pato:132:100:0:18.28:5.95
+Carne de Peito de Peru:104:100:4.21:17.07:1.66
+Carne de Peito de Peru e pele:157:100:0:21.89:7.02
+Carne de Peito de Peru e pele(Cozido, Assado):189:100:0:28.71:7.41
+Carne de Peru (Cozido, Assado):170:100:0:29.32:4.97
+Carne de Peru Light Assada:196:100:0:28.45:8.3
+Carne de Peru Moída (Cozido):235:100:0:27.36:13.15
 Carne de Porco:271:100:0:27.34:17.04
-Carne de Porco Mo�da:263:100:0:16.88:21.19
-Carne de Porco Mo�da (Cozido):297:100:0:25.69:20.77
+Carne de Porco Assada:247:100:0:26.98:14.59
+Carne de Porco Assada (apenas Parte Magra Consumida):208:100:0:28.45:9.57
+Carne de Porco do Lombo Assada:247:100:0:26.98:14.59
+Carne de Porco Moída:263:100:0:16.88:21.19
+Carne de Porco Moída (Cozido):297:100:0:25.69:20.77
 Carne de Vaca:288:100:0:26.33:19.54
 Carne de Vaca Assada:267:100:0:25.91:17.32
 Carne de Vaca Assada (apenas Parte Magra Consumida):198:100:0:28.32:8.52
-Carne de Vaca do Ac�m (Cortada at� 0.5 cm de Gordura):149:100:0:19.07:7.48
-Carne de Vaca Mo�da:276:100:0:25.35:18.58
-Carne de Vaca Mo�da Extra Magra:248:100:0:25.71:15.35
-Carne de Vaca Mo�da Magra:269:100:0:25.54:17.67
+Carne de Vaca do Acém (Cortada até 0,5 cm de Gordura):149:100:0:19.07:7.48
+Carne de Vaca Moída:276:100:0:25.35:18.58
+Carne de Vaca Moída Extra Magra:248:100:0:25.71:15.35
+Carne de Vaca Moída Magra:269:100:0:25.54:17.67
 Cordeiro:292:100:0:24.32:20.77
 Costeleta de Cordeiro (apenas Parte Magra Consumida):215:100:0:28.17:10.48
 Costeleta de Cordeiro (Parte Magra e Gordura Consumida):314:100:0:22.03:24.37
@@ -36,39 +46,659 @@ Costeleta de Porco Empanada no Forno ou Grelhada:257:100:7.77:25.66:12.85
 Empadas de Presunto (Curado):315:100:1.69:12.78:28.19
 Entrecosto de Porco:395:100:0:28.94:30.17
 Entrecosto de Porco no Churrasco com Molho:310:100:4.2:21.44:22.33
-Hamb�rguer ou Carne de Vaca Mo�da Empanados:319:100:14.95:16.69:20.98
-Hamb�rguer de Frango Empanado com Queijo:279:100:16.26:15.69:16.67
-Hamb�rguer ou Fil� de Frango Empanado:297:100:16.32:15.59:18.82
+Fatias de Presunto Deli:162:100:2.28:18.26:8.39
+Frango:237:100:0:27.07:13.49
+Frango (Pele Não Consumida):188:100:0:28.69:7.35
+Frango Frito sem Revestimento (Pele Consumida):260:100:0:28.62:15.35
+Frango Grelhado:237:100:0:27.07:13.49
+Frango Grelhado (Pele Não Consumida):188:100:0:28.69:7.35
+Frango no Forno, Grelhado ou Assado (Pele Não Consumida):188:100:0:28.69:7.53
+Frango no Forno, Grelhado ou Assado:237:100:0:27.07:13.49
+Hambúrguer ou Carne de Vaca Moída Empanados:319:100:14.95:16.69:20.98
+Hambúrguer de Frango Empanado com Queijo:279:100:16.26:15.69:16.67
+Hambúrguer ou Filé de Frango Empanado:297:100:16.32:15.59:18.82
+Pastrami de Carne de Vaca (98% sem Gordura):95:100:1.54:19.6:1.16
+Pastrami de Carne de Vaca (Curado):146:100:0:21.8:5.82
+Pato Assado:336:100:0:18.91:28.23
+Pato Assado (Pele Não Consumida):200:100:0:23.38:11.15
+Peito de Frango:195:100:0:29.55:7.72
+Peito de Frango Frito sem Revestimento (Pele Consumida):216:100:0:31.67:9.1
+Peito de Frango no Forno, Grelhado ou Assado (Pele Não Consumida):164:100:0:30.76:3.54
+Peru:187:100:0:28.9:7.02
+Presunto Fatiado (Normal, Aprox. 11% de Gordura):163:100:3.83:16.6:8.6
+Presunto Fatiado (Extra Magro):110:100:2.63:17.28:2.86
 Ripa de Costela de Carne de Vaca:469:100:4.2:21.44:22.33
+Salame:250:100:2.25:13.92:20.11
+Salame Duro ou Seco:385:100:3.8:23.2:30.05
+Salame Macio:250:100:2.25:13.92:20.11
+Salsicha de Carne de Frango:172:100:1.52:17.82:9.98
+Salsicha de Carne de Porco Fresca:304:100:0:15.09:26.53
+Salsicha de Carne de Vaca:325:100:3.99:11.04:29.08
+Sanduíche de Pastrami:162:100:19.46:11.85:3.66
+Schnitzel de Vitela:228:100:9.85:27.29:9.18
 Sobrecoxa de Frango:245:100:0:24.85:15.36
-Sobrecoxa de Frango (Pele N�o Consumida):207:100:0:25.72:10.79
-Feij�o Preto:91:100:16.56:6.03:0.29
-Feij�o Preto(SementeMadura,comSal,Cozido,Fervido):132:100:23.71:8.86:0.54
-Feij�o Verde:31:100:7.13:1.82:0.12
-Feij�o VerdeCongelado:33:100:7.58:1.8:0.21
-Feij�o Verde(Solidos Escorridos, Enlatado):20:100:4.5:1.15:0.1
-Feij�o Vermelho:218:100:39.91:13.44:0.87
-Feij�es Em Molho de Tomate:151:100:21.39:5.54:5.15
-Feij�es Em Molhode Tomate Vegetariano:94:100:21.14:4.75:0.37
-Feij�es Em Molho de Tomate Com Carne Porco:106:100:19.98:5.19:1.55
-Gr�o De Bico Semente:119:100:22.62:4.95:1.14
-Gr�o De Bico Cozido:236:100:27.55:8.77:10.70
-Gr�o De Bico:180:100:29.98:9.54:2.99
-Lentilhas Cozidas:165:100:18.73:8.39:6.76
+Sobrecoxa de Frango (Pele Não Consumida):207:100:0:25.72:10.79
+Vitela:229:199:9:29.85:11.3
+água:0:100:0:0:0
+água Tônica:34:100:8.8:0:0
+Bebida Energética:45:100:10.94:0.25:0.08
+Cacau em Pó (Não Adocicado):229:100:54.3:19.6:13.7
+Café:1:100:0.04:0.12:0.02
+Café (Infusão):1:100:0:0.12:0.02
+Café com Leite de Gordura Reduzida:28:100:3.19:2.2:0.68
+Café Espresso com Leite:33:100:3.03:2.26:1.35
+Café Espresso com Leite, Magro (sem Gordura):23:100:3.1:2.22:0.19
+Café Gelado com Creme de Leite e Açúcar:28:100:5.17:0.21:0.8
+Café Gelado com Leite:4:100:0.47:0.18:0.08
+Café Gelado com Leite e Açúcar:17:100:4.04:0.18:0.08
+Cappuccino:31:100:2.42:1.7:1.66
+Cappuccino com Gordura Reduzida:22:100:2.66:1.77:0.51
+Cappuccino Magro (sem Gordura):19:100:2.59:1.79:0.11
+Cerveja:43:100:3.55:0.46:0
+Cerveja Light:29:100:1.64:0.24:0
+Chá (Infusão):1:100:0.3:0:0
+Chá de Ervas:1:100:0.2:0:0
+Chá Gelado:38:100:9.89:0.01:0
+Chá Gelado Não Adocicado:1:100:0.28:0.01:0
+Chá Não Adocicado:1:100:0.32:0.01:0
+Leite com Chocolate (Gordura Reduzida):76:100:12.13:2.99:1.9
+Leite com Chocolate (Integral):83:100:10.34:3.17:3.39
+Leite com Chocolate (Magro):63:100:10.44:3.24:1
+Leite de Cacau Quente:77:100:10.63:3.52:2.33
+Leite de Soja:52:100:4.93:4.48:1.92
+Leite de Soja (Enriquecido com Cálcio):40:100:3.42:3:1.62
+Leite de Soja de Chocolate:49:100:5.81:2.75:1.91
+Limonada:40:100:10.43:0.07:0.04
+Limonada de Baixas Calorias:2:100:0.52:0.02:0
+Limonada Rosa (Concentrado Congelado, com água):40:100:10.5:0.1:0
+Margarita:218:100:13.86:0.06:0.11
+Martini:226:100:0.57:0.02:0
+Milk Shake:135:100:20.11:3.19:4.89
+Milk Shake de Baunilha:148:100:19.59:3.37:6.52
+Milk Shake de Chocolate:127:100:20.5:3.4:3.7
+Mistura de Cacau e Açúcar (com Leite Desnatado):63:100:11.99:3.44:0.28
+Mojito:96:100:11.08:0.06:0.02
+Ponche de Frutas (Alcoólico):64:100:6.77:0.12:0.03
+Ponche de Frutas (Concentrado Congelado, com água):46:100:11.66:0.06:0
+Ponche de Frutas (feito com Suco de Fruta e Soda):44:100:10.82:0.18:0.06
+Smoothie de Fruta:80:100:18.16:1.06:0.87
+Smoothie de Fruta (com Suco de Frutas e Produtos Lácteos):98:100:20.37:1.69:1.6
+Smoothie de Fruta (feito apenas com Fruta ou Suco de Fruta):62:100:15.96:0.42:0.14
+Soda:38:100:9.77:0.07:0.01
+Soda de Cola (com Cafeína):37:100:9.56:0.07:0.02
+Soda de Dieta:1:100:0.24:0.11:0.02
+Suco de Cenoura:40:100:9.29:0.95:0.15
+Suco de Laranja:45:100:10.4:0.7:0.2
+Suco de Laranja (Refrigerado, incluindo Concentrado):44:100:10.06:0.8:0.27
+Suco de Maçã:47:100:11.68:0.06:0.11
+Suco de Oxicoco:54:100:13.52:0:0.1
+Suco de Tomate:17:100:4.36:0.78:0.05
+Suco de Vegetais (exceto Tomate):29:199:6.07:1.49:0.24
+Vinho Branco de Mesa:83:100:2.6:0.07:0
+Vinho de Mesa:84:100:2.72:0.07:0
+Vinho Pinot Noir:83:100:2.31:0.07:0
+Vinho Riesling:81:100:3.74:0.07:0
+Vinho Sauvignon Blanc:82:100:2.05:0.07:0
+Vinho Tinto de Mesa:85:100:2.61:0.07:0
+Vinho Zinfandel:89:100:2.86:0.07:0
+Anéis de Cebola (Empanado e Frito):332:100:37.74:4.46:18.69
+Anéis de Cebola Empanados ou no Forno:329:100:31.98:6.76:19.39
+Batatas Fritas:274:100:35.66:3.48:14.06
+Batatas Fritas (Inalterado, com Sal, Congelado):174:100:29.92:2.12:5.05
+Burrito com Carne de Vaca:303:100:23.73:18.92:14.04
+Burrito com Carne de Vaca e Feijões:230:100:24.42:11.85:9.23
+Burrito de Frango:191:100:17.14:16.54:5.85
+Caril de Carne de Vaca:184:100:5.8:11.69:12.96
+Caril de Frango:124:100:4.74:11.47:6.67
+Caril em Pó:325:100:58.15:12.66:13.81
+Enchilada com Carne de Vaca:187:100:17.99:10.02:8.7
+Enchilada com Carne de Vaca e Queijo:202:100:15.78:10.02:11.37
+Enchilada sem Carne com Queijo:221:100:16.04:9.74:13.64
+Hambúrguer (Uma Unidade com Condimentos):257:100:32.31:11.62:9.22
+Hambúrguer com 0.25 Lb de Carne no Pão:294:100:20.33:18.25:14.86
+Hambúrguer com Tomate ou Catchup no Pão:265:100:30.75:13.4:9.61
+Hambúrguer de Queijo:313:100:31.13:14.48:14.85
+Hambúrguer de Queijo (Uma Unidade com Condimentos):261:100:23.48:14.12:12.52
+Hambúrguer de Queijo com 0.25 Lb de Carne no Pão:300:100:19.27:18.03:16.25
+Hambúrguer de Queijo com Tomate ou Catchup no Pão:276:100:28.14:14.18:11.66
+Hambúrguer de Soja sem Carne:179:100:13.4:17.91:5.97
+Hambúrguer de Vegetais sem Carne:179:100:13.4:17.91:5.97
+Hambúrguer no Pão:290:100:28.83:15.71:11.8
+Hambúrgueres Vegetarianos:177:100:14.27:15.7:6.3
+Nachos com Carne de Vaca, Feijões e Queijo:275:100:18.57:14.3:16.18
+Nachos com Queijo:306:100:32.15:8.05:16.77
+Nachos de Frango ou Peru e Queijo:286:100:12.07:23.21:15.94
+Nuggets de Frango:297:100:16.32:15.59:18.82
+Nuggets de Frango com Baixo Teor de Gordura:195:100:13.79:19.29:6.33
+Pizza com Carne:301:100:31.45:12.09:13.8
+Pizza de Queijo:276:100:30.33:12.33:11.74
+Pizza de Queijo com Vegetais:230:100:29.46:8.89:8.52
+Quesadilla com Carne de Aves e Queijo:306:100:20.14:17.15:17.14
+Quesadilla com Carne e Queijo:324:100:20.14:17.25:19.12
+Quesadilla sem Carne com Queijo:345:100:26.2:14.1:20.27
+Salsicha Alemã ou Cachorro-Quente:307:100:4.45:12.66:26.13
+Salsicha Alemã ou Cachorro-Quente com Catchup ou Mostarda no Pão:270:100:21.76:9.75:15.8
+Salsicha Alemã ou Cachorro-Quente de Carne de Vaca Magra:238:100:1.7:12.77:19.68
+Taco ou Tostada com Carne de Vaca, Queijo e Alface:283:100:20.77:13.95:16.22
+Taco ou Tostada com Carne de Vaca, Queijo, Alface, Tomate e Salsa:209:100:13.2:11.65:12.35
+Taco ou Tostada de Frango, Queijo, Alface, Tomate e Salsa:180:100:12.46:12.8:8.92
+Barras de Granola (Macio):443:100:67.3:7.4:17.2
+Barras de Granola (Rija):471:100:64.4:10.1:19.8
+Barras de Granola com Pepitas de Chocolate Macias:420:100:69.1:7.3:16.6
+Batatas Fritas (com Sal):547:100:49.74:6.56:37.47
+Batatas Fritas sem Gordura:379:100:83.79:9.64:0.6
+Carne de Vaca Seca (Jabá):410:100:11:33.2:25.6
+Crackers:502:100:61.0:7.4:25.3
+Crackers de Trigo:473:100:64.9:8.6:20.6
+Crackers Saltine:428:100:70.91:9.22:11.35
+Goma de Mascar (Chiclete):247:100:66.08:0:0.3
+Goma de Mascar (sem Açúcar):268:100:94.8:0:0.4
+Pipoca:387:100:77.78:12.94:4.54
+Pipoca Branca (em óleo):500:100:57.2:9:28.1
+Pipocas (óleo, Microondas):541:100:57.54:7.46:33
+Pretzels:380:100:79.76:10.34:2.63:
+Pretzels (Rijos):380:100:79.76:10.34:2.63
+Pretzels Macios:338:100:69.39:8.2:3.1
+Rolinhos California:126:100:24.27:5.29:0.47
+Sanduíche de Carne de Vaca Assada:251:100:19.13:19.74:9.92
+Sanduíche de Frango com Manteiga:237:100:23.36:19.0:6.92
+Sanduíche de Manteiga de Amendoim e Geléia:352:100:45.41:11.1:15.3
+Sushi:143:100:29.9:4.3:0.42
+Sushi com Vegetais e Frutos do Mar:139:100:27.5:5.37:0.41
+Tortilhas (Baixo Teor de Gordura, no Forno):415:100:80:11:5.7
+Tortilhas (Milho Branco):488:100:65.32:7.79:23.36
+Tortilhas de Milho Light:465:100:73.4:8.7:15.2
+Arroz Branco:129:100:27.9:2.66:0.28
+Arroz Branco Instantâneo:116:100:24.87:2.16:0.5
+Arroz Frito:168:100:21.06:6.3:6.23
+Arroz Frito de Frango:166:100:21.12:6.29:6.04
+Arroz Frito sem Carne:151:100:20.97:4.23:5.48
+Arroz Integral:110:100:22.78:2.56:0.89
+Arroz Integral (Médio, Cozido):112:100:23.51:2.32:0.83
+Arroz Integral Instantâneo:110:100:22.78:2.56:0.89
+Cuscuz:376:100:77.43:12.76:0.64
+Cuscuz (Cozido):112:100:23.22:3.79:0.16
+Espaguete:157:100:30.68:5.76:0.92
+Espaguete com Molho de Tomate e Almôndegas:153:100:18.62:7.22:5.4
+Espaguete de Trigo Integral:123:100:26.38:5.3:0.54
+Macarrão:157:100:30.68:5.76:0.92
+Macarrão com Molho de Carne:129:100:13.07:7.93:5.12
+Macarrão de Trigo Integral:123:100:26.38:5.3:0.54
+Macarrão e Queijo (Entrada, Enlatado):82:100:11.52:3.38:2.46
+Macarrão ou Miojo com Queijo:203:100:21.46:7.94:9.4
+Macarrão ou Miojo com Queijo (Mistura Seca):219:100:25.74:6.25:10.06
+Macarrão sem Carne com Molho de Tomate:83:100:16.76:3.05:0.47
+Miojo:137:100:25.01:4.51:2.06
+Miojo de Ovo (Enriquecido, Cozido):138:100:25.16:4.54:2.07
+Miojo de Trigo Integral:120:100:23.49:5.31:1.37
+Paella:158:100:16.68:9.52:5.44
+Paella de Frutos do Mar:143:100:16.5:8.57:4.43
+Risoto de Queijo:174:100:21.69:6.87:6.43
+Clara de Ovo:52:100:0.73:10.9:0.17
+Clara de Ovo Cozida:52:100:0.73:10.86:0.17
+Gema de Ovo:322:100:3.59:15.86:26.54
+Gema de Ovo Cozida:321:100:3.58:15.8:26.43
+Omelete:153:100:0.69:10.62:12.02
+Omelete ou Ovos Mexidos:158:100:1.86:10.98:11.52
+Omelete ou Ovos Mexidos com Queijo:187:100:2.97:12.2:13.83
+Ovo:147:100:0.77:12.58:9.94
+Ovo Benedict:276:100:8.32:11.96:21.6
+Ovo Cozido:154:100:1.12:12.53:10.57
+Ovo Estrelado:201:100:0.88:13.63:15.31
+Ovo Frito sem Gordura:166:100:0.87:14.18:11.21
+Ovo Mal Cozido:154:100:1.12:12.53:10.57
+Ovo Mexido (Inteiro, Cozido):166:100:2.2:11.09:12.21
+Ovo Poché:147:100:0.76:12.53:9.9
+Substituto do Ovo (Líquido):84:100:0.64:12:3.31
+Aveia:389:100:66.27:16.89:6.9
+Biscoito de Queijo:374:100:41.82:9.25:18.86
+Biscoito de Trigo Integral:311:100:46.22:9.67:11.58
+Biscoitos Simples ou de Leite de Manteiga:353:100:44.6:7:16.3
+Cereais de Aveia (Instantâneo, Seco e Enriquecido):369:100:64:15.5:6.1
+Cereais de Aveia (sem Sal, Cozido com água, Não Enriquecido):63:100:10.8:2.6:1
+Cereal:376:100:83.02:7.24:3.38
+Croissant:406:100:45.8:8.2:21:
+Croissant de Chocolate:416:100:44.2:8.67:24.13
+Croissants de Manteiga:406:100:45.8:8.2:21
+Farinha Aveia:62:100:10.84:2.59:1.02
+Farinha de Aveia Instantânea:91:100:18.22:2.46:1.2
+Farinha de Aveia Rápida (1 ou 3 Minutos):62:100:10.84:2.59:1.02
+Flocos de Farelo:320:100:80.4:9.4:2.2
+Flocos de Milho:360:100:86.7:6.7:0.1
+Granola:408:100:72.39:9.22:11.03
+Gressinos Duros:412:100:68.4:12:9.5
+Gressinos Macios:352:100:57.78:9.84:8.64
+Gressinos Macios com Alho e Queijo Parmesão:406:100:51.23:10.24:17.5
+Gressinos Simples:412:100:68.4:12:9.5
+Muesli:490:100:52.95:14.87:23.36
+Pães de Hambúrguer ou Cachorro Quente:279:100:49.45:9.5:4.33
+Pãezinhos Franceses:277:100:50.2:8.6:4.3
+Pão Branco:266:100:50.61:7.64:3.29
+Pão Branco (Calorias Reduzidas):207:100:44.3:8.7:2.5
+Pão Branco Torrado:293:100:54.4:9:4
+Pão de Alho:330:100:45.62:7.75:12.78
+Pão de Alho Torrado:363:100:50.13:8.52:14.04
+Pão de Canela Doce:372:100:50.9:6.2:16.4
+Pão de Canela Doce com Cobertura Glacé:378:100:56.62:5.01:15.23
+Pão de Centeio (Calorias Reduzidas):203:100:40.5:9.1:2.9
+Pão de Passas Torrado:297:100:56.9:8.6:4.8
+Pão de Trigo (Calorias Reduzidas):198:100:43.6:9.1:2.3
+Pão de Trigo 100% Integral:246:100:46.1:9.7:4.2
+Pão de Trigo 100% Integral Torrado:277:100:51.7:10.9:4.8
+Pão de Trigo Integral:259:100:47.14:9.13:4.11
+Pão de Trigo Integral Torrado:282:100:51.32:9.95:4.42
+Pão de Uvas-Passas:274:100:52.3:7.9:4.4
+Pão de Viena:293:100:52.7:9.9:4.3
+Pão Mármore de Centeio e Pão de Centeio Integral:254:100:47.9:8.6:3.2
+Pão Multi-Cereais:251:100:46.4:10:3.8
+Pão Multi-Cereais com Mais Fibras e Calorias Reduzidas:233:100:52.38:10.71:3.32
+Pão Multi-Cereais Torrado:272:100:50.4:10.9:4.1
+Pão Pita:275:100:55.7:9.1:1.2
+Pão Pita Branco:275:100:55.7:9.1:1.2
+Pão Pita de Trigo Integral:273:100:55.8:10.47:1.43
+Tortilha:265:100:48:7:5.3
+Tortilha de Trigo Integral:263:100:55.82:9.61:1.3
+Tortilhas de Milho:218:100:44.64:5.7:2.85
+1% de Gordura de Leite:42:100:4.99:3.37:0.97
+2% de Gordura de Leite:50:100:4.68:3.3:1.97
+Café ou Creme de Leite (Light):195:100:3.55:2.7:19.31
+Creme Azedo:214:100:4.27:3.16:20.96
+Creme Azedo com Gordura Reduzida:181:100:7:7:14.1
+Creme Azedo Light:136:100:7.1:3.5:10.6
+Creme de Leite (Pesado):345:100:2.79:2.05:37
+Creme de Leite Light:195:100:3.66:2.7:19.31
+Iogurte Natural:63:100:7.04:5.25:1.55
+Iogurte Natural Magro:63:100:7.04:5.25:1.55
+Iogurte Natural sem Gordura:56:100:7.68:5.73:0.18
+Leite:50:100:4.71:3.29:2
+Leite (sem Gordura):35:100:4.85:3.41:0.18
+Leite Integral:60:100:4.52:3.22:3.25
+Manteiga:717:100:0.06:0.85:81.11
+Manteiga (com Sal):717:100:0.06:0.85:81.11
+Manteiga Batida (com Sal):717:100:0.06:0.85:81.11
+Margarina:526:100:0:0.6:59.17
+Margarina (Regular, 80% Gordura com Sal):716:100:0.6:0.8:80.4
+Margarina (sem Gordura):44:100:4.34:0.1:3.04
+Queijo Americano:337:100:6.94:18.94:26.05
+Queijo Azul:353:100:2.34:21.4:28.74
+Queijo Brie:334:100:0.45:20.75:27.68
+Queijo Camembert:300:100:0.46:19.8:24.26
+Queijo Cheddar:403:100:1.28:24.9:33.14
+Queijo Cheddar ou Colby Magro:173:100:1.91:24.35:7
+Queijo Colby:394:100:2.57:23.76:32.11
+Queijo Colby Jack:384:100:1.62:24.12:31.2
+Queijo Cottage:103:100:2.68:12.49:4.51
+Queijo Cottage (Magro - 1% Gordura de Leite):72:100:2.72:12.39:1.02
+Queijo Cottage (Magro - 2% Gordura de Leite):90:100:3.63:13.74:1.93
+Queijo Creme Light:231:100:7:10.6:17.6
+Queijo Creme Processado sem Gordura:96:100:5.8:14.41:1.36
+Queijo de Cabra:361:100:1.87:23.52:28.85
+Queijo de Cabra (Macio):268:100:0.89:18.52:21.08
+Queijo de Cabra (Semi-Macio):364:100:2.54:21.58:29.84
+Queijo Feta:264:100:4.09:14.21:21.28
+Queijo Gorgonzola:353:100:2.34:21.4:28.74
+Queijo Gouda:356:100:2.22:24.94:27.44
+Queijo Gouda ou Edam:357:100:1.67:24.98:27.69
+Queijo Havarti:371:100:2.79:23.24:29.68
+Queijo Mozzarella:302:100:3.83:25.96:20.03
+Queijo Mozzarella com Leite Desnatado:302:100:3.83:25.96:20.03
+Queijo Mozzarella de Leite Integral:300:100:2.19:22.17:22.35
+Queijo Muenster:368:100:1.12:23.41:30.04
+Queijo Muenster (Magro):274:100:3.4:24.7:17.6
+Queijo Parmesão (Ralado):431:100:4.06:38.46:28.61
+Queijo Parmesão Ralado Seco:431:100:4.06:38.46:28.61
+Queijo Parmesão Rijo:392:100:3.22:35.75:25.83
+Queijo Processado tipo Americano ou Cheddar sem Gordura:148:100:13.4:22.5:0.8
+Queijo Provolone:351:100:2.14:25.58:26.62
+Queijo Ricota:156:100:4.09:11.32:10.44
+Queijo Ricota (com Leite Desnatado):138:100:5.14:11.39:7.91
+Queijo Ricota (Leite Integral):174:100:3.04:11.26:12.98
+Queijo Romano:387:100:3.63:31.8:26.94
+Queijo Romano Ralado:431:100:4.06:38.46:28.61
+Queijo Roquefort ou Azul:353:100:2.34:21.4:28.74
+Queijo Suíço:380:100:5.38:26.93:27.8
+Queijo Suíço (Magro):179:100:3.4:28.4:5.1
+Queijo Suíço (Magro, Pasteurizado):170:100:4.3:25.5:5.1
+Requeijão:349:100:2.66:7.55:34.87
+Caldo de Carne de Vaca:3:100:0.33:0.35:0.08
+Caldo de Galinha:5:100:0.62:0.39:0.12
+Caldo de Peixe:17:100:0.41:2.06:0.62
+Carne de Vaca Guisada com Batatas e Vegetais em Molho com Base de Tomate:82:100:8.69:6.6:2.28
+Chili com Carne com Feijões:104:100:8.66:8.08:4.26
+Chili com Carne com Frango ou Peru e Feijões:87:100:7.93:7.62:2.94
+Creme de Tomate (Preparado com Leite):55:100:9.12:2.44:1.27
+Ensopado:67:100:7.81:6.13:1.25
+Feijões com Chili (Enlatado):112:100:11.91:5.71:5.49
+Sopa de Arroz com Frango:25:100:2.97:1.47:0.79
+Sopa de Fitas de Carne de Vaca:34:100:3.68:1.98:1.26
+Sopa de Galinha:31:100:3.88:1.68:1.02
+Sopa de Miso:35:100:3.24:2.51:1.4
+Sopa de Noodles de Galinha:27:100:3.07:1.32:0.99
+Sopa de Noodles Instantânea:19:100:3.05:0.9:0.35
+Sopa de Tomate:42:100:7.35:1.25:1.2
+Sopa de Tomate (Enlatado, Condensado):60:100:13.41:1.61:0.56
+Sopa de Vegetais (Enlatado, Condensado):59:100:9.78:1.72:1.58
+Vegetais Guisados (sem Carne):56:100:9.73:2.65:0.97
+Abacates:160:100:8.53:2:14.66
+Abacaxi:48:100:12.63:0.54:0.12
+Abacaxi (Sólidos e Líquidos, em água, Enlatado):32:100:8.3:0.43:0.09
+água de Coco:19:100:3.71:0.72:0.2
+Ameixa Seca:240:100:63.88:2.18:0.38
+Ameixas:46:100:11.42:0.7:0.28
+Amoras:43:100:9.61:1.39:0.49
+Bagas:33:100:7.98:0.68:0.3
+Banana-Maçã:89:100:22.84:1.09:0.33
+Banana Frita:325:100:32.71:4.79:20.28
+Bananas:89:100:22.84:1.09:0.33
+Cerejas Bing:63:100:16.01:1.06:0.2
+Cerejas Doces:63:100:16.01:1.06:0.2
+Cerejas Maraschino:165:100:41.97:0.22:0.21
+Clementinas:47:100:12.02:0.85:0.15
+Coco:354:100:15.23:3.33:3.49
+Coco Seco:660:100:23.65:6.88:64.53
+Damascos:48:100:11.12:1.4:0.39
+Damasco Seco:241:100:62.64:3.39:0.51
+Figos:74:100:19.18:0.75:0.3
+Figo Seco:249:100:63.87:3.3:0.93
+Framboesas:52:100:11.94:1.2:0.65
+Framboesas Vermelhas:52:100:11.94:1.2:0.65
+Guacamole:157:100:8.51:1.96:14.31
+Guacamole com Tomates:116:100:7.64:1.62:9.94
+Kiwi:61:100:14.66:1.14:0.52
+Laranjas:47:100:11.75:0.94:0.12
+Laranjas Doces (tipo Navel):49:100:12.54:0.91:0.15
+Lichia:66:100:16.53:0.83:0.44
+Maçãs:52:100:13.81:0.26:0.17
+Maçãs (sem Casca):48:100:12.76:0.27:0.13
+Maçãs Golden Delicious:52:100:13.81:0.26:0.17
+Maçã Seca:243:100:65.89:0.93:0.32
+Manga Seca:314:100:81.61:1.48:0.78
+Mangas:65:100:17:0.51:0.27
+Melões Cantalupo:34:100:8.16:0.84:0.19
+Melões Verdes:36:100:9.09:0.54:0.14
+Mirtilos:57:100:14.49:0.74:0.33
+Mirtilos sem Açucar em Embalagem de água (Cozido ou Enlatado):38:100:9.71:0.5:0.22
+Mistura de Frutos Secos:244:100:64.81:2.19:0.44
+Morangos:32:100:7.68:0.67:0.3
+Morangos Congelados:87:100:23.46:0.52:0.14
+Morangos Congelados com Açúcar:87:100:23.46:0.52:0.14
+Néctar de Manga:58:100:15.16:0.2:0.11
+Nectarinas:44:100:10.55:1.06:0.32
+Pedaços de Abacaxi (Adocicado, Congelado):86:100:22.2:0.4:0.1
+Peras:58:100:15.46:0.38:0.12
+Peras (Sólidos e Líquidos, em Calda Light, Enlatado):57:100:15.17:0.19:0.03
+Peras Asiáticas:42:100:10.65:0.5:0.23
+Pêssegos:39:100:9.54:0.91:0.25
+Pêssegos (Sólido e Líquido, em Calda Light, Enlatado):54:100:14.55:0.45:0.03
+Salada de Frutas:57:100:13.16:0.67:0.86
+Salada de Frutas de Damasco, Abacaxi, Pêra e Cereja (Sólidos e Líquidos, em água, Enlatado):30:100:7.87:0.35:0.07
+Salada de Frutas Tropical (Abacaxi, Papaia, Banana e Goiaba, Sólidos e Líquidos, em Calda Forte, Enlatada):86:100:22.36:0.41:0.1
+Suco de Ameixa:71:100:17.45:0.61:0.03
+Suco de Mamão:60:100:15.16:0.18:0.16
+Suco de Melancia:30:100:7.51:0.61:0.15
+Tâmara:282:100:75.03:2.45:0.39
+Tâmaras Medjool:277:100:74.97:1.81:0.15
+Tangerinas:53:100:13.34:0.81:0.31
+Tangerina (Enlatado ou Congelado):61:100:16.19:0.45:0.1
+Toranja:32:100:8.08:0.63:0.1
+Toranja (Rosa e Vermelho):42:100:10.66:0.77:0.14
+Uvas (tipo Americano, Slip-Skin):67:100:17.15:0.63:0.35
+Uvas (Vermelha ou Verde, Variedades do tipo Europeu tais como Thompson Seedless ):69:100:18.1:0.72:0.16
+Uvas:69:100:18.1:0.72:0.16
+Uvas-Passas:299:100:79.18:3.07:0.46
+Uvas-Passas (sem Sementes):299:100:79.18:3.07:0.46
+Uvas-Passas Douradas (sem Sementes):302:100:79.52:3.39:0.46
+Feijão Preto:91:100:16.56:6.03:0.29
+Feijão Preto (Semente Madura, com Sal, Cozido, Fervido):132:100:23.71:8.86:0.54
+Feijão Preto Cozido:132:100:23.71:8.86:0.54
+Feijão Verde:31:100:7.13:1.82:0.12
+Feijão Verde(Congelado):33:100:7.58:1.80:0.21
+Feijão Verde(Sólidos Escorridos, Enlatado):20:100:4.50:1.15:0.10
+Feijão Verde(Sólido e Líquido, Enlatado):15:100:3.5:0.80:0.10
+Feijões em Molho de Tomate:151:100:21.39:5.54:5.15
+Feijões em Molho de Tomate Vegetariano:94:100:21.14:4.75:0.37
+Feijões em Molho de Tomate com carne de Porco(Enlatado):106:100:19.98:5.19:1.55
+Grão-de-Bico:180:100:29.98:9.54:2.99
+Grão-de-Bico Seco Cozido:236:100:27.55:8.77:10.70
+Grão-de-Bico(Semente Madura,Enlatado):119:100:22.62:4.95:1.14
+Grão-de-Bico Cozido:164:100:27.42:8.86:2.59
 Lentilhas:353:100:60.08:25.80:1.06
+Lentilhas Cozidas:165:100:18.73:8.39:6.76
 Tofu Duro:62:100:2.40:6.90:2.70
 Tofu Mole:55:100:2.90:4.80:2.70
 Tofu Frito:271:100:10.49:17.19:20.18
-Ameijoas:74:100:2.57:12.77:0.97
-Ameijoas(Cozidas,Cozidas A Vapor):92:100:3.19:15.83:1.20
-Anchovas(Solidos,Escorridos em Ol�o,Enlatado):210:100:0:28.89:9.71
+Tofu Extra Duro:55:100:2:7.40:1.90
+Amêijoas:74:100:2.57:12.77:0.97
+Amêijoas Cozidas ou Cozidas a Vapor:92:100:3.19:15.83:1.20
 Anchovas:131:100:0:20.35:4.84
+Anchovas (Solidos Escorridos em óleo, Enlatado):210:100:0:28.89:9.71
 Arenque em Conserva:262:100:9.64:14.19:18
-Atum em �gua (Enlatado):116:100:0:25.51:0.82
-Atum em �leo (Enlatado):198:100:0:29.13:8.21
-Atum-Rabilho (Peixe):144:100:0:23.33:4.9
+Atum em água(Enlatado):116:100:0:25.51:0.82
+Atum em óleo(Enlatado):198:100:0:29.13:8.21
+Atum-Rabilho(Peixe):144:100:0:23.33:4.90
+Albacora(Peixe):108:100:0:23.38:0.95
+Atum no Forno ou Grelhado:153:100:0.41:27.30:3.96
 Bacalhau:211:100:8.25:19.20:10.84
 Bacalhau no Forno ou Grelhado:122:100:0.41:20.91:3.59
-Bacalhau do Atl�ntico:82:100:0:17.81:0.67
-Calamari Fervido ou Cozidos a Vapor:91:100:3.05:15.45:1.37
+Bacalhau do Atlântico:82:100:0:17.81:0.67
+Bacalhau do Pacífico:82:100:0:17.90:0.63
+Bacalhau Empanado no Forno:197:100:8.59:19.61:8.9
 Calamari Frito:125:100:9.90:15.13:2.17
+Calamari Fervido ou Cozidos a Vapor:91:100:3.05:15.45:1.37
+Camarão:144:100:1.24:27.59:2.35
+Camarão no Forno ou Grelhado:154:100:1.17:24.47:5.03
+Camarão Fervido ou Cozido no Vapor:138:100:26.50:1.19:2.26
+Camarão Empanado Frito:245:100:11.77:20.70:12.26
+Camarão Scampi:212:100:0.01:16.87:15.83
+Caranguejo:101:100:0:20.03:1.76
+Caranguejo no Forno ou Grelhado:136:100:18.91:6.24:0.11
+Caranguejo Enlatado:99:100:0:20.52:1.23
+Caranguejo Azul:87:100:0.04:18.06:1.08
+Cavalinha:167:100:0:19.32:9.36
+Cavalinha do Atlântico:205:100:0:18.60:13.89
+Lagosta:97:100:1.27:20.33:0.58
+Lagosta Fervida ou Cozida a Vapor:97:100:1.27:20.33:0.58
+Lagosta no Forno ou Grelhada:116:100:1.24:19.78:3.01
+Lagostins:72:100:0:14.85:0.97
+Lagostins Cozidos ou Cozidos a Vapor:81:100:0:16.63:1.19
+Linguado Cozido:133:100:0.41:22:4.24
+Linguado no Forno ou Grelhado:133:100:0.41:22:4.24
+Linguado Empanado Frito:205:100:6.71:17.64:11.60
+Lula:92:100:3.08:15.58:1.38
+Lula à  Dorê:197:100:11.56:17.60:8.43
+Mexilhões:86:100:3.69:11.90:2.24
+Mexilhões Cozidos:150:100:4.41:13.78:8.25
+Mexilhões Escalfados ou Cozidos a Vapor:171:100:7.32:23.60:4.44
+Mexilhões em Molho com Base de Tomate (Mistura):112:100:8.64:12.52:2.32
+Ostras:68:100:3.91:7.05:2.46
+Peixe:84:100:0:17.76:0.92
+Peixe no Forno ou Grelhado:136:100:0.33:21.94:3.44
+Peixe Grelhado:109:100:0.28:22.60:1.18
+Peixe-Espada:121:100:0:19.80:4.01
+Peixe-Espada Cozido:177:100:0.49:23.80:8.23
+Polvo:82:100:2.20:14.91:1.04
+Salmão:146:100:0:21.62:5.93
+Salmão no Forno ou Grelhado:171:100:0.49:23.97:7.56
+Salmão do Atlântico (de Cativeiro):183:100:0:19.90:10.85
+Salmão-Rosado:116:100:0:19.94:3.45
+Salmão Selvagem do Atlântico:142:100:0:19.84:6.34
+Salmão Defumado:117:100:0:18.28:4.32
+Salmão-Rei Defumado:117:100:0:18.28:4.32
+Sardinhas em óleo (Enlatado):208:100:0:24.62:11.45
+Sardinhas em água:217:100:0:24.58:12.37
+Sardinhas em Molho com Base em Tomate (Mistura):186:100:0.74:20.86:10.46
+Tilápia:96:100:0:20.08:1.70
+Truta Arco-íris (de Cativeiro):138:100:0:20.87:5.40
+Truta Arco-íris Selvagem:119:100:0:20.48:3.46
+Truta no Forno ou Grelhada:188:100:0.41:24.37:9.16
+Vieira:217:100:10.49:18.14:10.96
+Vieira (Diversas Espécies):88:100:2.36:16.78:0.76
+Vieiras no Forno ou Grelhadas:132:100:2.92:20.22:3.86
+Vieiras Fervidas ou Cozidas a Vapor:106:100:2.33:16.18:3.09
+Salada de Atum:184:100:6.96:14.27:11.02
+Salada de Atum com Queijo:217:100:6.87:14.44:14.72
+Salada de Atum com Ovo:196:100:6.26:13.71:12.93
+Salada de Batata:143:100:11.17:2.68:8.20
+Salada de Batata com Ovo:136:100:15.96:2.77:7.05
+Salada de Batata tipo Alemão:88:100:16.66:2.52:1.24
+Salada de Batata(Acompanhamento):108:100:12.85:1.45:5.73
+Salada de Couve e Cenoura:69:100:12.41:1.29:2.61
+Salada de Couve ou Couve e Cenoura com Molho:146:100:7.65:1.28:12.85
+Salada de Frango ou Peru:229:100:1.40:16.20:17.31
+Salada de Frango ou Peru com Ovo:211:100:1.56:15.16:15.71
+Salada Verde de Frango ou Peru (Frango ou Peru, Outros Vegetais Excluindo Tomates e Cenouras):72:100:1.93:12.31:1.45
+Salada Oriental Verde de Frango ou Peru (Frango ou Peru, Alface, Frutas, Nozes):113:100:5.66:10.83:5.29
+Salada Verde de Frango ou Peru (Frango ou Peru, Tomates ou Cenouras, Outros Vegetais):64:100:2.37:10.54:1.25
+Salada de Macarrão:202:100:22.98:3.76:10.63
+Salada de Macarrão com Frango:221:100:15:10.11:13.34
+Salada de Macarrão com Atum:189:100:19.49:7.07:9.14
+Salada de Macarrão com Carne:172:100:17.94:6.66:8.15
+Salada de Macarrão com Tempero à  Base de Vinagre e Azeite de Oliva:141:100:19.35:3.29:5.70
+Salada Grega:101:100:3.22:6.66:6.93
+Salada Verde Mista:17:100:3.20:1.52:0.24
+Salada de Alface com Vegetais Variados:15:100:3.14:0.74:0.15
+Salada de Ovo:318:100:1.93:9.2:30.26
+Abóbora:26:100:6.50:1:0.10
+Abóbora Amarela:16:100:3.79:1.21:0.18
+Abóbora (sem Sal, Enlatado):34:100:8.09:1.10:0.28
+Abóbora Cozida:46:100:7.94:1.08:1.75
+Abóbora Cozida (de Abóbora Fresca):37:100:4.22:0.89:2.29
+Abobrinha Italiana:16:100:3.35:1.21:0.18
+Aipo:14:100:2.97:0.69:0.17
+Aipo Cozido:39:100:3.93:0.81:2.54
+Alcachofras (Cabeça ou Francês):47:100:10.51:3.27:0.15
+Alcachofra Cozida (de Alcachofra Fresca):67:100:10.87:3.37:2.29
+Alcachofra Cozida (Enlatado):67:100:10.87:3.37:2.29
+Alface:14:100:2.97:0.90:0.14
+Alface de Folha Verde:15:100:2.79:1.36:0.15
+Alface Romana:17:100:3.28:1.23:0.3
+Alface Rúcula:25:100:3.65:2.58:0.66
+Alho:149:100:33.06:6.36:0.50
+Alho Picado:133:100:33:6.33:0.67
+Alho em Pó:332:100:72.71:16.80:0.76
+Alhos-Poró:61:100:14.15:1.50:0.30
+Alho Françês Cozido:94:100:14.24:1.51:4
+Aspargos:20:100:3.88:2.20:0.12
+Aspargos Cozidos (de Aspargos Frescos):39:100:4.03:2.33:2.21
+Aspargos (Sólidos Escorridos, Enlatado):19:100:2.46:2.14:0.65
+Aspargos (sem Preparação, Congelado):24:100:4.1:3.23:0.23
+Azeitonas:117:100:5.40:0.92:11.27
+Azeitonas Pretas:105:100:6.06:0.88:9.54
+Azeitonas Verdes:145:100:3.84:1.03:15.32
+Azeitonas Verdes Recheadas:128:100:4.02:1.04:13.22
+Azeitonas Verdes (Conserva, Enlatado ou Engarrafado):145:100:3.84:1.03:15.32
+Batata Doce:86:100:20.12:1.57:0.05
+Batata-Doce (sem Casca, Cozido, Fervido):76:100:17.72:1.37:0.14
+Batata-Doce (sem Sal, no Forno com Casca, Cozido):90:100:20.71:2.01:0.15
+Batata-Doce (Purê, Enlatado):101:100:23.19:1.98:0.20
+Batatas Brancas (com Casca):70:100:15.71:1.68:0.10
+Batatas Brancas (com Casca, no Forno):94:100:21.08:2.10:0.15
+Purê de Batata:100:100:15.72:1.80:3.54
+Batata Assada:149:100:20.06:2.32:7
+Batatas (sem Casca, com Sal, Fervido):87:100:20.13:1.87:0.10
+Batata no Forno (Casca Consumida):109:100:20.53:2.43:2.20
+Batata no Forno (Casca Não Consumida):92:100:21.39:1.95:0.10
+Batata no Forno Recheada com Creme Azedo (Casca Consumida):134:100:16.57:2.60:6.78
+Batata no Forno Recheada com Bacon e Queijo (Casca Consumida):151:100:18.27:5.57:6.44
+Batata no Forno Recheada com Queijo (Casca Consumida):139:100:18.79:4.61:5.36
+Berinjela:24:100:5.70:1.01:0.19
+Berinjela Cozida:65:100:8.31:0.79:3.85
+Beterrabas:43:100:9.56:1.61:0.17
+Beterrabas em Conserva (Sólidos e Líquidos, Enlatado):65:100:16.28:0.80:0.08
+Beterraba (Sólidos Escorridos, Enlatado):31:100:7.21:0.91:0.14
+Beterrabas Cozidas (de Beterrabas Frescas):61:100:9.69:1.63:2.28
+Brócolis:34:100:6.64:2.82:0.37
+Brócolis Cozidos (Cozinhado sem Gordura Adicionada):35:100:7.14:2.37:0.41
+Brócolis Raab:22:100:2.85:3.17:0.49
+Brócolis Chineses (Cozido):22:100:3.81:1.14:0.72
+Brócolis (Inteiro, Congelado):29:100:5.35:3.06:0.34
+Cebolas:42:100:10.11:0.92:0.08
+Cebolas Vermelhas:42:100:10.11:0.92:0.08
+Cebolinha:32:100:7.34:1.83:0.19
+Cebolas Doces:32:100:7.55:0.8:0.08
+Cebolinha Verde:25:100:5.65:1.8:0.1
+Cenouras:41:100:9.58:0.93:0.24
+Cenouras Cozidas:54:100:7.99:0.74:2.48
+Cenouras (Sólidos e Líquidos, Enlatado):23:100:5.37:0.58:0.14
+Corações de Alcachofras em óleo:119:100:10.26:3.19:8.4
+Courgete:16:100:3.35:1.21:0.18
+Courgete(com Sal, Escorrido, Fervido):16:100:3.93:0.64:0.05
+Cogumelos:22:100:3.28:3.09:0.34
+Cogumelos (Sólidos Escorridos, Enlatado):25:100:5.09:1.87:0.29
+Cogumelos Portobello:26:100:5.07:2.50:0.20
+Cogumelo Ostra:35:100:6.43:3.34:0.44
+Cogumelos Cozidos (Cozinhado sem Gordura Adicionada):28:100:5.26:2.16:0.47
+Couve-de-Folhas:50:100:10.01:3.30:0.70
+Couve-de-Folhas Cozida (de Couve Fresca):51:100:5.47:1.83:3.12
+Couves de Bruxelas:43:100:8.95:3.38:0.30
+Couves de Bruxelas (Congelado):41:100:7.86:3.78:0.41
+Couves de Bruxelas Cozidas:55:100:6.91:2.47:2.77
+Couve-Flor:25:100:5.30:1.98:0.10
+Couve-Flor (Congelado):24:100:4.68:2.01:0.27
+Couve-Flor Cozida (Cozinhado sem Gordura Adicionada):22:100:3.96:1.75:0.37
+Couve-Flor Cozida (de Couve-Flor Congelada, Cozinhado sem Gordura Adicionada):19:100:3.73:1.6:0.22
+Couve-Flor Cozida (de Couve-Flor Fresca, Cozinhado sem Gordura Adicionada):23:100:4.08:1.83:0.45
+Couve Lombarda:27:100:6.1:2:0.10
+Empanado de Berinjela:148:100:11.58:2.40:10.75
+Empanados de Quiabo:188:100:14.26:2.58:14.06
+Ervilhas:81:100:14.46:5.42:0.40
+Ervilhas Cozidas:101:100:15.16:5.18:2.45
+Ervilhas Cozidas (Enlatado):86:100:12.29:4.31:2.46
+Ervilhas (Sólidos Escorridos, Enlatado):69:100:12.58:4.42:0.35
+Ervilhas (Congelado):77:100:13.71:5.21:0.37
+Espinafre:23:100:3.63:2.86:0.39
+Espinafre (Folha ou Cortado, Congelado):31:100:4.33:3.94:0.75
+Espinafre (Sólidos Escorridos, Enlatado):23:100:3.4:2.81:0.5
+Espinafre Cozido (de Espinafre Fresco):40:100:3.68:2.88:2.25
+Inhame:118:100:27.88:1.53:0.17
+Inhame (com Sal, Escorrido, Cozido, Fervido):116:100:27.58:1.49:0.14
+Inhame (sem Sal, Escorrido, Cozido, Fervido, no Forno):116:100:27.58:1.49:0.14
+Milho:86:100:19.02:3.22:1.18
+Milho Doce Amarelo:86:100:19.02:3.22:1.18
+Mini-Milho:81:100:18.59:2.62:1
+Milho Doce Amarelo (Miolo Inteiro, Sólidos Escorridos, Enlatado):81:100:18.59:2.62:1
+Milho em Espiga com Manteiga:155:100:31.94:4.47:3.43
+Mini-Abobrinha Italiana:21:100:3.11:2.71:0.40
+Mini-Cenouras:35:100:8.24:0.64:0.13
+Mini-Espinafre:23:100:3.63:2.86:0.39
+Mistura de Vegetais (Sólidos e Líquidos, Enlatado):36:100:7.12:1.42:0.25
+Mistura de Vegetais (Sólidos Escorridos, Enlatado):49:100:9.26:2.59:0.25
+Mistura de Vegetais (Congelado):64:100:13.46:3.33:0.52
+Mistura de Vegetais Cozidos (Milho, Ervilhas, Feijão Verde e Cenouras):81:100:12.74:2.78:2.12
+Mistura de Vegetais (Milho, Feijão Verde, Ervilhas, Cenouras) (sem Sal, Enlatado):37:100:7.31:1.4:0.20
+Nabo:28:100:6.43:0.90:0.10
+Nabo Cozido:42:100:4.94:0.69:2.37
+Pastinacas:75:100:17.99:1.20:0.30
+Pastinacas Cozidas:89:100:16.48:1.28:2.58
+Pepino (com Casca):15:100:3.63:0.65:0.11
+Pepino (Descascado):12:100:2.16:0.59:0.16
+Picles:18:100:4.12:0.62:0.19
+Picles de Pepino com Endro:18:100:4.12:0.62:0.19
+Picles de Pepino Doce:117:100:31.81:0.37:0.26
+Picles de Pepino Azedo:11:100:2.26:0.33:0.20
+Picles de Pepino com Endro (Baixo Teor de Sódio):18:100:4.13:0.62:0.19
+Pimentões Vermelhos:26:100:6.03:0.99:0.30
+Pimentão Verde:20:100:4.64:0.86:0.17
+Pimentão Amarelo:27:100:6.32:1:0.21
+Pimentos:26:100:6.03:0.99:0.30
+Pimentas Jalapeno:30:100:5.91:1.35:0.62
+Purê de Batata:100:100:15.72:1.80:3.54
+Purê de Batata (de Batata Fresca):122:100:13.22:2.11:6.96
+Purê de Batata (de Batata Seca):105:100:12.22:2.02:5.56
+Purê de Batatas (com Leite Integral):83:100:17.53:1.92:0.57
+Purê de Batatas (com Leite Integral e Manteiga):113:100:16.77:1.87:4.22
+Quiabo:31:100:7.03:2:0.10
+Quiabo Cozido:43:100:5.08:1.92:2.32
+Quiabo (Congelado):30:100:6.63:1.69:0.25
+Rabanetes:16:100:3.40:0.68:0.10
+Ratatouille:72:100:5.58:0.79:5.63
+Repolho:24:100:5.58:1.44:0.12
+Repolho-Roxo:31:100:7.37:1.43:0.16
+Repolho Verde:24:100:5.58:1.44:0.12
+Repolho Chinês:13:100:2.18:1.5:0.20
+Salada Verde Mista:17:100:3.20:1.52:0.24
+Tomates:18:100:3.92:0.88:0.20
+Tomates Vermelhos:18:100:3.92:0.88:0.20
+Tomates Vermelhos (Enlatado):17:100:3.91:0.80:0.13
+Tomates Esmagados (Enlatado):32:100:7.29:1.64:0.28
+Tomates Cereja:18:100:3.92:0.88:0.20

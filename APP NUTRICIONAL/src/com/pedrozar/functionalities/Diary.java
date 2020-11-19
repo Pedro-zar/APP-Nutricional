@@ -14,7 +14,7 @@ public class Diary {
 	private static int mouseX, mouseY;
 	public static int wWeight = 0, exerciseRate = 0, dietOption = 0,
 			nutrientsDivision = 0;
-	static String[] alimentos = new String[100];
+	static String[] alimentos = new String[704];
 	static double[] carbCon = new double[alimentos.length],
 			fatCon = new double[alimentos.length],
 			protCon = new double[alimentos.length],
